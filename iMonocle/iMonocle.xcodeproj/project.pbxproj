@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
+		ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC50371F0DA7E100887E46 /* AppDelegate.swift */; };
+		ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC503E1F0DA7E100887E46 /* Assets.xcassets */; };
+		ACEC504B1F0DAA8100887E46 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC504A1F0DAA8100887E46 /* TwitterClient.swift */; };
+		ACEC50581F0DAC2C00887E46 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC50571F0DAC2C00887E46 /* LoginVC.swift */; };
+		ACEC505B1F0DADAA00887E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC50591F0DADA900887E46 /* LaunchScreen.storyboard */; };
+		ACEC505C1F0DADAA00887E46 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC505A1F0DADA900887E46 /* Starter.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.release.xcconfig"; sourceTree = "<group>"; };
+		5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.debug.xcconfig"; sourceTree = "<group>"; };
+		ACEC50341F0DA7E100887E46 /* iMonocle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMonocle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC50371F0DA7E100887E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACEC503E1F0DA7E100887E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACEC50431F0DA7E100887E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC504A1F0DAA8100887E46 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterClient.swift; path = "../../../../FINAL PROJECT /Monocle/Monocle/TwitterClient.swift"; sourceTree = "<group>"; };
+		ACEC50571F0DAC2C00887E46 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		ACEC50591F0DADA900887E46 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACEC505A1F0DADA900887E46 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = ../../../../.Trash/Starter.storyboard; sourceTree = "<group>"; };
+		B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMonocle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACEC50311F0DA7E100887E46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3607AE684AD02A26974AD60D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F9038B97D61B2116E660463 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */,
+				5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ACEC502B1F0DA7E100887E46 = {
+			isa = PBXGroup;
+			children = (
+				ACEC50361F0DA7E100887E46 /* iMonocle */,
+				ACEC50351F0DA7E100887E46 /* Products */,
+				3F9038B97D61B2116E660463 /* Pods */,
+				3607AE684AD02A26974AD60D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ACEC50351F0DA7E100887E46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC50341F0DA7E100887E46 /* iMonocle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACEC50361F0DA7E100887E46 /* iMonocle */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC50371F0DA7E100887E46 /* AppDelegate.swift */,
+				ACEC503E1F0DA7E100887E46 /* Assets.xcassets */,
+				ACEC50431F0DA7E100887E46 /* Info.plist */,
+				ACEC50591F0DADA900887E46 /* LaunchScreen.storyboard */,
+				ACEC505A1F0DADA900887E46 /* Starter.storyboard */,
+				ACEC50491F0DA95F00887E46 /* DataSources */,
+				ACEC504C1F0DAAB500887E46 /* LoginController */,
+				ACEC504E1F0DAADE00887E46 /* MainControllers */,
+				ACEC50501F0DAB0400887E46 /* Model */,
+				ACEC504D1F0DAACF00887E46 /* SelectFriendsController */,
+				ACEC504F1F0DAAF800887E46 /* Views */,
+			);
+			path = iMonocle;
+			sourceTree = "<group>";
+		};
+		ACEC50491F0DA95F00887E46 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC504A1F0DAA8100887E46 /* TwitterClient.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		ACEC504C1F0DAAB500887E46 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC50571F0DAC2C00887E46 /* LoginVC.swift */,
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
+		ACEC504D1F0DAACF00887E46 /* SelectFriendsController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectFriendsController;
+			sourceTree = "<group>";
+		};
+		ACEC504E1F0DAADE00887E46 /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainControllers;
+			sourceTree = "<group>";
+		};
+		ACEC504F1F0DAAF800887E46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ACEC50501F0DAB0400887E46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACEC50331F0DA7E100887E46 /* iMonocle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC50461F0DA7E100887E46 /* Build configuration list for PBXNativeTarget "iMonocle" */;
+			buildPhases = (
+				9E7CA5970CB01F8F7173A03F /* [CP] Check Pods Manifest.lock */,
+				ACEC50301F0DA7E100887E46 /* Sources */,
+				ACEC50311F0DA7E100887E46 /* Frameworks */,
+				ACEC50321F0DA7E100887E46 /* Resources */,
+				AAF09E0E7C17A1542D988A60 /* [CP] Embed Pods Frameworks */,
+				A14563B62DDF8875BED0F67E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iMonocle;
+			productName = iMonocle;
+			productReference = ACEC50341F0DA7E100887E46 /* iMonocle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACEC502C1F0DA7E100887E46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = MrAliGorithm;
+				TargetAttributes = {
+					ACEC50331F0DA7E100887E46 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+				};
+			};
+			buildConfigurationList = ACEC502F1F0DA7E100887E46 /* Build configuration list for PBXProject "iMonocle" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACEC502B1F0DA7E100887E46;
+			productRefGroup = ACEC50351F0DA7E100887E46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACEC50331F0DA7E100887E46 /* iMonocle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACEC50321F0DA7E100887E46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */,
+				ACEC505B1F0DADAA00887E46 /* LaunchScreen.storyboard in Resources */,
+				ACEC505C1F0DADAA00887E46 /* Starter.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9E7CA5970CB01F8F7173A03F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A14563B62DDF8875BED0F67E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAF09E0E7C17A1542D988A60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACEC50301F0DA7E100887E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACEC504B1F0DAA8100887E46 /* TwitterClient.swift in Sources */,
+				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
+				ACEC50581F0DAC2C00887E46 /* LoginVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ACEC50441F0DA7E100887E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACEC50451F0DA7E100887E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACEC50471F0DA7E100887E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACEC50481F0DA7E100887E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACEC502F1F0DA7E100887E46 /* Build configuration list for PBXProject "iMonocle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC50441F0DA7E100887E46 /* Debug */,
+				ACEC50451F0DA7E100887E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACEC50461F0DA7E100887E46 /* Build configuration list for PBXNativeTarget "iMonocle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC50471F0DA7E100887E46 /* Debug */,
+				ACEC50481F0DA7E100887E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACEC502C1F0DA7E100887E46 /* Project object */;
+}
