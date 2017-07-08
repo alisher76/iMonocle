@@ -13,6 +13,8 @@ class FriendsSelectionCell: UICollectionViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var userNamelabel: UILabel!
+    @IBOutlet weak var checkmarkImageView: UIImageView!
+    var didSelect: Bool = false
     
     var twitterUser: TwitterUser! {
         didSet {
@@ -59,5 +61,11 @@ class FriendsSelectionCell: UICollectionViewCell {
         profileImage.image = nil
         namelabel.text = ""
         userNamelabel.text = ""
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            checkmarkImageView.image = UIImage(named: isSelected ? "Checked" : "Unchecked")
+        }
     }
 }

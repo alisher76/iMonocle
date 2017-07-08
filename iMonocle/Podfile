@@ -12,4 +12,5 @@ target 'iMonocle' do
     pod 'BDBOAuth1Manager'
     pod 'Alamofire', '~> 4.4'
     pod 'SwiftyJSON'
+    pod 'Firebase/Database'
 end

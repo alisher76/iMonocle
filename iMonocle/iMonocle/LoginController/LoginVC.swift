@@ -9,12 +9,17 @@
 import UIKit
 import BDBOAuth1Manager
 import Firebase
+import FirebaseDatabase
 
 class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser != nil {
+            self.showFriendsSelectionVC()
+        }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,5 +51,11 @@ class LoginVC: UIViewController {
             print("Could not log in")
         })
     }
-
+    
+    func showFriendsSelectionVC() {
+        let storyboard = UIStoryboard(name: "Starter", bundle: nil)
+        let showFriendsViewController = storyboard.instantiateViewController(withIdentifier: "FriendsSelectionVC") as! FriendsSelectionViewController
+        showFriendsViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.show(showFriendsViewController, sender: self)
+    }
 }
