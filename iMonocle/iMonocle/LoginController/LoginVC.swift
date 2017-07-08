@@ -7,14 +7,13 @@
 //
 
 import UIKit
-
+import BDBOAuth1Manager
+import Firebase
 
 class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +24,27 @@ class LoginVC: UIViewController {
 
     @IBAction func twitterButtonLogin(_ sender: Any) {
         TwitterClient.sharedInstance?.login(success: {
-            print("Logged In")
-            
-        }) { (error) in
-            print(error)
-        }
+            TwitterClient.sharedInstance?.currentAccount(success: { (succes) in
+                Auth.auth().signIn(withEmail: "\(succes.screenName)@monocle.com", password: succes.uid) { (user, error) in
+                    if error == nil {
+                        // Go to app
+                        print("Already signed in")
+                    } else {
+                        Auth.auth().createUser(withEmail: "\(succes.screenName)@monocle.com", password: succes.uid, completion: { (user, error) in
+                            if error != nil {
+                                print("Could not sign in")
+                            } else {
+                                // go to app
+                            }
+                        })
+                    }
+                }
+            }, failure: { (error) in
+                print(error)
+            })
+        }, failure: { (error) in
+            print("Could not log in")
+        })
     }
 
 }
