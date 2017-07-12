@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import Firebase
 
 enum MonocleUser {
     
     case twitterUser(TwitterUser)
     case instagramUser(InstagramUser)
     
-    init?(json: NSDictionary) {
+    init?(json: [String:Any]) {
         if let instagram_User = InstagramUser(json: json, accountType: "Instagram") {
             self = .instagramUser(instagram_User)
         }else if let twitter_User = TwitterUser(dictionary: json, accountType: "Twitter") {
@@ -23,19 +24,7 @@ enum MonocleUser {
         }
     }
     
-    static func array(json: [NSDictionary]) -> [MonoclePost]? {
-        
-        var converted = [MonoclePost]()
-        for feed in json {
-            
-            if let feedType = MonoclePost(json: feed){
-                converted.append(feedType)
-            }else{
-                return nil
-            }
-        }
-        return converted
-    }
 }
+
 
 

@@ -13,7 +13,7 @@ enum MonocolAccount {
     case twitter(TwitterUser)
     case instagram(InstagramUser)
     
-    init?(json: NSDictionary) {
+    init?(json: [String:Any]) {
         if let instaUser = InstagramUser(json: json, accountType: "instagram") {
             self = .instagram(instaUser)
         }else if let twitterUser = TwitterUser(dictionary: json, accountType: "twitter") {
@@ -23,7 +23,7 @@ enum MonocolAccount {
         }
     }
     
-    static func array(json: [NSDictionary]) -> [MonocolAccount]? {
+    static func array(json: [[String:Any]]) -> [MonocolAccount]? {
         
         var converted = [MonocolAccount]()
         for user in json {

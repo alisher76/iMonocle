@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class FriendsSelectionCell: UICollectionViewCell {
     
@@ -14,7 +16,11 @@ class FriendsSelectionCell: UICollectionViewCell {
     @IBOutlet weak var namelabel: UILabel!
     @IBOutlet weak var userNamelabel: UILabel!
     @IBOutlet weak var checkmarkImageView: UIImageView!
-    var didSelect: Bool = false
+    
+    
+    weak var delegate: FriendsSelectionViewController?
+    var uncheckedFriend: MonocleUser?
+    var didDeselect: Bool = false
     
     var twitterUser: TwitterUser! {
         didSet {
@@ -37,7 +43,7 @@ class FriendsSelectionCell: UICollectionViewCell {
             case .some(.twitterUser(let value)):
                 twitterUser = value
                // instaPostSetConfigure()
-            case .none:
+            default:
                 print("something went wrong")
             }
         }
@@ -62,10 +68,6 @@ class FriendsSelectionCell: UICollectionViewCell {
         namelabel.text = ""
         userNamelabel.text = ""
     }
+
     
-    override var isSelected: Bool {
-        didSet {
-            checkmarkImageView.image = UIImage(named: isSelected ? "Checked" : "Unchecked")
-        }
-    }
 }

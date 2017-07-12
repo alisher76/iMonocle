@@ -57,7 +57,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     func currentAccount(success: @escaping (TwitterUser) -> (), failure: @escaping (Error) -> ()) {
         
         get("/1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task, responce) in
-            let userDict = responce as! NSDictionary
+            let userDict = responce as! [String:Any]
             let user = TwitterUser(dictionary: userDict, accountType: "twitter")
             success(user!)
         }) { (task, error) in
@@ -76,7 +76,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         get("1.1/friends/list.json", parameters: params, progress: nil, success: { (task, responce) in
             if let usersDictionary = responce as? [String:Any] {
-                let anime = usersDictionary["users"] as? [NSDictionary]
+                let anime = usersDictionary["users"] as? [[String:Any]]
                 guard let users = TwitterUser.array(json: anime!) else {return}
                 for user in users {
                     let _monocleUser = MonocleUser.twitterUser(user)

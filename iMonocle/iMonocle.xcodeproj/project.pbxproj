@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
+		AC5671B81F161246007B81C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */; };
+		AC5671B91F161246007B81C9 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B71F161246007B81C9 /* Starter.storyboard */; };
 		AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */; };
 		AC9D919F1F10160F0084BB0C /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9D919E1F1015F40084BB0C /* SafariServices.framework */; };
 		AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A01F1037E80084BB0C /* GradientView.swift */; };
@@ -17,20 +19,22 @@
 		AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A81F103A100084BB0C /* MonaclePost.swift */; };
 		AC9D91AB1F103A100084BB0C /* MonocleAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A91F103A100084BB0C /* MonocleAccount.swift */; };
 		AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */; };
+		ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409501F117F660014E48B /* FirebaseDatabase.swift */; };
+		ACD409531F1405340014E48B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409521F1405340014E48B /* FirebaseService.swift */; };
 		ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B5C1F1043EF001D4257 /* Tweet.swift */; };
 		ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B5E1F10443D001D4257 /* InstagramUser.swift */; };
 		ACE58B611F1045E8001D4257 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B601F1045E8001D4257 /* TwitterAPI.swift */; };
 		ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC50371F0DA7E100887E46 /* AppDelegate.swift */; };
 		ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC503E1F0DA7E100887E46 /* Assets.xcassets */; };
 		ACEC50581F0DAC2C00887E46 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC50571F0DAC2C00887E46 /* LoginVC.swift */; };
-		ACEC505B1F0DADAA00887E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC50591F0DADA900887E46 /* LaunchScreen.storyboard */; };
-		ACEC505C1F0DADAA00887E46 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACEC505A1F0DADA900887E46 /* Starter.storyboard */; };
 		ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC505D1F0ED88300887E46 /* TwitterUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.release.xcconfig"; sourceTree = "<group>"; };
 		5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.debug.xcconfig"; sourceTree = "<group>"; };
+		AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		AC5671B71F161246007B81C9 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/Starter.storyboard"; sourceTree = "<group>"; };
 		AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC9D919E1F1015F40084BB0C /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		AC9D91A01F1037E80084BB0C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = "../../../../02-FlowLayoutBasics/Finished/Character Collector/GradientView.swift"; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		AC9D91A81F103A100084BB0C /* MonaclePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonaclePost.swift; sourceTree = "<group>"; };
 		AC9D91A91F103A100084BB0C /* MonocleAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonocleAccount.swift; sourceTree = "<group>"; };
 		AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramMedia.swift; path = "../../../../FINAL PROJECT /Monocle/Monocle/InstagramMedia.swift"; sourceTree = "<group>"; };
+		ACD409501F117F660014E48B /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
+		ACD409521F1405340014E48B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		ACE58B5C1F1043EF001D4257 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		ACE58B5E1F10443D001D4257 /* InstagramUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUser.swift; sourceTree = "<group>"; };
 		ACE58B601F1045E8001D4257 /* TwitterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
@@ -48,8 +54,6 @@
 		ACEC503E1F0DA7E100887E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACEC50431F0DA7E100887E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACEC50571F0DAC2C00887E46 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		ACEC50591F0DADA900887E46 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		ACEC505A1F0DADA900887E46 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = ../../../../.Trash/Starter.storyboard; sourceTree = "<group>"; };
 		ACEC505D1F0ED88300887E46 /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterUser.swift; path = "../../../../FINAL PROJECT /Monocle/Monocle/TwitterUser.swift"; sourceTree = "<group>"; };
 		B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMonocle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -120,8 +124,8 @@
 				ACEC503E1F0DA7E100887E46 /* Assets.xcassets */,
 				ACEC50431F0DA7E100887E46 /* Info.plist */,
 				AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */,
-				ACEC50591F0DADA900887E46 /* LaunchScreen.storyboard */,
-				ACEC505A1F0DADA900887E46 /* Starter.storyboard */,
+				AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */,
+				AC5671B71F161246007B81C9 /* Starter.storyboard */,
 				ACEC50491F0DA95F00887E46 /* DataSources */,
 				ACEC504C1F0DAAB500887E46 /* LoginController */,
 				ACEC504E1F0DAADE00887E46 /* MainControllers */,
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE58B601F1045E8001D4257 /* TwitterAPI.swift */,
+				ACD409521F1405340014E48B /* FirebaseService.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				ACEC505D1F0ED88300887E46 /* TwitterUser.swift */,
 				ACE58B5C1F1043EF001D4257 /* Tweet.swift */,
 				ACE58B5E1F10443D001D4257 /* InstagramUser.swift */,
+				ACD409501F117F660014E48B /* FirebaseDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,10 +251,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5671B81F161246007B81C9 /* LaunchScreen.storyboard in Resources */,
 				ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */,
+				AC5671B91F161246007B81C9 /* Starter.storyboard in Resources */,
 				AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */,
-				ACEC505B1F0DADAA00887E46 /* LaunchScreen.storyboard in Resources */,
-				ACEC505C1F0DADAA00887E46 /* Starter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,10 +314,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9D91A71F1039020084BB0C /* MonocleUser.swift in Sources */,
+				ACD409531F1405340014E48B /* FirebaseService.swift in Sources */,
 				ACE58B611F1045E8001D4257 /* TwitterAPI.swift in Sources */,
 				AC9D91A51F1038B40084BB0C /* FriendsSelectionViewController.swift in Sources */,
 				AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */,
 				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
+				ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */,
 				AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */,
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				AC9D91A31F10383E0084BB0C /* FriendsSelectionCell.swift in Sources */,

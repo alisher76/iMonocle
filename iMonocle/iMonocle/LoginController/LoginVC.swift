@@ -30,26 +30,21 @@ class LoginVC: UIViewController {
     @IBAction func twitterButtonLogin(_ sender: Any) {
         TwitterClient.sharedInstance?.login(success: {
             TwitterClient.sharedInstance?.currentAccount(success: { (succes) in
-                Auth.auth().signIn(withEmail: "\(succes.screenName)@monocle.com", password: succes.uid) { (user, error) in
-                    if error == nil {
-                        // Go to app
-                        print("Already signed in")
-                    } else {
-                        Auth.auth().createUser(withEmail: "\(succes.screenName)@monocle.com", password: succes.uid, completion: { (user, error) in
-                            if error != nil {
-                                print("Could not sign in")
-                            } else {
-                                // go to app
-                            }
-                        })
-                    }
-                }
+                FirebaseService.sigIn(email: "\(succes.screenName)@monocle.com", password: succes.uid)
             }, failure: { (error) in
                 print(error)
             })
         }, failure: { (error) in
             print("Could not log in")
         })
+    }
+    
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
     }
     
     func showFriendsSelectionVC() {

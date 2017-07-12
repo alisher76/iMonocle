@@ -24,7 +24,7 @@ class InstagramUser {
         self.accountType = accountType
     }
     
-    convenience init?(json: NSDictionary, accountType: String?) {
+    convenience init?(json: [String:Any], accountType: String?) {
         guard let fullName = json[InstagramUser.fullNameKey] as? String,
             let userName = json[InstagramUser.userNameKey] as? String,
             let uid = json[InstagramUser.uidKey] as? String,
@@ -36,7 +36,7 @@ class InstagramUser {
         self.init(fullName: fullName, userName: userName, uid: uid, image: image, accountType: accountType)
     }
     
-    static func array(json: [NSDictionary], accountType: String = "instagram") -> [InstagramUser]? {
+    static func array(json: [[String:Any]], accountType: String = "instagram") -> [InstagramUser]? {
         var converted = [InstagramUser]()
         for i in json {
             guard let user = InstagramUser(json: i, accountType: accountType) else { return nil }
