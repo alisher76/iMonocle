@@ -8,16 +8,17 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-private let reuseIdentifier2 = "FeedCell"
+private let menuReuseIdentifier = "menuCell"
+private let feedReuseIdentifier = "feedCell"
+private let tweetReuseIdentifier = "tweetCell"
+private let friendsReuseIdentifier = "friendsCell"
 
 class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-     navigationItem.title = "Home"
+        
     // collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
      setupMenuBar()
     }
@@ -30,12 +31,14 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
 
     // MARK: UICollectionViewDataSource
     
-    var example = [2,3,23,2,3,2,23,2,2,3,23,23,23,23]
-    
-    var pictures = [#imageLiteral(resourceName: "Bonu1.jpg"),#imageLiteral(resourceName: "Buvijonim2.jpg"),#imageLiteral(resourceName: "Dadajonim1.jpg"),#imageLiteral(resourceName: "Do'dajonim1.jpg")]
+    let imagesNames = ["ali", "FullSizeRender 4", "papass", "Bonu1"]
+    let textLabels = ["Create an outlet for both the image and label. Name the label one lblCell and the image one imgCell.   Once this is done close down the split view and open Viewcontroller.swift.","Now under class view controller add two arrays as follows – tableData stores the names of cars & tableImage stores image names  of the cars. You will need to have some .jpg images names exactly", "If you rotate the phone the collection view will also adapt to the new layout, it will also adapt to different sized devices. If you wish to test this simply add more items in the tableData & tableImages array to fill up the screen with items in the cells.", "Andrew is a 24 year old from Sydney. He loves developing iOS apps and has done so for two years."]
+    let names = ["alisher", "Ali", "Yorqin", "Bonu"]
     
     func setupMenuBar()  {
-        
+        let menuImage = UIImage(named: "menu")?.withRenderingMode(.alwaysOriginal)
+        let menuBarButton = UIBarButtonItem(image: menuImage, style: .plain, target: self, action: #selector(handleMenu))
+        navigationItem.leftBarButtonItem = menuBarButton
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -44,28 +47,50 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return example.count
+         return imagesNames.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HomeCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuReuseIdentifier, for: indexPath) as! SegmentControlCell
              return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier2, for: indexPath) as! FeedsCell
             
-            cell.feedTextLabel.text = "\(example[indexPath.row])"
-             return cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! FeedsCell
+           // cell.descriptionTextView.text = textLabels[indexPath.row]
+            cell.profileImage.image = UIImage(named: imagesNames[indexPath.row])
+            cell.nameLabel.text = names[indexPath.row]
+            cell.userNameLabel.text = "@\(names[indexPath.row])"
+            cell.postImageView.image = UIImage(named: imagesNames[indexPath.row])
+            cell.layer.cornerRadius = 3
+            return cell
+            
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseIdentifier, for: indexPath) as! TweetCell
+//            cell.descriptionTextView.text = textLabels[indexPath.row]
+//            cell.profileImageView.image = UIImage(named: imagesNames[indexPath.row])
+//            cell.nameLabel.text = names[indexPath.row]
+//            cell.userNameLabel.text = "@\(names[indexPath.row])"
+//            cell.mediaImageView.image = UIImage(named: imagesNames[indexPath.row])
+//            cell.layer.cornerRadius = 3
+//            return cell
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let sectionHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "MenuBar", for: indexPath) as! HomeSectionHeaderView
-        return sectionHeaderCell
+        let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "friendsCell", for: indexPath) as! FriendsCollecViewController
+        return headerCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 60)
+        if indexPath.row == 0 {
+            return CGSize(width: view.frame.width, height: 50)
+        } else {
+            return CGSize(width: view.frame.width - 30, height: 350)
+        }
+    }
+    
+    @objc func handleMenu() {
+        print("HandleMenu")
     }
     
 }
