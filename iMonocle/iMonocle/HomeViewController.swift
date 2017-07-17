@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 private let menuReuseIdentifier = "menuCell"
 private let feedReuseIdentifier = "feedCell"
@@ -63,6 +64,19 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             cell.userNameLabel.text = "@\(names[indexPath.row])"
             cell.postImageView.image = UIImage(named: imagesNames[indexPath.row])
             cell.layer.cornerRadius = 3
+            
+            //self.layer.masksToBounds = NO;
+//            self.layer.shadowOpacity = 0.75f;
+//            self.layer.shadowRadius = 5.0f;
+//            self.layer.shadowOffset = CGSizeZero;
+//            self.layer.shadowColor = [UIColor blackColor].CGColor;
+//            self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+//            cell.layer.masksToBounds = false
+//            cell.clipsToBounds = true
+//            cell.layer.shadowOpacity = 1
+//            cell.layer.shadowOffset = .zero
+//            cell.layer.shadowColor = UIColor.black.cgColor
+            
             return cell
             
 //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseIdentifier, for: indexPath) as! TweetCell
@@ -85,7 +99,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         if indexPath.row == 0 {
             return CGSize(width: view.frame.width, height: 50)
         } else {
-            return CGSize(width: view.frame.width - 30, height: 350)
+            return CGSize(width: view.frame.width - 40, height: 400)
         }
     }
     
