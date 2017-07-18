@@ -55,6 +55,11 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         if indexPath.row == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuReuseIdentifier, for: indexPath) as! SegmentControlCell
              return cell
+        } else if indexPath.row == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+            cell.dayLabel.text = "Monday"
+            cell.dateLabel.text = "June 6"
+            return cell
         } else {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! FeedsCell
@@ -65,19 +70,8 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             cell.postImageView.image = UIImage(named: imagesNames[indexPath.row])
             cell.layer.cornerRadius = 3
             
-            //self.layer.masksToBounds = NO;
-//            self.layer.shadowOpacity = 0.75f;
-//            self.layer.shadowRadius = 5.0f;
-//            self.layer.shadowOffset = CGSizeZero;
-//            self.layer.shadowColor = [UIColor blackColor].CGColor;
-//            self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
-//            cell.layer.masksToBounds = false
-//            cell.clipsToBounds = true
-//            cell.layer.shadowOpacity = 1
-//            cell.layer.shadowOffset = .zero
-//            cell.layer.shadowColor = UIColor.black.cgColor
             
-            return cell
+             return cell
             
 //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseIdentifier, for: indexPath) as! TweetCell
 //            cell.descriptionTextView.text = textLabels[indexPath.row]
@@ -95,9 +89,13 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         return headerCell
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
             return CGSize(width: view.frame.width, height: 50)
+        } else if indexPath.row == 1 {
+            return CGSize(width: view.frame.width - 30, height: 35)
         } else {
             return CGSize(width: view.frame.width - 40, height: 400)
         }

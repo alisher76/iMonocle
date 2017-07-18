@@ -12,6 +12,7 @@
 		AC302FF21F18E05900DE94B0 /* FeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FF11F18E05900DE94B0 /* FeedsCell.swift */; };
 		AC5671B81F161246007B81C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */; };
 		AC5671B91F161246007B81C9 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B71F161246007B81C9 /* Starter.storyboard */; };
+		AC6DB21F1F1D8BF60036A9EB /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */; };
 		AC87C25D1F185C8D00588B22 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C25C1F185C8D00588B22 /* HomeViewController.swift */; };
 		AC87C25F1F18625100588B22 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C25E1F18625100588B22 /* MenuBar.swift */; };
 		AC87C2611F1867DF00588B22 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C2601F1867DF00588B22 /* SegmentControl.swift */; };
@@ -44,6 +45,7 @@
 		AC302FF11F18E05900DE94B0 /* FeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCell.swift; sourceTree = "<group>"; };
 		AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		AC5671B71F161246007B81C9 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/Starter.storyboard"; sourceTree = "<group>"; };
+		AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		AC87C25C1F185C8D00588B22 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AC87C25E1F18625100588B22 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		AC87C2601F1867DF00588B22 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				AC87C25E1F18625100588B22 /* MenuBar.swift */,
 				AC302FF11F18E05900DE94B0 /* FeedsCell.swift */,
 				ACB106091F1ABE1F00451036 /* TweetCell.swift */,
+				AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */,
 			);
 			path = iMonocle;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
 				AC302FF21F18E05900DE94B0 /* FeedsCell.swift in Sources */,
 				ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */,
+				AC6DB21F1F1D8BF60036A9EB /* DateCell.swift in Sources */,
 				AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */,
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				AC87C25F1F18625100588B22 /* MenuBar.swift in Sources */,

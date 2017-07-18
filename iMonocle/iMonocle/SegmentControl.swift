@@ -16,7 +16,7 @@ class SegmentControlCell: UICollectionViewCell, UICollectionViewDataSource, UICo
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.red
+        cv.backgroundColor = UIColor.clear
         cv.dataSource = self
         cv.delegate = self
         return cv
@@ -58,19 +58,29 @@ class MenuCell: BaseCell {
     var imageView:UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "add")?.withRenderingMode(.alwaysTemplate)
-        iv.tintColor = UIColor.blue
+        iv.tintColor = UIColor.darkGray
         return iv
     }()
     
     override var isHighlighted: Bool{
         didSet{
-            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.blue
+            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.darkGray
         }
     }
     
     override var isSelected: Bool{
         didSet{
-            imageView.tintColor = isSelected ? UIColor.white : UIColor.darkGray
+            if isSelected {
+            imageView.tintColor = UIColor.white
+            imageView.layer.shadowColor = UIColor.black.cgColor
+            imageView.layer.shadowOffset = CGSize(width: 0, height: 6)
+            imageView.layer.shadowOpacity = 1.0
+            imageView.layer.shadowRadius = 5.0
+            imageView.layer.masksToBounds = false
+            } else {
+                imageView.layer.shadowOpacity = 0
+                imageView.tintColor = UIColor.darkGray
+            }
         }
     }
     

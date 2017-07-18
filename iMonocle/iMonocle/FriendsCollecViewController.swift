@@ -13,8 +13,16 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
     
     let imagesNames = ["add","Bonu1", "Buvijonim2", "Dadajonim1", "Do'dajonim1"]
     private let cellId = "friendsCell"
+    lazy var collectionView1:UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = UIColor.yellow
+        cv.dataSource = self
+        cv.delegate = self
+        return cv
+    }()
     
-    lazy var collectionView:UICollectionView = {
+    lazy var collectionView2:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.yellow
@@ -26,10 +34,21 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionView.register(FriendsCell.self, forCellWithReuseIdentifier: cellId)
-        addSubview(collectionView)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
+        collectionView1.register(FriendsCell.self, forCellWithReuseIdentifier: cellId)
+        addSubview(collectionView1)
+       // addSubview(collectionView2)
+        //addConstraintsWithFormat(format: "H:|[v1(20)]", views: collectionView2)
+        // addConstraintsWithFormat(format: "V:|[v1(20)]", views: collectionView2)
+         addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView1)
+         addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView1)
+        
+    }
+    
+    func setUpCollectionView() {
+        
+    // left edge
+        let leftColecctionView1Constraint = NSLayoutConstraint(item: collectionView1, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.leadingMargin, multiplier: 1.0, constant: 0)
+        self.addConstraints([leftColecctionView1Constraint])
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -37,10 +56,19 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FriendsCell
-        cell.imageView.image = UIImage(named: imagesNames[indexPath.row])
-        cell.tintColor = UIColor.white
-        return cell
+        
+        if collectionView == collectionView1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FriendsCell
+            cell.imageView.image = UIImage(named: imagesNames[indexPath.row])
+            cell.tintColor = UIColor.white
+            return cell
+        } else if collectionView == collectionView2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenusCell
+            cell.imageView.image = UIImage(named: imagesNames[indexPath.row])
+            cell.tintColor = UIColor.white
+            return cell
+        }
+        return collectionView.cellForItem(at: indexPath)!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -63,6 +91,38 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
 }
 
 class FriendsCell: BaseCell {
+    
+    var imageView:UIImageView = {
+        let iv = UIImageView()
+        iv.tintColor = UIColor.blue
+        iv.layer.cornerRadius = 25
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
+    override var isHighlighted: Bool{
+        didSet{
+            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.blue
+        }
+    }
+    
+    override var isSelected: Bool{
+        didSet{
+            imageView.tintColor = isSelected ? UIColor.white : UIColor.darkGray
+        }
+    }
+    
+    override func setUpViews() {
+        super.setUpViews()
+        addSubview(imageView)
+        addConstraintsWithFormat(format: "H:[v0(50)]", views: imageView)
+        addConstraintsWithFormat(format: "V:[v0(50)]", views: imageView)
+        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+    }
+}
+
+class MenusCell: BaseCell {
     
     var imageView:UIImageView = {
         let iv = UIImageView()

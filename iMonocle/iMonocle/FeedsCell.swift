@@ -34,7 +34,6 @@ class FeedsCell: UICollectionViewCell {
         self.profileImage.layer.shadowRadius = 2.5
         self.layer.masksToBounds = false
         self.profileImage.layer.masksToBounds = false
-        self.profileImage.clipsToBounds = true
-        self.profileImage.layer.cornerRadius = 22
+        self.profileImage.clipsToBounds = false
     }
 }

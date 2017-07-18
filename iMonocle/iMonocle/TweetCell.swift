@@ -24,5 +24,11 @@ class TweetCell: UICollectionViewCell {
         self.mediaImageView.sizeToFit()
         self.mediaImageView.layer.cornerRadius = 5
         self.mediaImageView.clipsToBounds = true
+        
+        self.layer.shadowColor = UIColor(red: 0.7176470757, green: 0.7176470757, blue: 0.7176470757, alpha: 1.0000000000).cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        self.layer.shadowOpacity = 1.0
+        self.layer.shadowRadius = 2.5
+        self.layer.masksToBounds = false
     }
 }
