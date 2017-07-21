@@ -88,16 +88,8 @@ class FriendsSelectionViewController: UICollectionViewController {
     }
     
     func checkDataBase() {
-        guard let currentUser = Auth.auth().currentUser else {return}
-        FirebaseService.rootRef.child(currentUser.uid).observe(.value) { (snapshot) in
-            guard let snapValue = snapshot.value as? [String: [String:Any]] else {return}
-            for (_, value) in snapValue {
-                if let twitterUser = TwitterUser(dictionary: value, accountType: "Twitter") {
-                    self.currentSelectedFriends[twitterUser.screenName] = MonocleUser.twitterUser(twitterUser)
-                }else if let instagragUser = InstagramUser(json: value, accountType: "Instagram"){
-                    self.currentSelectedFriends[instagragUser.userName] = MonocleUser.instagramUser(instagragUser)
-                }
-            }
+        FirebaseService.currentListOfFriends { (users) in
+            self.currentSelectedFriends = users
         }
     }
 }

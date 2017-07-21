@@ -33,7 +33,8 @@ class Tweet {
         didSet {
             if retweeted {
                 retweetsCount += 1
-            }else{                retweetsCount -= 1
+            }else{
+                retweetsCount -= 1
             }
         }
     }

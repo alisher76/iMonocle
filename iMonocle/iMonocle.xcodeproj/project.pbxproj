@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
+		AC1292371F2229630032FB1B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1292361F2229630032FB1B /* Extensions.swift */; };
 		AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FED1F18D1FF00DE94B0 /* Utitility.swift */; };
 		AC302FF21F18E05900DE94B0 /* FeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FF11F18E05900DE94B0 /* FeedsCell.swift */; };
+		AC51B5691F1F559E00A29D64 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B5681F1F559E00A29D64 /* DetailViewController.swift */; };
+		AC51B56B1F1F567500A29D64 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B56A1F1F567500A29D64 /* DetailCell.swift */; };
+		AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */; };
 		AC5671B81F161246007B81C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */; };
 		AC5671B91F161246007B81C9 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B71F161246007B81C9 /* Starter.storyboard */; };
+		AC6CEFB51F2148F3005F2EC0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6CEFB41F2148F3005F2EC0 /* PostCell.swift */; };
 		AC6DB21F1F1D8BF60036A9EB /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */; };
 		AC87C25D1F185C8D00588B22 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C25C1F185C8D00588B22 /* HomeViewController.swift */; };
 		AC87C25F1F18625100588B22 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C25E1F18625100588B22 /* MenuBar.swift */; };
-		AC87C2611F1867DF00588B22 /* SegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C2601F1867DF00588B22 /* SegmentControl.swift */; };
+		AC87C2611F1867DF00588B22 /* MenuViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C2601F1867DF00588B22 /* MenuViewControler.swift */; };
 		AC90B8EA1F186C6A00BA5344 /* FriendsCollecViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC90B8E91F186C6A00BA5344 /* FriendsCollecViewController.swift */; };
 		AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */; };
 		AC9D919F1F10160F0084BB0C /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9D919E1F1015F40084BB0C /* SafariServices.framework */; };
@@ -41,14 +46,19 @@
 /* Begin PBXFileReference section */
 		5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.release.xcconfig"; sourceTree = "<group>"; };
 		5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.debug.xcconfig"; sourceTree = "<group>"; };
+		AC1292361F2229630032FB1B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
 		AC302FF11F18E05900DE94B0 /* FeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCell.swift; sourceTree = "<group>"; };
+		AC51B5681F1F559E00A29D64 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AC51B56A1F1F567500A29D64 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		AC5671B71F161246007B81C9 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/Starter.storyboard"; sourceTree = "<group>"; };
+		AC6CEFB41F2148F3005F2EC0 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		AC87C25C1F185C8D00588B22 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AC87C25E1F18625100588B22 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
-		AC87C2601F1867DF00588B22 /* SegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControl.swift; sourceTree = "<group>"; };
+		AC87C2601F1867DF00588B22 /* MenuViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewControler.swift; sourceTree = "<group>"; };
 		AC90B8E91F186C6A00BA5344 /* FriendsCollecViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollecViewController.swift; sourceTree = "<group>"; };
 		AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AC9D919E1F1015F40084BB0C /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -146,6 +156,7 @@
 			children = (
 				AC302FEC1F18D1EC00DE94B0 /* Utility */,
 				ACEC50371F0DA7E100887E46 /* AppDelegate.swift */,
+				AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */,
 				ACEC503E1F0DA7E100887E46 /* Assets.xcassets */,
 				ACEC50431F0DA7E100887E46 /* Info.plist */,
 				AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */,
@@ -157,13 +168,7 @@
 				ACEC50501F0DAB0400887E46 /* Model */,
 				ACEC504D1F0DAACF00887E46 /* SelectFriendsController */,
 				ACEC504F1F0DAAF800887E46 /* Views */,
-				AC87C25C1F185C8D00588B22 /* HomeViewController.swift */,
-				AC87C2601F1867DF00588B22 /* SegmentControl.swift */,
-				AC90B8E91F186C6A00BA5344 /* FriendsCollecViewController.swift */,
-				AC87C25E1F18625100588B22 /* MenuBar.swift */,
-				AC302FF11F18E05900DE94B0 /* FeedsCell.swift */,
-				ACB106091F1ABE1F00451036 /* TweetCell.swift */,
-				AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */,
+				AC1292361F2229630032FB1B /* Extensions.swift */,
 			);
 			path = iMonocle;
 			sourceTree = "<group>";
@@ -196,6 +201,10 @@
 		ACEC504E1F0DAADE00887E46 /* MainControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC87C25C1F185C8D00588B22 /* HomeViewController.swift */,
+				AC90B8E91F186C6A00BA5344 /* FriendsCollecViewController.swift */,
+				AC87C2601F1867DF00588B22 /* MenuViewControler.swift */,
+				AC51B5681F1F559E00A29D64 /* DetailViewController.swift */,
 			);
 			path = MainControllers;
 			sourceTree = "<group>";
@@ -205,6 +214,11 @@
 			children = (
 				AC9D91A01F1037E80084BB0C /* GradientView.swift */,
 				AC9D91A21F10383E0084BB0C /* FriendsSelectionCell.swift */,
+				AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */,
+				AC302FF11F18E05900DE94B0 /* FeedsCell.swift */,
+				ACB106091F1ABE1F00451036 /* TweetCell.swift */,
+				AC6CEFB41F2148F3005F2EC0 /* PostCell.swift */,
+				AC51B56A1F1F567500A29D64 /* DetailCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +226,7 @@
 		ACEC50501F0DAB0400887E46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC87C25E1F18625100588B22 /* MenuBar.swift */,
 				AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */,
 				AC9D91AE1F103ABF0084BB0C /* MonocleModels */,
 				ACEC505D1F0ED88300887E46 /* TwitterUser.swift */,
@@ -350,24 +365,29 @@
 				ACE58B611F1045E8001D4257 /* TwitterAPI.swift in Sources */,
 				AC9D91A51F1038B40084BB0C /* FriendsSelectionViewController.swift in Sources */,
 				AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */,
+				AC6CEFB51F2148F3005F2EC0 /* PostCell.swift in Sources */,
 				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
 				AC302FF21F18E05900DE94B0 /* FeedsCell.swift in Sources */,
 				ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */,
 				AC6DB21F1F1D8BF60036A9EB /* DateCell.swift in Sources */,
 				AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */,
+				AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */,
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				AC87C25F1F18625100588B22 /* MenuBar.swift in Sources */,
 				AC90B8EA1F186C6A00BA5344 /* FriendsCollecViewController.swift in Sources */,
 				AC9D91A31F10383E0084BB0C /* FriendsSelectionCell.swift in Sources */,
 				ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */,
+				AC51B5691F1F559E00A29D64 /* DetailViewController.swift in Sources */,
 				AC87C25D1F185C8D00588B22 /* HomeViewController.swift in Sources */,
 				ACB1060A1F1ABE1F00451036 /* TweetCell.swift in Sources */,
 				ACEC50581F0DAC2C00887E46 /* LoginVC.swift in Sources */,
 				AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */,
 				AC9D91AB1F103A100084BB0C /* MonocleAccount.swift in Sources */,
-				AC87C2611F1867DF00588B22 /* SegmentControl.swift in Sources */,
+				AC51B56B1F1F567500A29D64 /* DetailCell.swift in Sources */,
+				AC87C2611F1867DF00588B22 /* MenuViewControler.swift in Sources */,
 				AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */,
 				ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */,
+				AC1292371F2229630032FB1B /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

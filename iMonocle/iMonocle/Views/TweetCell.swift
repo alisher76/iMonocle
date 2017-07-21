@@ -17,6 +17,19 @@ class TweetCell: UICollectionViewCell {
     @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var mediaImageViewHeight: NSLayoutConstraint!
     
+    var tweet: Tweet? {
+        didSet {
+            setUp()
+        }
+    }
+    
+    func setUp() {
+        profileImageView.downloadFrom(url: (tweet?.authorProfilePic)!)
+        nameLabel.text = tweet?.author
+        userNameLabel.text = tweet?.screenName
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -25,10 +38,10 @@ class TweetCell: UICollectionViewCell {
         self.mediaImageView.layer.cornerRadius = 5
         self.mediaImageView.clipsToBounds = true
         
-        self.layer.shadowColor = UIColor(red: 0.7176470757, green: 0.7176470757, blue: 0.7176470757, alpha: 1.0000000000).cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowRadius = 2.5
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.layer.shadowOpacity = 0.65
+        self.layer.shadowRadius = 7.0
         self.layer.masksToBounds = false
     }
 }

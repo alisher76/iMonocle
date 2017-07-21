@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SegmentControlCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class MenuViewControler: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let imagesNames = ["add", "comment", "heart", "share"]
+    let imagesNames = ["MFilled", "Twitter", "InstagramLogo", "MoreFilled"]
     private let cellId = "menuCell"
     
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.clear
         cv.dataSource = self
@@ -27,7 +28,7 @@ class SegmentControlCell: UICollectionViewCell, UICollectionViewDataSource, UICo
         super.awakeFromNib()
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: cellId)
         addSubview(collectionView)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
+        addConstraintsWithFormat(format: "H:|-[v0(400)]-|", views: collectionView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         collectionView.selectItem(at: IndexPath(item:0, section:0), animated: false, scrollPosition:[])
     }
@@ -39,18 +40,22 @@ class SegmentControlCell: UICollectionViewCell, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
         cell.imageView.image = UIImage(named: imagesNames[indexPath.row])?.withRenderingMode(.alwaysTemplate)
-        cell.tintColor = UIColor.white
-        return cell
+        cell.imageView.contentMode = .scaleAspectFit
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 1
+        cell.backgroundColor = UIColor.lightText
+        
+       return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return  Utility.shared.CGSizeMake(frame.width/4, frame.height)
+        return  Utility.shared.CGSizeMake((frame.width/4) - 12, frame.height - 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
 }
 
 class MenuCell: BaseCell {
@@ -62,23 +67,14 @@ class MenuCell: BaseCell {
         return iv
     }()
     
-    override var isHighlighted: Bool{
-        didSet{
-            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.darkGray
-        }
-    }
+    
     
     override var isSelected: Bool{
         didSet{
             if isSelected {
-            imageView.tintColor = UIColor.white
-            imageView.layer.shadowColor = UIColor.black.cgColor
-            imageView.layer.shadowOffset = CGSize(width: 0, height: 6)
-            imageView.layer.shadowOpacity = 1.0
-            imageView.layer.shadowRadius = 5.0
-            imageView.layer.masksToBounds = false
+                imageView.tintColor = UIColor.lightGray
+                
             } else {
-                imageView.layer.shadowOpacity = 0
                 imageView.tintColor = UIColor.darkGray
             }
         }
@@ -89,7 +85,15 @@ class MenuCell: BaseCell {
         addSubview(imageView)
         addConstraintsWithFormat(format: "H:[v0(28)]", views: imageView)
         addConstraintsWithFormat(format: "V:[v0(28)]", views: imageView)
+        
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.layer.shadowOpacity = 0.65
+        self.layer.shadowRadius = 3.0
+        self.layer.masksToBounds = false
     }
 }
+
+

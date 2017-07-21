@@ -19,9 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         //get rid of black line under Navigation Bar
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().setBackgroundImage (UIImage(), for:.default)
-        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage (UIImage(), for:.default)
+       // UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor.lightText
+        UINavigationBar.appearance().isHidden = true
         return true
     }
 
