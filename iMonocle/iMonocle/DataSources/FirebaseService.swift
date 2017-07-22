@@ -52,7 +52,20 @@ class FirebaseService {
         
     }
     
+    static func checkExistingFriendAccounts(monocleUser: MonocleUser) {
+        switch monocleUser {
+        case .instagramUser(let value):
+            // instagramUser = value
+            print(value)
+        case .twitterUser(let twitterUser):
+            FirebaseService.rootRef.child(currentuserID!).child(twitterUser.screenName).observe(.value, with: { (snapShot) in
+                print(snapShot.hasChild("instagram"))
+            })
+        }
+    }
+    
     static func removeFromFriendsList(monocleUser: MonocleUser) {
+        
         switch monocleUser {
         case .instagramUser(let value):
             // instagramUser = value

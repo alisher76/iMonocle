@@ -56,6 +56,21 @@ class MenuViewControler: UICollectionViewCell, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            print("MonocleTapped")
+        case 1:
+            print("TwitterTapped")
+        case 2:
+            print("InstagramTaped")
+        case 3:
+            print("MoreTapped")
+        default:
+            print("What the hell is tapped?")
+        }
+    }
 }
 
 class MenuCell: BaseCell {
@@ -63,7 +78,7 @@ class MenuCell: BaseCell {
     var imageView:UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "add")?.withRenderingMode(.alwaysTemplate)
-        iv.tintColor = UIColor.darkGray
+        iv.tintColor = UIColor.lightGray
         return iv
     }()
     
@@ -72,10 +87,10 @@ class MenuCell: BaseCell {
     override var isSelected: Bool{
         didSet{
             if isSelected {
-                imageView.tintColor = UIColor.lightGray
+                imageView.tintColor = UIColor.darkGray
                 
             } else {
-                imageView.tintColor = UIColor.darkGray
+                imageView.tintColor = UIColor.lightGray
             }
         }
     }

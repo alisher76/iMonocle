@@ -10,7 +10,7 @@ import UIKit
 
 class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    
+    var delegate: HomeViewController?
     var friends = [MonocleUser]() {
         didSet {
             collectionView.reloadData()
@@ -30,17 +30,15 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
         return cv
     }()
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(FriendsCell.self, forCellWithReuseIdentifier: cellId)
         addSubview(collectionView)
         
-         addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
-         addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
+        addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return friends.count + 1
@@ -61,7 +59,6 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
         }
         cell.tintColor = UIColor.white
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -73,19 +70,27 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == 0 {
-            showFriendsList(index: indexPath.item)
+        if indexPath.row == 0 {
+            delegate?.showFriendsSelectionVC()
         } else {
-            print(indexPath.row)
+            switch friends[indexPath.row - 1] {
+            case .instagramUser(let value):
+                delegate?.getTweet(userID: value.uid)
+            case .twitterUser(let value):
+                delegate?.getTweet(userID: value.uid)
+                FirebaseService.checkExistingFriendAccounts(monocleUser: friends[indexPath.row - 1])
+            }
         }
-    }
-    
-    func showFriendsList(index: Int) {
-        print(index)
     }
 }
 
 class FriendsCell: BaseCell {
+    
+    var monocleUser: MonocleUser? {
+        didSet {
+            
+        }
+    }
     
     var imageView:UIImageView = {
         let iv = UIImageView()
@@ -105,7 +110,7 @@ class FriendsCell: BaseCell {
     
     override var isSelected: Bool{
         didSet{
-            imageView.tintColor = isSelected ? UIColor.white : UIColor.darkGray
+            imageView.tintColor = isSelected ? UIColor.blue : UIColor.darkGray
         }
     }
     

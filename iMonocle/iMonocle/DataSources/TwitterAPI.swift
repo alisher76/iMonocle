@@ -46,7 +46,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken) in
             self.loginSuccess?()
-            self.loginSuccess?()
             
         }) { (error) in
             self.loginFailure?(error!)
@@ -87,6 +86,38 @@ class TwitterClient: BDBOAuth1SessionManager {
         }) { (task, error) in
             print(error.localizedDescription)
             
+        }
+    }
+    
+    func getUserTimeline(userID: String, success: @escaping ([MonoclePost]) -> (), failure: @escaping (NSError) -> ()) {
+        
+        let params = ["count": 10]
+        var back = [MonoclePost]()
+        get("1.1/statuses/user_timeline.json?user_id=\(userID)", parameters: params, progress: nil, success: { (task, responce) in
+            
+            let dictionary = responce as! [NSDictionary]
+            let tweets = Tweet.tweetWithArray(dictionaries: dictionary)
+            for tweet in tweets {
+                let monocolePost = MonoclePost.tweet(tweet)
+                back.append(monocolePost)
+            }
+            success(back)
+        }) { (task, error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getUserTimelineTweet(userID: String, success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
+        
+        let params = ["count": 10]
+        
+        get("1.1/statuses/user_timeline.json?user_id=\(userID)", parameters: params, progress: nil, success: { (task, responce) in
+            
+            let dictionary = responce as! [NSDictionary]
+            let tweets = Tweet.tweetWithArray(dictionaries: dictionary)
+            success(tweets)
+        }) { (task, error) in
+            print(error.localizedDescription)
         }
     }
     

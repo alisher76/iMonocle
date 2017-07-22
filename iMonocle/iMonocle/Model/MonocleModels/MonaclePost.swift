@@ -14,7 +14,7 @@ enum MonoclePost {
     case instagram(Media)
     
     init?(json: NSDictionary) {
-        if let instaMedia = Media(json: json, accountType: "MonoclePost"){
+        if let instaMedia = Media(json: json, accountType: "monoclePost"){
             self = .instagram(instaMedia)
         }else if let tweet = Tweet(dictionary: json, postType: "tweet"){
             self = .tweet(tweet)

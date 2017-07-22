@@ -19,12 +19,17 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     fileprivate let transition = PopAnimator()
     var index: IndexPath?
     var selectedImage: UIImageView?
+    
     var monocleFriends = [MonocleUser]() {
         didSet {
             collectionView?.reloadData()
         }
     }
-    var monoclePosts = [MonoclePost]()
+    var monoclePosts = [MonoclePost]() {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +38,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        monocleFriends.removeAll()
         getCurrentListOfFriends()
     }
 
@@ -56,39 +62,37 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return 1
+         return monoclePosts.count + 2
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        if indexPath.row == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuReuseIdentifier, for: indexPath) as! MenuViewControler
-        return cell
-        
-//        if indexPath.row == 0 {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuReuseIdentifier, for: indexPath) as! MenuViewControler
-//             return cell
-//        } else if indexPath.row == 1 {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
-//            cell.dayLabel.text = "Monday"
-//            cell.dateLabel.text = "June 6"
-//            return cell
-//        } else {
-//            switch monoclePosts[indexPath.row] {
-//            case .instagram(let value):
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! FeedsCell
-//                cell.media = value
-//                return cell
-//            case .tweet(let value):
-//                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! TweetCell
-//                cell.tweet = value
-//                return cell
-//            }
-//        }
+             return cell
+        } else if indexPath.row == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
+            cell.dayLabel.text = "Monday"
+            cell.dateLabel.text = "June 6"
+            return cell
+        } else {
+            switch monoclePosts[indexPath.row - 2] {
+            case .instagram(let value):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! FeedsCell
+                cell.media = value
+                return cell
+            case .tweet(let value):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseIdentifier, for: indexPath) as! TweetCell
+                cell.tweet = value
+                return cell
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: friendsReuseIdentifier, for: indexPath) as! FriendsCollecViewController
             headerCell.friends = monocleFriends
+            headerCell.delegate = self
         return headerCell
     }
     
@@ -123,6 +127,45 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             }
         }
     }
+    
+    func getTweet(userID: String) {
+        TwitterClient.sharedInstance?.getUserTimelineTweet(userID: userID, success: { (tweets) in
+            var monoclePosts = [MonoclePost]()
+            for tweet in tweets {
+                let monoclePost = MonoclePost.tweet(tweet)
+                monoclePosts.append(monoclePost)
+            }
+            self.monoclePosts = monoclePosts
+        }, failure: { (error) in
+            print("WhatsGoindOn")
+        })
+    }
+    
+    func getUserTimeline(userID: String) {
+        
+        TwitterClient.sharedInstance?.getUserTimeline(userID: userID, success: { (tweets) in
+        self.monoclePosts = tweets
+        }, failure: { (error) in
+            print("error")
+        })
+    }
+    
+    func showFriendsSelectionVC() {
+        let storyboard = UIStoryboard(name: "Starter", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "FriendsSelectionVC") as! FriendsSelectionViewController
+        self.show(vc, sender: self)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row >= 2 {
+            
+            cell.layer.shadowOpacity = 0
+            
+            UIView.animate(withDuration: 1.0) {
+                cell.layer.shadowOpacity = 0.8
+            }
+        }
+    }
 
 }
 
@@ -143,7 +186,6 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
         let selectedCell = collectionView?.cellForItem(at: index!) as! FeedsCell
         transition.presenting = false
         selectedCell.postImageView!.isHidden = false
-        
         return transition
     }
     
@@ -151,7 +193,7 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
         super.viewWillTransition(to: size, with: coordinator)
         let cell = collectionView?.cellForItem(at: index!) as! FeedsCell
         coordinator.animate(
-            alongsideTransition: {context in
+            alongsideTransition: { context in
                 cell.postImageView.alpha = (size.width>size.height) ? 0.25 : 0.55
                 self.collectionView?.reloadData()
         },

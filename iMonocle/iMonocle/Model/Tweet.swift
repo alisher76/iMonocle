@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
 private var userRef: [String:Any]?
 private var entitiesRef: [String:Any]?
-private var userEntitiesRef: [String:Any]?
 
 class Tweet {
     
@@ -20,11 +21,11 @@ class Tweet {
     var author: String?
     var authorProfilePic: URL?
     var text: String?
-    //    var timeStamp: Date?
+    var timestamp: Date?
     var favoriteCount: Int = 0
     var retweetsCount: Int = 0
-    var urls: [NSDictionary]?
-    var media: [NSDictionary]?
+    var urls: [[String:Any]]?
+    var media: [[String:Any]]?
     var postType: String
     
     var precedingTweetID: Int?
@@ -50,23 +51,31 @@ class Tweet {
     
     init?(dictionary: NSDictionary, postType: String) {
         
-        precedingTweetID = dictionary["in_reply_to_status_id"] as? Int
-        userRef = dictionary["user"] as? [String:Any]
-        tweetID = dictionary["id"] as! Int
-        screenName = userRef?["screen_name"]! as? String
-        entitiesRef = dictionary["entities"] as? [String:Any]
-        media = entitiesRef?["media"] as? [NSDictionary]
-        userEntitiesRef = userRef?["entities"] as? [String:Any]
-        urls = entitiesRef?["urls"] as? [NSDictionary]
-        author = userRef?["name"] as? String
-        authorProfilePic = URL(string: (userRef?["profile_image_url_https"] as! String).replacingOccurrences(of: "normal.png", with: "bigger.png", options: .literal, range: nil))
+        precedingTweetID = dictionary[Tweet.precedingTweetIDKey] as? Int
+        userRef = dictionary[Tweet.userRefKey] as? [String:Any]
+        tweetID = dictionary[Tweet.tweetIDKey] as! Int
+        screenName = userRef?[Tweet.screenNameKey]! as? String
+        entitiesRef = dictionary[Tweet.entitiesRefKey] as? [String:Any]
+        media = entitiesRef?[Tweet.mediaKey] as? [[String:Any]]
+        urls = entitiesRef?[Tweet.urlsKey] as? [[String:Any]]
+        author = userRef?[Tweet.authorNameKey] as? String
+        authorProfilePic = URL(string: (userRef?[Tweet.authorProfilePicKey] as! String).replacingOccurrences(of: "normal.png", with: "bigger.png", options: .literal, range: nil))
         
-        text = dictionary["text"] as? String
-        retweetsCount = dictionary["retweet_count"] as? Int ?? 0
-        favoriteCount = dictionary["favorite_count"] as? Int ?? 0
+        text = dictionary[Tweet.textKey] as? String
+        retweetsCount = dictionary[Tweet.retweetsKey] as? Int ?? 0
+        favoriteCount = dictionary[Tweet.favoritedKey] as? Int ?? 0
         
         retweeted = (dictionary["retweeted"] as? Bool ?? false)
         favorited = (dictionary["favorited"] as? Bool ?? false)
+        
+        let timestampString = dictionary[Tweet.timestampKey] as? String
+        
+        if let timestampString = timestampString {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+            timestamp = formatter.date(from: timestampString)
+        }
+        
         self.postType = postType
         
     }
@@ -81,7 +90,18 @@ class Tweet {
         
         return tweets
     }
-    
-    
+    static var precedingTweetIDKey: String = "in_reply_to_status_id"
+    static var userRefKey: String = "user"
+    static var tweetIDKey: String = "id"
+    static var screenNameKey: String = "screen_name"
+    static var entitiesRefKey: String =  "entities"
+    static var mediaKey: String = "media"
+    static var urlsKey: String = "urls"
+    static var authorNameKey: String = "name"
+    static var authorProfilePicKey: String = "profile_image_url_https"
+    static var textKey: String = "text"
+    static var retweetsKey: String = "retweet_count"
+    static var favoritedKey: String = "favorite_count"
+    static var timestampKey: String = "created_at"
 }
 
