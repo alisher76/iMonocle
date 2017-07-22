@@ -42,9 +42,13 @@ class TwitterClient: BDBOAuth1SessionManager {
     //Get access token and save user
     func handleOpenURL(url: URL) {
         //get access token
+        let userDefaults = UserDefaults.standard
+        
         let requestToken = BDBOAuth1Credential(queryString: url.query)!
         
         fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken) in
+            userDefaults.set(accessToken?.token, forKey: "twitterAccessToken")
+            userDefaults.synchronize()
             self.loginSuccess?()
             
         }) { (error) in

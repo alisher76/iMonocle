@@ -13,6 +13,8 @@ class FirebaseService {
     
     static let rootRef = Database.database().reference().child("users")
     static let currentuserID = Auth.auth().currentUser?.uid
+    static var selectedUser: MonocleUser?
+    
     static func sigIn(email: String, password: String) {
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -52,16 +54,18 @@ class FirebaseService {
         
     }
     
-    static func checkExistingFriendAccounts(monocleUser: MonocleUser) {
+    static func checkExistingFriendAccounts(monocleUser: MonocleUser) -> Bool {
         switch monocleUser {
         case .instagramUser(let value):
             // instagramUser = value
             print(value)
+            return false
         case .twitterUser(let twitterUser):
             FirebaseService.rootRef.child(currentuserID!).child(twitterUser.screenName).observe(.value, with: { (snapShot) in
-                print(snapShot.hasChild("instagram"))
+            return (snapShot.hasChild("instagram"))
             })
         }
+        return false
     }
     
     static func removeFromFriendsList(monocleUser: MonocleUser) {

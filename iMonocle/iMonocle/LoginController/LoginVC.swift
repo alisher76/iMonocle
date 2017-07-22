@@ -12,11 +12,16 @@ import Firebase
 import FirebaseDatabase
 
 class LoginVC: UIViewController {
-
+    
+    let userDefault = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let accessToken = userDefault.object(forKey: "twitterAccessToken") as? String
+        
         if Auth.auth().currentUser != nil {
-            self.showFriendsSelectionVC()
+            if accessToken != nil {
+                self.showFriendsSelectionVC() }
         }
     }
     

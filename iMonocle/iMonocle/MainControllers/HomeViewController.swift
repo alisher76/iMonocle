@@ -13,15 +13,16 @@ private let menuReuseIdentifier = "menuCell"
 private let feedReuseIdentifier = "feedCell"
 private let tweetReuseIdentifier = "tweetCell"
 private let friendsReuseIdentifier = "friendsCell"
+private let signInReuseIdentifier = "signInCell"
 
 class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let transition = PopAnimator()
     var index: IndexPath?
-    var selectedImage: UIImageView?
     
     var monocleFriends = [MonocleUser]() {
         didSet {
+            FirebaseService.selectedUser = monocleFriends.first
             collectionView?.reloadData()
         }
     }
@@ -62,13 +63,18 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if monoclePosts.count == 0 {
+            return 3
+        } else {
          return monoclePosts.count + 2
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.row == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuReuseIdentifier, for: indexPath) as! MenuViewControler
+            cell.delegate = self
              return cell
         } else if indexPath.row == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateCell
@@ -76,6 +82,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
             cell.dateLabel.text = "June 6"
             return cell
         } else {
+            if monoclePosts.count != 0 {
             switch monoclePosts[indexPath.row - 2] {
             case .instagram(let value):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! FeedsCell
@@ -86,7 +93,12 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
                 cell.tweet = value
                 return cell
             }
-        }
+            } else {
+               // show do want to add ?
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: signInReuseIdentifier, for: indexPath) as! SignInCell
+                return cell
+            }
+       }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

@@ -12,6 +12,8 @@ class MenuViewControler: UICollectionViewCell, UICollectionViewDataSource, UICol
     
     let imagesNames = ["MFilled", "Twitter", "InstagramLogo", "MoreFilled"]
     private let cellId = "menuCell"
+    var delegate: HomeViewController?
+    let userDefault = UserDefaults.standard
     
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -65,10 +67,30 @@ class MenuViewControler: UICollectionViewCell, UICollectionViewDataSource, UICol
             print("TwitterTapped")
         case 2:
             print("InstagramTaped")
+            instagramSignIn()
+            delegate?.monoclePosts.removeAll()
+            delegate?.collectionView?.reloadData()
         case 3:
             print("MoreTapped")
         default:
             print("What the hell is tapped?")
+        }
+    }
+    
+    func instagramSignIn() {
+        let accessToken = userDefault.object(forKey: "instagramAccessToken") as? String
+        if accessToken != nil {
+            // get friends list
+            let hasInstagramAccountConnected = FirebaseService.checkExistingFriendAccounts(monocleUser: FirebaseService.selectedUser!)
+            if hasInstagramAccountConnected {
+                
+            } else {
+//                delegate?.monoclePosts.removeAll()
+               delegate?.collectionView?.reloadData()
+            }
+        } else {
+            // show do you want to sign in?
+           // delegate?.monoclePosts.removeAll()
         }
     }
 }

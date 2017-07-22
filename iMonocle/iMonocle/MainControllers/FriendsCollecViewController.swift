@@ -78,6 +78,7 @@ class FriendsCollecViewController: UICollectionReusableView, UICollectionViewDat
                 delegate?.getTweet(userID: value.uid)
             case .twitterUser(let value):
                 delegate?.getTweet(userID: value.uid)
+                FirebaseService.selectedUser = friends[indexPath.row - 1]
                 FirebaseService.checkExistingFriendAccounts(monocleUser: friends[indexPath.row - 1])
             }
         }

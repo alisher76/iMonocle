@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
 		AC1292371F2229630032FB1B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1292361F2229630032FB1B /* Extensions.swift */; };
+		AC23C2AA1F24029F002DCF8E /* SignInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23C2A91F24029F002DCF8E /* SignInCell.swift */; };
 		AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FED1F18D1FF00DE94B0 /* Utitility.swift */; };
 		AC302FF21F18E05900DE94B0 /* FeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FF11F18E05900DE94B0 /* FeedsCell.swift */; };
 		AC51B5691F1F559E00A29D64 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B5681F1F559E00A29D64 /* DetailViewController.swift */; };
@@ -32,6 +33,7 @@
 		AC9D91AB1F103A100084BB0C /* MonocleAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A91F103A100084BB0C /* MonocleAccount.swift */; };
 		AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */; };
 		ACB1060A1F1ABE1F00451036 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB106091F1ABE1F00451036 /* TweetCell.swift */; };
+		ACCD7A131F23F71F00C7C7B0 /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */; };
 		ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409501F117F660014E48B /* FirebaseDatabase.swift */; };
 		ACD409531F1405340014E48B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409521F1405340014E48B /* FirebaseService.swift */; };
 		ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B5C1F1043EF001D4257 /* Tweet.swift */; };
@@ -47,6 +49,7 @@
 		5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.release.xcconfig"; sourceTree = "<group>"; };
 		5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1292361F2229630032FB1B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AC23C2A91F24029F002DCF8E /* SignInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCell.swift; sourceTree = "<group>"; };
 		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
 		AC302FF11F18E05900DE94B0 /* FeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCell.swift; sourceTree = "<group>"; };
 		AC51B5681F1F559E00A29D64 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		AC9D91A91F103A100084BB0C /* MonocleAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonocleAccount.swift; sourceTree = "<group>"; };
 		AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramMedia.swift; path = "../../../../FINAL PROJECT /Monocle/Monocle/InstagramMedia.swift"; sourceTree = "<group>"; };
 		ACB106091F1ABE1F00451036 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
 		ACD409501F117F660014E48B /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		ACD409521F1405340014E48B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		ACE58B5C1F1043EF001D4257 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 			children = (
 				ACE58B601F1045E8001D4257 /* TwitterAPI.swift */,
 				ACD409521F1405340014E48B /* FirebaseService.swift */,
+				ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				ACB106091F1ABE1F00451036 /* TweetCell.swift */,
 				AC6CEFB41F2148F3005F2EC0 /* PostCell.swift */,
 				AC51B56A1F1F567500A29D64 /* DetailCell.swift */,
+				AC23C2A91F24029F002DCF8E /* SignInCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +377,8 @@
 				ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */,
 				AC6DB21F1F1D8BF60036A9EB /* DateCell.swift in Sources */,
 				AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */,
+				AC23C2AA1F24029F002DCF8E /* SignInCell.swift in Sources */,
+				ACCD7A131F23F71F00C7C7B0 /* InstagramAPI.swift in Sources */,
 				AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */,
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				AC87C25F1F18625100588B22 /* MenuBar.swift in Sources */,
