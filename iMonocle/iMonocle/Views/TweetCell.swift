@@ -14,7 +14,7 @@ class TweetCell: UICollectionViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var descriptionTextView: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mediaImageView: UIImageView!
     @IBOutlet weak var mediaImageViewHeight: NSLayoutConstraint!
     
@@ -36,14 +36,14 @@ class TweetCell: UICollectionViewCell {
         profileImageView.downloadFrom(url: (tweet?.authorProfilePic)!)
         nameLabel.text = tweet?.author
         userNameLabel.text = tweet?.screenName
-        descriptionTextView.text = tweet?.text
+        descriptionLabel.text = tweet?.text
         
         var displayURLS = [String]()
         mediaImageView.image = nil
         if let urls = urls {
             for _url in urls {
                 let urlText = _url["url"] as! String
-                descriptionTextView.text = descriptionTextView.text?.replacingOccurrences(of: urlText, with: "")
+                descriptionLabel.text = descriptionLabel.text?.replacingOccurrences(of: urlText, with: "")
                 var displayURL = _url["display_url"] as! String
                 if let expancedURL = _url["expanded_url"] {
                     displayURL = expancedURL as! String
@@ -55,7 +55,7 @@ class TweetCell: UICollectionViewCell {
         if displayURLS.count > 0 {
             
             
-            let content = descriptionTextView.text ?? ""
+            let content = descriptionLabel.text ?? ""
             let urlText = "\n" + displayURLS.joined(separator: "")
             let text = NSMutableAttributedString(string: content)
             let links = NSMutableAttributedString(string: urlText)
@@ -65,14 +65,14 @@ class TweetCell: UICollectionViewCell {
             style.lineSpacing = 5
             style.lineBreakMode = .byCharWrapping
             text.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: NSRange(location: 0, length: text.string.characters.count))
-            descriptionTextView.attributedText = text
+            descriptionLabel.attributedText = text
         }
         
         if let media = media {
             for medium in media {
                 
                 let urltext = medium["url"] as! String
-                self.descriptionTextView.text = self.descriptionTextView.text?.replacingOccurrences(of: urltext, with: "")
+                self.descriptionLabel.text = self.descriptionLabel.text?.replacingOccurrences(of: urltext, with: "")
                 if((medium["type"] as? String) == "photo") {
                     
                     let mediaUrl = medium["media_url_https"] as! String
@@ -80,7 +80,7 @@ class TweetCell: UICollectionViewCell {
                     self.mediaImageView.layer.cornerRadius = 5
                     self.mediaImageView.clipsToBounds = true;
                     self.mediaImageView.downloadedFrom(link: mediaUrl)
-                    self.delegate?.collectionView?.reloadData()
+                    self.delegate?.feedsCollectionView?.reloadData()
                 }
             }
         }
