@@ -15,8 +15,6 @@
 		AC51B5691F1F559E00A29D64 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B5681F1F559E00A29D64 /* DetailViewController.swift */; };
 		AC51B56B1F1F567500A29D64 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B56A1F1F567500A29D64 /* DetailCell.swift */; };
 		AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */; };
-		AC5671B81F161246007B81C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */; };
-		AC5671B91F161246007B81C9 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC5671B71F161246007B81C9 /* Starter.storyboard */; };
 		AC6CEFB51F2148F3005F2EC0 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6CEFB41F2148F3005F2EC0 /* PostCell.swift */; };
 		AC6DB21F1F1D8BF60036A9EB /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */; };
 		AC87C25D1F185C8D00588B22 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC87C25C1F185C8D00588B22 /* HomeViewController.swift */; };
@@ -52,11 +50,11 @@
 		AC23C2A91F24029F002DCF8E /* SignInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCell.swift; sourceTree = "<group>"; };
 		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
 		AC302FF11F18E05900DE94B0 /* FeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCell.swift; sourceTree = "<group>"; };
+		AC3D3F451F2B895400811120 /* Starter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Starter.storyboard; sourceTree = "<group>"; };
+		AC3D3F461F2B895400811120 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC51B5681F1F559E00A29D64 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AC51B56A1F1F567500A29D64 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
-		AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		AC5671B71F161246007B81C9 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = "../../../../Downloads/iMonocle-master/iMonocle/iMonocle/Starter.storyboard"; sourceTree = "<group>"; };
 		AC6CEFB41F2148F3005F2EC0 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		AC6DB21E1F1D8BF60036A9EB /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		AC87C25C1F185C8D00588B22 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +162,8 @@
 				ACEC503E1F0DA7E100887E46 /* Assets.xcassets */,
 				ACEC50431F0DA7E100887E46 /* Info.plist */,
 				AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */,
-				AC5671B61F161246007B81C9 /* LaunchScreen.storyboard */,
-				AC5671B71F161246007B81C9 /* Starter.storyboard */,
+				AC3D3F461F2B895400811120 /* LaunchScreen.storyboard */,
+				AC3D3F451F2B895400811120 /* Starter.storyboard */,
 				ACEC50491F0DA95F00887E46 /* DataSources */,
 				ACEC504C1F0DAAB500887E46 /* LoginController */,
 				ACEC504E1F0DAADE00887E46 /* MainControllers */,
@@ -304,9 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC5671B81F161246007B81C9 /* LaunchScreen.storyboard in Resources */,
 				ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */,
-				AC5671B91F161246007B81C9 /* Starter.storyboard in Resources */,
 				AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
