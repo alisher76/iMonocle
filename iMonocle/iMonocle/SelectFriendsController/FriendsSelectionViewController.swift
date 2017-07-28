@@ -51,7 +51,7 @@ class FriendsSelectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FriendsSelectionCell
-        cell.monocleUser = friends[indexPath.row]
+            cell.monocleUser = friends[indexPath.row]
         if currentSelectedFriends[cell.twitterUser.screenName] != nil {
             cell.layer.borderWidth = 2.0
             cell.layer.borderColor = UIColor.blue.cgColor

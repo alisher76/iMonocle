@@ -31,6 +31,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         didSet {
             FirebaseService.selectedUser = monocleFriends.first
             friendsCollectionView.reloadData()
+            if monocleFriends.count > 0 {
+            checkAccountType(monocleUser: monocleFriends[0])
+            }
         }
     }
     var monoclePosts = [MonoclePost]() {
@@ -118,11 +121,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     cell.dayLabel.text = "Friday"
                     return cell
                 } else {
+                    
                     switch monoclePosts[indexPath.row - 1] {
+                        
                     case .instagram(let value):
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: feedReuseIdentifier, for: indexPath) as! FeedsCell
                         cell.media = value
                         return cell
+                        
                     case .tweet(let value):
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseIdentifier, for: indexPath) as! TweetCell
                         cell.tweet = value
@@ -148,14 +154,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if indexPath.row == 0 {
                 showFriendsSelectionVC()
             } else {
-                switch monocleFriends[indexPath.row - 1] {
-                case .instagramUser(let value):
-                    getTweet(userID: value.uid)
-                case .twitterUser(let value):
-                    getTweet(userID: value.uid)
-                    FirebaseService.selectedUser = monocleFriends[indexPath.row - 1]
-                    FirebaseService.checkExistingFriendAccounts(monocleUser: monocleFriends[indexPath.row - 1])
-                }
+                checkAccountType(monocleUser: monocleFriends[indexPath.row - 1])
             }
             print("FriendsCell tapped at \(indexPath.row)")
         case segmentedControllerCollectionView:
@@ -181,7 +180,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if indexPath.row == 0 {
                 return CGSize(width: view.frame.width, height: 40)
             } else {
-                return CGSize(width: view.frame.width, height: 400)
+                return CGSize(width: view.frame.width - 40, height: 400)
             }
         default:
             return CGSize(width: 200, height: 400)
@@ -304,6 +303,18 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
             // show do you want to sign in?
             // delegate?.monoclePosts.removeAll()
         }
+    }
+    
+    func checkAccountType(monocleUser: MonocleUser) {
+        switch monocleUser {
+        case .instagramUser(let value):
+            getTweet(userID: value.uid)
+        case .twitterUser(let value):
+            getTweet(userID: value.uid)
+            FirebaseService.selectedUser = monocleUser
+            FirebaseService.checkExistingFriendAccounts(monocleUser: monocleUser)
+        }
+            
     }
 }
 

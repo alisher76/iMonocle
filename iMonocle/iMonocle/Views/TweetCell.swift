@@ -94,7 +94,8 @@ class TweetCell: UICollectionViewCell {
         self.mediaImageView.sizeToFit()
         self.mediaImageView.layer.cornerRadius = 5
         self.mediaImageView.clipsToBounds = true
-    
+        
+        self.backgroundColor = UIColor.white
         self.contentView.layer.cornerRadius = 5.0
         self.contentView.layer.borderWidth = 1.0
         self.contentView.layer.borderColor = UIColor.clear.cgColor
