@@ -31,6 +31,8 @@
 		AC9D91AB1F103A100084BB0C /* MonocleAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A91F103A100084BB0C /* MonocleAccount.swift */; };
 		AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */; };
 		ACB1060A1F1ABE1F00451036 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB106091F1ABE1F00451036 /* TweetCell.swift */; };
+		ACBD00471F2B940100E57FC8 /* Starter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBD00451F2B940000E57FC8 /* Starter.storyboard */; };
+		ACBD00481F2B940100E57FC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBD00461F2B940000E57FC8 /* LaunchScreen.storyboard */; };
 		ACCD7A131F23F71F00C7C7B0 /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */; };
 		ACD409511F117F660014E48B /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409501F117F660014E48B /* FirebaseDatabase.swift */; };
 		ACD409531F1405340014E48B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409521F1405340014E48B /* FirebaseService.swift */; };
@@ -50,8 +52,6 @@
 		AC23C2A91F24029F002DCF8E /* SignInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCell.swift; sourceTree = "<group>"; };
 		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
 		AC302FF11F18E05900DE94B0 /* FeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCell.swift; sourceTree = "<group>"; };
-		AC3D3F451F2B895400811120 /* Starter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Starter.storyboard; sourceTree = "<group>"; };
-		AC3D3F461F2B895400811120 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC51B5681F1F559E00A29D64 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AC51B56A1F1F567500A29D64 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		AC9D91A91F103A100084BB0C /* MonocleAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonocleAccount.swift; sourceTree = "<group>"; };
 		AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstagramMedia.swift; path = "../../../../FINAL PROJECT /Monocle/Monocle/InstagramMedia.swift"; sourceTree = "<group>"; };
 		ACB106091F1ABE1F00451036 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		ACBD00451F2B940000E57FC8 /* Starter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Starter.storyboard; path = ../../../../Pictures/Starter.storyboard; sourceTree = "<group>"; };
+		ACBD00461F2B940000E57FC8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../Pictures/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
 		ACD409501F117F660014E48B /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		ACD409521F1405340014E48B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -162,8 +164,8 @@
 				ACEC503E1F0DA7E100887E46 /* Assets.xcassets */,
 				ACEC50431F0DA7E100887E46 /* Info.plist */,
 				AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */,
-				AC3D3F461F2B895400811120 /* LaunchScreen.storyboard */,
-				AC3D3F451F2B895400811120 /* Starter.storyboard */,
+				ACBD00461F2B940000E57FC8 /* LaunchScreen.storyboard */,
+				ACBD00451F2B940000E57FC8 /* Starter.storyboard */,
 				ACEC50491F0DA95F00887E46 /* DataSources */,
 				ACEC504C1F0DAAB500887E46 /* LoginController */,
 				ACEC504E1F0DAADE00887E46 /* MainControllers */,
@@ -303,7 +305,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */,
+				ACBD00481F2B940100E57FC8 /* LaunchScreen.storyboard in Resources */,
 				AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */,
+				ACBD00471F2B940100E57FC8 /* Starter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,7 +520,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -531,7 +535,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

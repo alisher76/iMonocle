@@ -14,8 +14,9 @@ private let feedReuseIdentifier = "feedCell"
 private let tweetReuseIdentifier = "tweetCell"
 private let friendsReuseIdentifier = "friendsCell"
 private let signInReuseIdentifier = "signInCell"
+private let dateReuseIdentifier = "dateCell"
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let menuImagesNames = ["MFilled", "Twitter", "InstagramLogo", "MoreFilled"]
     fileprivate let transition = PopAnimator()
@@ -34,7 +35,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     var monoclePosts = [MonoclePost]() {
         didSet {
-            // to do collectionView?.reloadData()
+            feedsCollectionView?.reloadData()
         }
     }
     
@@ -84,8 +85,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if collectionView == friendsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: friendsReuseIdentifier, for: indexPath) as! FriendsCell
-            cell.monocleUser = monocleFriends[indexPath.row - 1]
-            return cell
+            
+            if indexPath.row == 0 { cell.imageView.image = UIImage(named: "add") }
+            
+            if monocleFriends.count != 0 && indexPath.row >= 1 {
+                switch monocleFriends[indexPath.row - 1] {
+                case .instagramUser(let user):
+                    cell.imageView.downloadedFrom(link: user.image)
+                case .twitterUser(let user):
+                    cell.imageView.downloadedFrom(link: user.image)
+                }
+            }
+                return cell
+                
             
         } else if collectionView == segmentedControllerCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: menuReuseIdentifier, for: indexPath) as! MenuCell
@@ -101,7 +113,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             if monoclePosts.count != 0 {
                 if indexPath.row == 0 {
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tweetReuseIdentifier, for: indexPath) as! DateCell
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateReuseIdentifier, for: indexPath) as! DateCell
                     cell.dateLabel.text = "July 27th"
                     cell.dayLabel.text = "Friday"
                     return cell
@@ -132,7 +144,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case friendsCollectionView:
-            //let cell = collectionView.cellForItem(at: indexPath) as! FriendsCell
+            let cell = collectionView.cellForItem(at: indexPath) as! FriendsCell
             if indexPath.row == 0 {
                 showFriendsSelectionVC()
             } else {
@@ -164,7 +176,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         case friendsCollectionView:
             return Utility.shared.CGSizeMake(friendsCollectionView.frame.width/6, friendsCollectionView.frame.height)
         case segmentedControllerCollectionView:
-            return CGSize(width: view.frame.width, height: 60)
+            return CGSize(width: (view.frame.width / 4) - 10, height: 40)
         case feedsCollectionView:
             if indexPath.row == 0 {
                 return CGSize(width: view.frame.width, height: 40)

@@ -24,6 +24,16 @@ enum MonocleUser {
         }
     }
     
+    func returnConvertedUser(monocleUser: MonocleUser) -> (instagram: InstagramUser?, twitter: TwitterUser?) {
+        
+        switch monocleUser {
+        case .instagramUser(let user):
+            return (instagram: user, twitter: nil)
+        case .twitterUser(let user):
+            return (instagram: nil, twitter: user)
+        }
+    }
+    
 }
 
 

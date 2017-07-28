@@ -8,13 +8,8 @@
 
 import UIKit
 
-class FriendsCell: BaseCell {
+class FriendsCell: UICollectionViewCell {
     
-    var monocleUser: MonocleUser? {
-        didSet {
-            
-        }
-    }
     
     var imageView:UIImageView = {
         let iv = UIImageView()
@@ -38,8 +33,7 @@ class FriendsCell: BaseCell {
         }
     }
     
-   override func setUpViews() {
-       super.setUpViews()
+    override func awakeFromNib() {
         addSubview(imageView)
         addConstraintsWithFormat(format: "H:[v0(50)]", views: imageView)
         addConstraintsWithFormat(format: "V:[v0(50)]", views: imageView)
@@ -47,18 +41,3 @@ class FriendsCell: BaseCell {
         addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
     }
 }
-
-class BaseCell:UICollectionViewCell{
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpViews()
-    }
-    
-    func setUpViews(){
-        
-    }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-

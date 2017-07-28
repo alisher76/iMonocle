@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuCell: BaseCell {
+class MenuCell: UICollectionViewCell {
     
     var imageView:UIImageView = {
         let iv = UIImageView()
@@ -30,8 +30,7 @@ class MenuCell: BaseCell {
         }
     }
     
-    override func setUpViews() {
-        super.setUpViews()
+    override func awakeFromNib() {
         addSubview(imageView)
         addConstraintsWithFormat(format: "H:[v0(28)]", views: imageView)
         addConstraintsWithFormat(format: "V:[v0(28)]", views: imageView)

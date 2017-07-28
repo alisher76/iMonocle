@@ -19,10 +19,10 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         let accessToken = userDefault.object(forKey: "twitterAccessToken") as? String
         
-        if Auth.auth().currentUser != nil {
-            if accessToken != nil {
-                self.showFriendsSelectionVC() }
-        }
+//        if Auth.auth().currentUser != nil {
+//            if accessToken != nil {
+//                self.showFriendsSelectionVC() }
+//        }
     }
     
 
