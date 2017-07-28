@@ -352,10 +352,10 @@
             </objects>
             <point key="canvasLocation" x="303" y="38"/>
         </scene>
-        <!--Friends Selection View Controller-->
+        <!--FriendsSelectionVC-->
         <scene sceneID="zJV-hV-rFX">
             <objects>
-                <collectionViewController id="mOK-Xg-eeh" customClass="FriendsSelectionViewController" customModule="iMonocle" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="FriendsSelectionVC" title="FriendsSelectionVC" id="mOK-Xg-eeh" customClass="FriendsSelectionViewController" customModule="iMonocle" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0tD-Ul-sFd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -367,7 +367,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5Oo-Pu-ifj" customClass="FriendsSelectionCell" customModule="iMonocle" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendsCell" id="5Oo-Pu-ifj" customClass="FriendsSelectionCell" customModule="iMonocle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
