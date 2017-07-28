@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet weak var feedsCollectionView: UICollectionView!
     
-    
+    var selectedFriend: MonocleUser!
     var monocleFriends = [MonocleUser]() {
         didSet {
             FirebaseService.selectedUser = monocleFriends.first
@@ -67,12 +67,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let menuBarButton = UIBarButtonItem(image: menuImage, style: .plain, target: self, action: #selector(handleMenu))
         navigationItem.leftBarButtonItem = menuBarButton
     }
-    
+    //: MARK - Number of sections
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
+    //: MARK - NumberOfItems Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == friendsCollectionView {
             return monocleFriends.count + 1
@@ -83,7 +83,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         return 0
     }
-    
+    //: MARK - Cell for Item At Collection VC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == friendsCollectionView {
@@ -146,8 +146,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    
+    //: MARK -  DidSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedFriend = monocleFriends[indexPath.row]
         switch collectionView {
         case friendsCollectionView:
             let cell = collectionView.cellForItem(at: indexPath) as! FriendsCell
@@ -156,16 +157,37 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             } else {
                 checkAccountType(monocleUser: monocleFriends[indexPath.row - 1])
             }
-            print("FriendsCell tapped at \(indexPath.row)")
-        case segmentedControllerCollectionView:
-            //let cell = collectionView.cellForItem(at: indexPath) as! MenuCell
             
-            print("MenuCell tapped at \(indexPath.row)")
+        case segmentedControllerCollectionView:
+            //checkAccountType(monocleUser: monocleFriends[indexPath.row])
+            switch indexPath.row {
+            case 0:
+                print("MonocleTapped")
+                
+            case 1:
+                print("TwitterTapped")
+                getTweet(userID: "")
+            case 2:
+                print("InstagramTapped")
+                monoclePosts.removeAll()
+            case 3:
+                print("MoreTapped")
+            default:
+                break
+            }
         case feedsCollectionView:
             let cell = collectionView.cellForItem(at: indexPath) as! FeedsCell
             print("FeedsCell tapped at \(indexPath.row)")
         default:
             break
+        }
+    }
+    // Mark: TO:DO
+    func updateSegmentMenu(index: Int) {
+        if index == 0 {
+            // getMonoclePost()
+        } else if index == 1 {
+            getTweet(userID: "")
         }
     }
     
@@ -178,7 +200,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return CGSize(width: (view.frame.width / 4) - 10, height: 40)
         case feedsCollectionView:
             if indexPath.row == 0 {
-                return CGSize(width: view.frame.width, height: 40)
+                return CGSize(width: view.frame.width, height: 100)
             } else {
                 return CGSize(width: view.frame.width - 40, height: 400)
             }
@@ -306,16 +328,30 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
     }
     
     func checkAccountType(monocleUser: MonocleUser) {
+        
         switch monocleUser {
         case .instagramUser(let value):
-            getTweet(userID: value.uid)
+            monoclePosts.removeAll()
+            getUserTimeline(userID: value.uid)
         case .twitterUser(let value):
             getTweet(userID: value.uid)
             FirebaseService.selectedUser = monocleUser
-            FirebaseService.checkExistingFriendAccounts(monocleUser: monocleUser)
+            if FirebaseService.checkExistingFriendAccounts(monocleUser: monocleUser) == true {
+                print("Has InstagramAccount")
+                monoclePosts.removeAll()
+                // GetInstaFeed
+            } else {
+               print("no instagram account")
+                monoclePosts.removeAll()
+            }
         }
-            
     }
+    
+    // if no do you want to connect?
+    func addInstagramFriend() {
+        
+    }
+    
 }
 
 

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -279,15 +280,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account has not been linked yet would like to add account?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi6-AV-qQN">
-                                                    <rect key="frame" x="31" y="7" width="274" height="36"/>
+                                                    <rect key="frame" x="30" y="13" width="277" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="277" id="cc8-X7-5Cs"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USc-tG-DAD">
-                                                    <rect key="frame" x="145" y="48" width="46" height="30"/>
+                                                    <rect key="frame" x="30" y="53" width="277" height="30"/>
+                                                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="46" id="v0a-uX-dQZ"/>
+                                                        <constraint firstAttribute="width" constant="277" id="ic1-ho-3nS"/>
                                                     </constraints>
                                                     <state key="normal" title="Yes"/>
                                                     <connections>
@@ -297,11 +302,11 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="USc-tG-DAD" firstAttribute="top" secondItem="Hi6-AV-qQN" secondAttribute="bottom" constant="5" id="DlS-Hm-Nc3"/>
-                                            <constraint firstItem="Hi6-AV-qQN" firstAttribute="leading" secondItem="OgW-TF-qhv" secondAttribute="leading" constant="31" id="KtS-Uk-6Bk"/>
-                                            <constraint firstItem="USc-tG-DAD" firstAttribute="centerX" secondItem="Hi6-AV-qQN" secondAttribute="centerX" id="PbT-m9-EDl"/>
-                                            <constraint firstItem="Hi6-AV-qQN" firstAttribute="top" secondItem="OgW-TF-qhv" secondAttribute="top" constant="7" id="lhZ-Vu-blv"/>
-                                            <constraint firstAttribute="trailing" secondItem="Hi6-AV-qQN" secondAttribute="trailing" constant="32" id="veA-zI-EiF"/>
+                                            <constraint firstItem="Hi6-AV-qQN" firstAttribute="leading" secondItem="OgW-TF-qhv" secondAttribute="leadingMargin" constant="22" id="6Ls-Gf-3OG"/>
+                                            <constraint firstItem="Hi6-AV-qQN" firstAttribute="top" secondItem="OgW-TF-qhv" secondAttribute="topMargin" constant="5" id="7sA-mk-ixG"/>
+                                            <constraint firstItem="USc-tG-DAD" firstAttribute="top" secondItem="Hi6-AV-qQN" secondAttribute="bottom" constant="4" id="MHi-13-bV7"/>
+                                            <constraint firstItem="USc-tG-DAD" firstAttribute="leading" secondItem="OgW-TF-qhv" secondAttribute="leading" constant="30" id="Oyd-Xk-81e"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Hi6-AV-qQN" secondAttribute="trailing" constant="22" id="wIo-X9-IsU"/>
                                         </constraints>
                                         <size key="customSize" width="337" height="100"/>
                                         <connections>
