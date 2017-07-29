@@ -436,5 +436,38 @@
             </objects>
             <point key="canvasLocation" x="302" y="741"/>
         </scene>
+        <!--AuthInstagramViewController-->
+        <scene sceneID="cx2-zE-eNm">
+            <objects>
+                <viewController storyboardIdentifier="AuthInstagramViewController" title="AuthInstagramViewController" id="8Yh-Da-8fa" customClass="AuthInstagramViewController" customModule="iMonocle" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j2U-ig-xqs"/>
+                        <viewControllerLayoutGuide type="bottom" id="YmU-Nh-Mz9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UD2-dQ-Cyp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ua-rp-sQx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YmU-Nh-Mz9" firstAttribute="top" secondItem="9Ua-rp-sQx" secondAttribute="bottom" id="B3a-d4-886"/>
+                            <constraint firstItem="9Ua-rp-sQx" firstAttribute="top" secondItem="UD2-dQ-Cyp" secondAttribute="top" id="FXs-Gm-Hii"/>
+                            <constraint firstItem="9Ua-rp-sQx" firstAttribute="leading" secondItem="UD2-dQ-Cyp" secondAttribute="leading" id="G1K-ax-AON"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ua-rp-sQx" secondAttribute="trailing" id="hl0-go-oOV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webViewOutlet" destination="9Ua-rp-sQx" id="s35-z6-Dkg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyK-oR-nBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152.8" y="921.58920539730138"/>
+        </scene>
     </scenes>
 </document>

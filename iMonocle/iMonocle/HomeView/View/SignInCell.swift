@@ -11,7 +11,7 @@ import UIKit
 class SignInCell: UICollectionViewCell {
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+    var delegate: HomeViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +21,6 @@ class SignInCell: UICollectionViewCell {
     
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        print("Yes Tapped")
+        delegate?.authInstagramVC()
     }
 }

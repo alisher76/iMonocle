@@ -1,5 +1,5 @@
 //
-//  FriendsCollecViewController.swift
+//  FriendsCell.swift
 //  iMonocle
 //
 //  Created by Alisher Abdukarimov on 7/13/17.
