@@ -21,29 +21,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var feedsCollectionView: UICollectionView!
     
     var selectedFriend: MonocleUser!
-    
-    var monocleFriends = [MonocleUser]() {
-        didSet {
-            FirebaseService.selectedUser = monocleFriends.first
-            friendsCollectionView.reloadData()
-        }
-    }
-    var monoclePosts = [MonoclePost]() {
-        didSet {
-            feedsCollectionView?.reloadData()
-        }
-    }
+    var monoclePostsStore: MonoclePostStore!
+    var monocleUsersStore: MonocleUserStore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupDelegateForCollectionView()
-      //  setupMenuBar()
+        setupDelegate()
+        monocleUsersStore.getCurrentListOfFriends()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        monocleFriends.removeAll()
-        getCurrentListOfFriends()
+        monocleUsersStore.monocleUsers.removeAll()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,7 +57,7 @@ class HomeViewController: UIViewController {
             if indexPath.row == 0 {
                 showFriendsSelectionVC()
             } else {
-                selectedFriend = monocleFriends[indexPath.row - 1]
+                monoclePostsStore.checkAccount(monocleUser: monocleUsersStore.monocleUsers[indexPath.row - 1])
             }
         case segmentedControllerCollectionView:
              updateSegmentMenu(index: indexPath.row)
@@ -81,17 +70,14 @@ class HomeViewController: UIViewController {
     }
     
     // Mark: TO:DO
-    
     func updateSegmentMenu(index: Int) {
         switch index {
         case 0:
             print("MonocleTapped")
         case 1:
             print("TwitterTapped")
-            getTweet(userID: "")
         case 2:
             print("InstagramTapped")
-            //checkAccountType(monocleUser: monocleFriends[index])
         case 3:
             print("MoreTapped")
         default:
@@ -103,38 +89,6 @@ class HomeViewController: UIViewController {
         print("HandleMenu")
     }
     
-    //: MARK Get current list of friends from firebase
-    func getCurrentListOfFriends() {
-        FirebaseService.currentListOfFriends { (users) in
-            for (_,value) in users {
-                self.monocleFriends.append(value)
-            }
-            self.friendsCollectionView.reloadData()
-        }
-    }
-    
-    func getTweet(userID: String) {
-        TwitterClient.sharedInstance?.getUserTimelineTweet(userID: userID, success: { (tweets) in
-            var monoclePosts = [MonoclePost]()
-            for tweet in tweets {
-                let monoclePost = MonoclePost.tweet(tweet)
-                monoclePosts.append(monoclePost)
-            }
-            self.monoclePosts = monoclePosts
-        }, failure: { (error) in
-            print("WhatsGoindOn")
-        })
-        feedsCollectionView.reloadData()
-    }
-    
-    func getUserTimeline(userID: String) {
-        
-        TwitterClient.sharedInstance?.getUserTimeline(userID: userID, success: { (tweets) in
-            self.monoclePosts = tweets
-        }, failure: { (error) in
-            print("error")
-        })
-    }
     
     func showFriendsSelectionVC() {
         let storyboard = UIStoryboard(name: "Starter", bundle: nil)
@@ -142,13 +96,7 @@ class HomeViewController: UIViewController {
         self.show(vc, sender: self)
     }
     
-    func authInstagramVC() {
-        let storyboard = UIStoryboard(name: "Starter", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "AuthInstagramViewController") as! AuthInstagramViewController
-        self.show(vc, sender: self)
-    }
-    
-    func setupDelegateForCollectionView() {
+    func setupDelegate() {
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         
@@ -157,50 +105,20 @@ class HomeViewController: UIViewController {
         
         feedsCollectionView.delegate = self
         feedsCollectionView.dataSource = self
+        
+        monoclePostsStore.delegate = self
+        monocleUsersStore.delegate = self
+        
+        Instagram().delegate = self
     }
     
     func instagramSignIn() {
         let userDefault = UserDefaults.standard
         let accessToken = userDefault.object(forKey: "instagramAccessToken") as? String
         if accessToken != nil {
-            // get friends list
-            let hasInstagramAccountConnected = FirebaseService.checkExistingFriendAccounts(monocleUser: FirebaseService.selectedUser!)
-            if hasInstagramAccountConnected {
-                
-            } else {
-                //                delegate?.monoclePosts.removeAll()
-                self.feedsCollectionView?.reloadData()
-            }
-        } else {
             // show do you want to sign in?
             // delegate?.monoclePosts.removeAll()
         }
-    }
-    
-    func checkAccountType(monocleUser: MonocleUser) {
-        
-        switch monocleUser {
-        case .instagramUser(let value):
-            monoclePosts.removeAll()
-            print(value)
-           // getUserTimeline(userID: value.uid)
-        case .twitterUser(let value):
-            getTweet(userID: value.uid)
-            FirebaseService.selectedUser = monocleUser
-            if FirebaseService.checkExistingFriendAccounts(monocleUser: monocleUser) == true {
-                print("Has InstagramAccount")
-                monoclePosts.removeAll()
-                // GetInstaFeed
-            } else {
-                print("no instagram account")
-                monoclePosts.removeAll()
-            }
-        }
-    }
-    
-    // if no do you want to connect?
-    func addInstagramFriend() {
-        
     }
     
 }

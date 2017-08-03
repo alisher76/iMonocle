@@ -34,7 +34,40 @@ enum MonocleUser {
         }
     }
     
+    static func array(json: [[String:Any]]) -> [MonocleUser]? {
+        
+        var converted = [MonocleUser]()
+        for user in json {
+            print(user)
+            if let feedType = MonocleUser(json: user){
+                converted.append(feedType)
+            }else{
+                return nil
+            }
+        }
+        return converted
+    }
+    
 }
 
-
+class MonocleUserStore {
+    
+    var delegate: HomeViewController?
+    
+    var monocleUsers = [MonocleUser]() {
+        didSet {
+            delegate?.friendsCollectionView.reloadData()
+            FirebaseService.selectedUser = monocleUsers.first
+        }
+    }
+    
+    func getCurrentListOfFriends() {
+        FirebaseService.currentListOfFriends { (users) in
+            for (_,value) in users {
+                self.monocleUsers.append(value)
+            }
+        }
+    }
+    
+}
 

@@ -20,11 +20,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     //: MARK - NumberOfItems Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == friendsCollectionView {
-            return monocleFriends.count + 1
+            return monocleUsersStore.monocleUsers.count + 1
         } else if collectionView == segmentedControllerCollectionView {
             return 4
         } else if collectionView == feedsCollectionView {
-            return monoclePosts.count + 1
+            return monoclePostsStore.monoclePosts.count + 1
         }
         return 0
     }
@@ -36,8 +36,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryboardIdentifier.friendsReuseIdentifier.rawValue, for: indexPath) as! FriendsCell
             if indexPath.row == 0 { cell.imageView.image = UIImage(named: "add") }
             
-            if monocleFriends.count != 0 && indexPath.row >= 1 {
-                switch monocleFriends[indexPath.row - 1] {
+            if monocleUsersStore.monocleUsers.count != 0 && indexPath.row >= 1 {
+                switch monocleUsersStore.monocleUsers[indexPath.row - 1] {
                 case .instagramUser(let user):
                     cell.imageView.downloadedFrom(link: user.image)
                 case .twitterUser(let user):
@@ -59,7 +59,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
         } else if collectionView == feedsCollectionView {
             
-            if monoclePosts.count != 0 {
+            if monoclePostsStore.monoclePosts.count != 0 {
                 if indexPath.row == 0 {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryboardIdentifier.dateReuseIdentifier.rawValue, for: indexPath) as! DateCell
                     cell.dateLabel.text = "July 27th"
@@ -67,7 +67,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     return cell
                 } else {
                     
-                    switch monoclePosts[indexPath.row - 1] {
+                    switch monoclePostsStore.monoclePosts[indexPath.row - 1] {
                         
                     case .instagram(let value):
                         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryboardIdentifier.feedReuseIdentifier.rawValue, for: indexPath) as! FeedsCell
@@ -81,14 +81,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     }
                 }
             } else {
-                // show do want to add ?
+                // show do you want to add account?
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryboardIdentifier.signInReuseIdentifier.rawValue, for: indexPath) as! SignInCell
-                cell.delegate = self
                 return cell
             }
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryboardIdentifier.signInReuseIdentifier.rawValue, for: indexPath) as! SignInCell
-            cell.delegate = self
             return cell
         }
     }

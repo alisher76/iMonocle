@@ -13,6 +13,13 @@ import Alamofire
 class Instagram {
     
     let client_id = "ac00ba2a3ad64cc8b4a180dcc5869e49"
+    var delegate: HomeViewController?
+    
+    func authInstagramVC() {
+        let storyboard = UIStoryboard(name: "Starter", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AuthInstagramViewController") as! AuthInstagramViewController
+        delegate?.show(vc, sender: self)
+    }
     
     // Turn friends list data into needed Type
     func populateFriendsList(_ data: Any?, callback: ([InstagramUser]) -> Void) {
@@ -32,7 +39,7 @@ class Instagram {
         }
     }
     // Get Monocle Converted list of friends
-    func populateFriendsListMonacle(accessToken: String, callback: @escaping ([MonocolAccount]) -> Void) {
+    func populateFriendsListMonacle(accessToken: String, callback: @escaping ([MonocleUser]) -> Void) {
         
         request("https://api.instagram.com/v1/users/self/follows?access_token=\(accessToken)", method: .get).responseJSON { (responce) in
             
@@ -43,7 +50,7 @@ class Instagram {
                 let friendAccount: [String:Any] = ["fullName" : data["full_name"].stringValue, "userName" : data["username"].stringValue, "uid" : data["id"].stringValue, "image" : data["profile_picture"].stringValue, "accountType" : "instagram"]
                 friendsInstaAccount.append(friendAccount)
             }
-            guard let back = MonocolAccount.array(json: friendsInstaAccount) else {return}
+            guard let back = MonocleUser.array(json: friendsInstaAccount) else {return}
             callback(back)
         }
     }
@@ -84,7 +91,7 @@ class Instagram {
         
         request("https://api.instagram.com/v1/users/\(id)/media/recent/?access_token=\(accessToken)", method: .get).responseJSON { (responce) in
             
-            var posts: [NSDictionary] = []
+            var posts: [[String:Any]] = []
             let media = JSON(responce.result.value!)
             for _media in media["data"].arrayValue {
                 var comments: [Comment] = []
@@ -93,7 +100,7 @@ class Instagram {
                 }
                 
                 let _posts: [String:Any] = ["takenPhoto" : _media["images"]["standard_resolution"]["url"].stringValue, "uid" : _media["user"]["id"].stringValue, "username": _media["user"]["username"].stringValue, "avatarURL" : _media["user"]["profile_picture"].stringValue, "caption" : _media["caption"]["text"].stringValue, "comments" : comments, "time" : _media["created_time"].intValue, "likes" : _media["item"]["count"].intValue, "postType" : "instaFeed"]
-                posts.append(_posts as NSDictionary)
+                posts.append(_posts)
             }
             guard let back = MonoclePost.array(json: posts) else {
                 print("Something went wrong")

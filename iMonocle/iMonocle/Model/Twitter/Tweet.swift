@@ -49,7 +49,7 @@ class Tweet {
         }
     }
     
-    init?(dictionary: NSDictionary, postType: String) {
+    init?(dictionary: [String:Any], postType: String) {
         
         precedingTweetID = dictionary[Tweet.precedingTweetIDKey] as? Int
         userRef = dictionary[Tweet.userRefKey] as? [String:Any]
@@ -80,7 +80,7 @@ class Tweet {
         
     }
     
-    class func tweetWithArray(dictionaries: [NSDictionary], postType: String = "tweet") -> [Tweet] {
+    class func tweetWithArray(dictionaries: [[String:Any]], postType: String = "tweet") -> [Tweet] {
         var tweets = [Tweet]()
         
         for dictionary in dictionaries {

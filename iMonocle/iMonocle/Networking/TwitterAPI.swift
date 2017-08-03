@@ -93,13 +93,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    func getUserTimeline(userID: String, success: @escaping ([MonoclePost]) -> (), failure: @escaping (NSError) -> ()) {
+    func getUserTimeline(userID: String, success: @escaping ([MonoclePost]) -> (), failure: @escaping (Error) -> ()) {
         
         let params = ["count": 10]
         var back = [MonoclePost]()
         get("1.1/statuses/user_timeline.json?user_id=\(userID)", parameters: params, progress: nil, success: { (task, responce) in
             
-            let dictionary = responce as! [NSDictionary]
+            let dictionary = responce as! [[String:Any]]
             let tweets = Tweet.tweetWithArray(dictionaries: dictionary)
             for tweet in tweets {
                 let monocolePost = MonoclePost.tweet(tweet)
@@ -111,13 +111,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    func getUserTimelineTweet(userID: String, success: @escaping ([Tweet]) -> (), failure: @escaping (NSError) -> ()) {
+    func getUserTimelineTweet(userID: String, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
         
         let params = ["count": 10]
         
         get("1.1/statuses/user_timeline.json?user_id=\(userID)", parameters: params, progress: nil, success: { (task, responce) in
             
-            let dictionary = responce as! [NSDictionary]
+            let dictionary = responce as! [[String:Any]]
             let tweets = Tweet.tweetWithArray(dictionaries: dictionary)
             success(tweets)
         }) { (task, error) in

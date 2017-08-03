@@ -41,7 +41,7 @@ class Media {
         self.postType = postType
     }
     
-    convenience init?(json: NSDictionary, accountType: String?) {
+    convenience init?(json: [String:Any], accountType: String?) {
         guard let takenPhoto = json[Media.takenPhotoKey] as? String,
             let uid = json[Media.uidKey] as? String,
             let username = json[Media.usernameKey] as? String,
