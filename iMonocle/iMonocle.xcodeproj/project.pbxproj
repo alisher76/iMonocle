@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F97C5A0D83F1E75EC6492DD /* Pods_iMonocleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */; };
 		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
 		AC1292371F2229630032FB1B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1292361F2229630032FB1B /* Extensions.swift */; };
 		AC22C44F1F32C011009E7CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC22C44E1F32C011009E7CEA /* Main.storyboard */; };
 		AC22C4511F32C065009E7CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC22C4501F32C065009E7CEA /* LaunchScreen.storyboard */; };
 		AC23C2AA1F24029F002DCF8E /* SignInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC23C2A91F24029F002DCF8E /* SignInCell.swift */; };
+		AC2C1E641F33A64B0025CA07 /* iMonocleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */; };
 		AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FED1F18D1FF00DE94B0 /* Utitility.swift */; };
 		AC302FF21F18E05900DE94B0 /* FeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FF11F18E05900DE94B0 /* FeedsCell.swift */; };
 		AC51B5691F1F559E00A29D64 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B5681F1F559E00A29D64 /* DetailViewController.swift */; };
@@ -46,13 +48,29 @@
 		ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC505D1F0ED88300887E46 /* TwitterUser.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC2C1E661F33A64B0025CA07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACEC502C1F0DA7E100887E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEC50331F0DA7E100887E46;
+			remoteInfo = iMonocle;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		4AFF3B62B2DC592896C38E87 /* Pods-iMonocleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.release.xcconfig"; sourceTree = "<group>"; };
 		5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.debug.xcconfig"; sourceTree = "<group>"; };
+		81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMonocleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1292361F2229630032FB1B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AC22C44E1F32C011009E7CEA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AC22C4501F32C065009E7CEA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC23C2A91F24029F002DCF8E /* SignInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCell.swift; sourceTree = "<group>"; };
+		AC2C1E611F33A64B0025CA07 /* iMonocleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMonocleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMonocleTests.swift; sourceTree = "<group>"; };
+		AC2C1E651F33A64B0025CA07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
 		AC302FF11F18E05900DE94B0 /* FeedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCell.swift; sourceTree = "<group>"; };
 		AC51B5681F1F559E00A29D64 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +109,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AC2C1E5E1F33A64B0025CA07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F97C5A0D83F1E75EC6492DD /* Pods_iMonocleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACEC50311F0DA7E100887E46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +134,7 @@
 			children = (
 				AC9D919E1F1015F40084BB0C /* SafariServices.framework */,
 				B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */,
+				A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,8 +144,19 @@
 			children = (
 				5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */,
 				5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */,
+				4AFF3B62B2DC592896C38E87 /* Pods-iMonocleTests.debug.xcconfig */,
+				81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC2C1E621F33A64B0025CA07 /* iMonocleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */,
+				AC2C1E651F33A64B0025CA07 /* Info.plist */,
+			);
+			path = iMonocleTests;
 			sourceTree = "<group>";
 		};
 		AC302FEC1F18D1EC00DE94B0 /* Utility */ = {
@@ -144,8 +182,9 @@
 		ACBD00511F2D1CDF00E57FC8 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				ACBD00531F2D1D1700E57FC8 /* View */,
 				ACBD00521F2D1D0B00E57FC8 /* Controller */,
+				ACEC50501F0DAB0400887E46 /* Model */,
+				ACBD00531F2D1D1700E57FC8 /* View */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -227,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEC50361F0DA7E100887E46 /* iMonocle */,
+				AC2C1E621F33A64B0025CA07 /* iMonocleTests */,
 				ACEC50351F0DA7E100887E46 /* Products */,
 				3F9038B97D61B2116E660463 /* Pods */,
 				3607AE684AD02A26974AD60D /* Frameworks */,
@@ -237,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEC50341F0DA7E100887E46 /* iMonocle.app */,
+				AC2C1E611F33A64B0025CA07 /* iMonocleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,7 +294,6 @@
 				ACEC504E1F0DAADE00887E46 /* DetailView */,
 				ACBD00511F2D1CDF00E57FC8 /* HomeView */,
 				ACEC504C1F0DAAB500887E46 /* LoginController */,
-				ACEC50501F0DAB0400887E46 /* Model */,
 				ACEC50491F0DA95F00887E46 /* Networking */,
 				ACEC504D1F0DAACF00887E46 /* SelectFriendsView */,
 				AC302FEC1F18D1EC00DE94B0 /* Utility */,
@@ -313,6 +353,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AC2C1E601F33A64B0025CA07 /* iMonocleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC2C1E681F33A64B0025CA07 /* Build configuration list for PBXNativeTarget "iMonocleTests" */;
+			buildPhases = (
+				8FBED4FC8FC2A805DEC4E796 /* [CP] Check Pods Manifest.lock */,
+				AC2C1E5D1F33A64B0025CA07 /* Sources */,
+				AC2C1E5E1F33A64B0025CA07 /* Frameworks */,
+				AC2C1E5F1F33A64B0025CA07 /* Resources */,
+				440BCFBCCE105BB920CD3B8C /* [CP] Embed Pods Frameworks */,
+				81F020379D7E3345CEA43A98 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC2C1E671F33A64B0025CA07 /* PBXTargetDependency */,
+			);
+			name = iMonocleTests;
+			productName = iMonocleTests;
+			productReference = AC2C1E611F33A64B0025CA07 /* iMonocleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ACEC50331F0DA7E100887E46 /* iMonocle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACEC50461F0DA7E100887E46 /* Build configuration list for PBXNativeTarget "iMonocle" */;
@@ -343,6 +404,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = MrAliGorithm;
 				TargetAttributes = {
+					AC2C1E601F33A64B0025CA07 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = ACEC50331F0DA7E100887E46;
+					};
 					ACEC50331F0DA7E100887E46 = {
 						CreatedOnToolsVersion = 9.0;
 					};
@@ -362,11 +427,19 @@
 			projectRoot = "";
 			targets = (
 				ACEC50331F0DA7E100887E46 /* iMonocle */,
+				AC2C1E601F33A64B0025CA07 /* iMonocleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AC2C1E5F1F33A64B0025CA07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACEC50321F0DA7E100887E46 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -381,6 +454,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		440BCFBCCE105BB920CD3B8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81F020379D7E3345CEA43A98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FBED4FC8FC2A805DEC4E796 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9E7CA5970CB01F8F7173A03F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,6 +547,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AC2C1E5D1F33A64B0025CA07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2C1E641F33A64B0025CA07 /* iMonocleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACEC50301F0DA7E100887E46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,7 +595,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AC2C1E671F33A64B0025CA07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEC50331F0DA7E100887E46 /* iMonocle */;
+			targetProxy = AC2C1E661F33A64B0025CA07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		AC2C1E691F33A64B0025CA07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AFF3B62B2DC592896C38E87 /* Pods-iMonocleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMonocle.app/iMonocle";
+			};
+			name = Debug;
+		};
+		AC2C1E6A1F33A64B0025CA07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMonocle.app/iMonocle";
+			};
+			name = Release;
+		};
 		ACEC50441F0DA7E100887E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -610,6 +776,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC2C1E681F33A64B0025CA07 /* Build configuration list for PBXNativeTarget "iMonocleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC2C1E691F33A64B0025CA07 /* Debug */,
+				AC2C1E6A1F33A64B0025CA07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		ACEC502F1F0DA7E100887E46 /* Build configuration list for PBXProject "iMonocle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -83,7 +83,7 @@ class MonoclePostStore {
                 print("Has InstagramAccount")
                 monoclePosts.removeAll()
                 // GetInstaFeed
-                getMonacleFriendTimelineFor(oTwitterID: value.uid, oInstagramID: nil)
+                getMonacleFriendTimelineFor(oTwitterID: value.uid, oInstagramID: value.uid)
             } else {
                 print("no instagram account")
                 monoclePosts.removeAll()

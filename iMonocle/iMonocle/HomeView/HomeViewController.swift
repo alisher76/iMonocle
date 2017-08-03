@@ -27,12 +27,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
-        monocleUsersStore.getCurrentListOfFriends()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         monocleUsersStore.monocleUsers.removeAll()
+        monocleUsersStore.getCurrentListOfFriends()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,7 +91,7 @@ class HomeViewController: UIViewController {
     
     
     func showFriendsSelectionVC() {
-        let storyboard = UIStoryboard(name: "Starter", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "FriendsSelectionVC") as! FriendsSelectionViewController
         self.show(vc, sender: self)
     }
