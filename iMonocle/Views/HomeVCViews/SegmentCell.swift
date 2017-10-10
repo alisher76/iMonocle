@@ -75,7 +75,6 @@ class SegmentMenuCollectionViewCell: UICollectionViewCell {
         setupView()
     }
     
-    var delegate: SegmentMenuCell?
     
     override var isSelected: Bool {
         didSet {

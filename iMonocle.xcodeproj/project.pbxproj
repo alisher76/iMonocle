@@ -10,11 +10,7 @@
 		0F97C5A0D83F1E75EC6492DD /* Pods_iMonocleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */; };
 		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
 		AC06260F1F54DC1500FE50C1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */; };
-		AC0626111F55C92C00FE50C1 /* SegmentMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626101F55C92C00FE50C1 /* SegmentMenuCell.swift */; };
-		AC0626131F55D53700FE50C1 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626121F55D53700FE50C1 /* FeedCell.swift */; };
 		AC0626151F55D57600FE50C1 /* InstaPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626141F55D57600FE50C1 /* InstaPostCell.swift */; };
-		AC0626171F55D6C700FE50C1 /* TweetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626161F55D6C700FE50C1 /* TweetsCell.swift */; };
-		AC0626191F55D78000FE50C1 /* AddAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626181F55D78000FE50C1 /* AddAccountCell.swift */; };
 		AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261A1F55D7E700FE50C1 /* CircleImage.swift */; };
 		AC06261D1F55D8C900FE50C1 /* FriendsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */; };
 		AC06261F1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261E1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift */; };
@@ -101,11 +97,7 @@
 		AC06260C1F54DBFE00FE50C1 /* iMonocle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMonocle-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
 		AC06260E1F54DC1500FE50C1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
-		AC0626101F55C92C00FE50C1 /* SegmentMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentMenuCell.swift; sourceTree = "<group>"; };
-		AC0626121F55D53700FE50C1 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		AC0626141F55D57600FE50C1 /* InstaPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaPostCell.swift; sourceTree = "<group>"; };
-		AC0626161F55D6C700FE50C1 /* TweetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsCell.swift; sourceTree = "<group>"; };
-		AC0626181F55D78000FE50C1 /* AddAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountCell.swift; sourceTree = "<group>"; };
 		AC06261A1F55D7E700FE50C1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListCell.swift; sourceTree = "<group>"; };
 		AC06261E1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaPostCellFlowLayout.swift; sourceTree = "<group>"; };
@@ -369,11 +361,7 @@
 		AC3614EF1F75710E00D688E0 /* HomeVCViews */ = {
 			isa = PBXGroup;
 			children = (
-				AC0626101F55C92C00FE50C1 /* SegmentMenuCell.swift */,
-				AC0626121F55D53700FE50C1 /* FeedCell.swift */,
 				AC0626141F55D57600FE50C1 /* InstaPostCell.swift */,
-				AC0626161F55D6C700FE50C1 /* TweetsCell.swift */,
-				AC0626181F55D78000FE50C1 /* AddAccountCell.swift */,
 				AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */,
 				AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */,
 				AC68F2EE1F8CD24F00396982 /* SegmentCell.swift */,
@@ -723,7 +711,6 @@
 				AC06260F1F54DC1500FE50C1 /* SWRevealViewController.m in Sources */,
 				ACB2F1581F54BF3900901505 /* AccountCreationVC.swift in Sources */,
 				ACCC08DD1F58902A009E38B8 /* SavedStatus.swift in Sources */,
-				AC0626191F55D78000FE50C1 /* AddAccountCell.swift in Sources */,
 				AC9D91A71F1039020084BB0C /* MonocleUser.swift in Sources */,
 				ACD409531F1405340014E48B /* FirebaseService.swift in Sources */,
 				AC68F2F51F8CD50E00396982 /* AddMonocleAccountCell.swift in Sources */,
@@ -737,7 +724,6 @@
 				AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */,
 				AC06261F1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift in Sources */,
 				AC17DFAF1F82A9A300271D13 /* UICollectionVIewCell.swift in Sources */,
-				AC0626111F55C92C00FE50C1 /* SegmentMenuCell.swift in Sources */,
 				AC268BC81F758D380025FD30 /* Group.swift in Sources */,
 				AC0626151F55D57600FE50C1 /* InstaPostCell.swift in Sources */,
 				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
@@ -750,14 +736,12 @@
 				AC17DFAD1F82024600271D13 /* AnimateCell.swift in Sources */,
 				AC1FBC751F55F99A00985C07 /* AddFriendsVC.swift in Sources */,
 				AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */,
-				AC0626131F55D53700FE50C1 /* FeedCell.swift in Sources */,
 				AC4F77681F76E3BC00B00E91 /* RoundedButton.swift in Sources */,
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				ACB2F15F1F54C38000901505 /* HomeVC.swift in Sources */,
 				AC1FBC7D1F55FA6C00985C07 /* CellShadowExtension.swift in Sources */,
 				ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */,
 				AC3614E41F732BDB00D688E0 /* MonocleShareVC.swift in Sources */,
-				AC0626171F55D6C700FE50C1 /* TweetsCell.swift in Sources */,
 				AC268BC01F757E7F0025FD30 /* MessagesCell.swift in Sources */,
 				AC3614E81F7565B800D688E0 /* MenuStaticTableVC.swift in Sources */,
 				AC3614E61F7428C200D688E0 /* ChatVC.swift in Sources */,

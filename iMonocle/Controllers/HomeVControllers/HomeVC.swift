@@ -142,11 +142,10 @@ class HomeVC: UIViewController {
         
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
-//        mainCollectionView.delegate = self
-//        mainCollectionView.dataSource = self
-        
         mainTableView.delegate = self
         mainTableView.dataSource = self
+        mainTableView.rowHeight = UITableViewAutomaticDimension
+        mainTableView.estimatedRowHeight = 140
     }
     
     // MARK: Segment Menu

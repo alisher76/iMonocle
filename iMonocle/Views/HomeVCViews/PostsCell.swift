@@ -45,6 +45,7 @@ extension PostsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             return UICollectionViewCell()
         }
         cell.setupCell(post: monoclePosts[indexPath.row])
+        cell.addShadow()
         return cell
     }
     

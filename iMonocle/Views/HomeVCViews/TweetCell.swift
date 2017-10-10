@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TwitterTableViewDelegate: class,  UITableViewDelegate {
+    func reloadTableCellAtIndex(cell: UITableViewCell, indexPath: IndexPath)
+}
+
 class TweetCell: UITableViewCell {
     
     @IBOutlet weak var tweetContentLabel: UILabel!
@@ -24,8 +28,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet var mediaImageViewHieght: NSLayoutConstraint!
     
     
-    var indexPath = [IndexPath]()
-    var delegate: HomeVC?
+    var indexPath: IndexPath!
+    var delegate: TwitterTableViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -82,7 +86,7 @@ class TweetCell: UITableViewCell {
                     self.postMedia.layer.cornerRadius = 5
                     self.postMedia.clipsToBounds = true
                     self.displayPhoto(withMediaUrl: mediaurl)
-                    // self.delegate?.mainTableView.reloadItems(at: indexPath)
+                    self.delegate?.reloadTableCellAtIndex(cell: self, indexPath: indexPath)
                 }
             }
         } else {

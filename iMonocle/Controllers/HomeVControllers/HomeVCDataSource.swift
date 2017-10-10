@@ -42,17 +42,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else if (indexPath.row == 1 && hasInstagramAccount) && (SavedStatus.instance.isLoggedInToInstagram && FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row - 1])) && (selectedOption == .monocle || selectedOption == .instagram) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "postsCell", for: indexPath) as? PostsCell else { return UITableViewCell() }
             cell.delegate = self
-            cell.animateInstaCell()
             cell.monoclePosts = monoclePosts
-            //cell.addShadow()
+            cell.animateInstaCell()
             return cell
         } else if selectedOption == .monocle || selectedOption == .twitter {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tweetsCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
             switch monocleTweets[indexPath.row - 1] {
             case .tweet(let tweet):
-                cell.delegate = self
                 cell.animateTweetCell()
-                cell.indexPath.append(indexPath)
+                cell.indexPath = indexPath
                 cell.setUp(tweet: tweet)
             default: break
             }
@@ -83,10 +81,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 return CGFloat(self.view.frame.size.height / 2)
             }
             
-        } else if selectedOption == .monocle || selectedOption == .twitter {
-            return CGFloat(100)
         } else {
-            return CGFloat(120)
+            return UITableViewAutomaticDimension
         }
     }
 }
@@ -114,6 +110,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 return UICollectionViewCell()
             }
             cell.setupCell(friend: monocleFriendsArray[indexPath.row])
+            cell.animateFriendsCell()
             return cell
         } else {
             return UICollectionViewCell()
