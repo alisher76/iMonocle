@@ -1,0 +1,1003 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F97C5A0D83F1E75EC6492DD /* Pods_iMonocleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */; };
+		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
+		AC06260F1F54DC1500FE50C1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */; };
+		AC0626111F55C92C00FE50C1 /* SegmentMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626101F55C92C00FE50C1 /* SegmentMenuCell.swift */; };
+		AC0626131F55D53700FE50C1 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626121F55D53700FE50C1 /* FeedCell.swift */; };
+		AC0626151F55D57600FE50C1 /* InstaPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626141F55D57600FE50C1 /* InstaPostCell.swift */; };
+		AC0626171F55D6C700FE50C1 /* TweetsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626161F55D6C700FE50C1 /* TweetsCell.swift */; };
+		AC0626191F55D78000FE50C1 /* AddAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626181F55D78000FE50C1 /* AddAccountCell.swift */; };
+		AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261A1F55D7E700FE50C1 /* CircleImage.swift */; };
+		AC06261D1F55D8C900FE50C1 /* FriendsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */; };
+		AC06261F1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261E1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift */; };
+		AC1292371F2229630032FB1B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1292361F2229630032FB1B /* UIImageExtension.swift */; };
+		AC17DFAD1F82024600271D13 /* AnimateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC17DFAC1F82024600271D13 /* AnimateCell.swift */; };
+		AC17DFAF1F82A9A300271D13 /* UICollectionVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC17DFAE1F82A9A300271D13 /* UICollectionVIewCell.swift */; };
+		AC1FBC751F55F99A00985C07 /* AddFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC741F55F99A00985C07 /* AddFriendsVC.swift */; };
+		AC1FBC771F55F9DA00985C07 /* AddFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC761F55F9DA00985C07 /* AddFriendsCell.swift */; };
+		AC1FBC7D1F55FA6C00985C07 /* CellShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC7B1F55FA6C00985C07 /* CellShadowExtension.swift */; };
+		AC1FBC7E1F55FA6C00985C07 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC7C1F55FA6C00985C07 /* UIViewControllerExtension.swift */; };
+		AC21A49A1F60E60E00055E7C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21A4991F60E60E00055E7C /* UIViewExtensions.swift */; };
+		AC21A4EB1F68395700055E7C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21A4EA1F68395700055E7C /* Protocols.swift */; };
+		AC22C44F1F32C011009E7CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC22C44E1F32C011009E7CEA /* Main.storyboard */; };
+		AC22C4511F32C065009E7CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC22C4501F32C065009E7CEA /* LaunchScreen.storyboard */; };
+		AC2442CD1F7A5C0A00E80DE1 /* MonocleShareUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2442CC1F7A5C0A00E80DE1 /* MonocleShareUser.swift */; };
+		AC257A801F7839070049F39F /* SelectMonocleUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */; };
+		AC268BBE1F757E6E0025FD30 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BBD1F757E6E0025FD30 /* ChannelCell.swift */; };
+		AC268BC01F757E7F0025FD30 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BBF1F757E7F0025FD30 /* MessagesCell.swift */; };
+		AC268BC21F757E940025FD30 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BC11F757E940025FD30 /* GroupCell.swift */; };
+		AC268BC41F758D1C0025FD30 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BC31F758D1C0025FD30 /* Channel.swift */; };
+		AC268BC61F758D290025FD30 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BC51F758D290025FD30 /* Message.swift */; };
+		AC268BC81F758D380025FD30 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BC71F758D380025FD30 /* Group.swift */; };
+		AC268BCA1F758DF10025FD30 /* MonoShareDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC268BC91F758DF10025FD30 /* MonoShareDataService.swift */; };
+		AC2C1E641F33A64B0025CA07 /* iMonocleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */; };
+		AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FED1F18D1FF00DE94B0 /* Utitility.swift */; };
+		AC3614E21F71637D00D688E0 /* AuthInstagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E11F71637C00D688E0 /* AuthInstagramViewController.swift */; };
+		AC3614E41F732BDB00D688E0 /* MonocleShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */; };
+		AC3614E61F7428C200D688E0 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E51F7428C200D688E0 /* ChatVC.swift */; };
+		AC3614E81F7565B800D688E0 /* MenuStaticTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E71F7565B800D688E0 /* MenuStaticTableVC.swift */; };
+		AC4F77631F759B0D00B00E91 /* CreateChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */; };
+		AC4F77641F759B0D00B00E91 /* CreateChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4F77621F759B0D00B00E91 /* CreateChannelVC.xib */; };
+		AC4F77661F76DDAB00B00E91 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F77651F76DDAB00B00E91 /* InsetTextField.swift */; };
+		AC4F77681F76E3BC00B00E91 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F77671F76E3BC00B00E91 /* RoundedButton.swift */; };
+		AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */; };
+		AC68F2EF1F8CD24F00396982 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2EE1F8CD24F00396982 /* SegmentCell.swift */; };
+		AC68F2F11F8CD30A00396982 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F01F8CD30900396982 /* PostsCell.swift */; };
+		AC68F2F31F8CD3D800396982 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F21F8CD3D800396982 /* TweetCell.swift */; };
+		AC68F2F51F8CD50E00396982 /* AddMonocleAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */; };
+		AC8A75AB1F5E4DFD00A3082C /* AddAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */; };
+		AC8A75AC1F5E4DFD00A3082C /* AddAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */; };
+		AC8A75AE1F5E502400A3082C /* AddAccountVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */; };
+		AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */; };
+		AC9D919F1F10160F0084BB0C /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9D919E1F1015F40084BB0C /* SafariServices.framework */; };
+		AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A01F1037E80084BB0C /* GradientView.swift */; };
+		AC9D91A71F1039020084BB0C /* MonocleUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A61F1039020084BB0C /* MonocleUser.swift */; };
+		AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A81F103A100084BB0C /* MonaclePost.swift */; };
+		AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */; };
+		ACA8ADB71F76F947008CCD94 /* RoundedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8ADB61F76F947008CCD94 /* RoundedUIView.swift */; };
+		ACA8ADB91F76FE3B008CCD94 /* PickAvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8ADB81F76FE3B008CCD94 /* PickAvatarVC.swift */; };
+		ACB2F1581F54BF3900901505 /* AccountCreationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F1561F54BF3900901505 /* AccountCreationVC.swift */; };
+		ACB2F1591F54BF3900901505 /* AccountCreationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB2F1571F54BF3900901505 /* AccountCreationVC.xib */; };
+		ACB2F15F1F54C38000901505 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F15E1F54C38000901505 /* HomeVC.swift */; };
+		ACB2F1611F54C3C600901505 /* HomeVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F1601F54C3C600901505 /* HomeVCDataSource.swift */; };
+		ACBD005D1F2D238900E57FC8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD005C1F2D238900E57FC8 /* Constants.swift */; };
+		ACC62CFC1F7CFEF500D57200 /* AccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC62CFB1F7CFEF500D57200 /* AccountInfoVC.swift */; };
+		ACC62CFE1F7D05E000D57200 /* CircularTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC62CFD1F7D05E000D57200 /* CircularTransaction.swift */; };
+		ACCC08DD1F58902A009E38B8 /* SavedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCC08DC1F58902A009E38B8 /* SavedStatus.swift */; };
+		ACCD7A131F23F71F00C7C7B0 /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */; };
+		ACD409531F1405340014E48B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD409521F1405340014E48B /* FirebaseService.swift */; };
+		ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B5C1F1043EF001D4257 /* Tweet.swift */; };
+		ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B5E1F10443D001D4257 /* InstagramUser.swift */; };
+		ACE58B611F1045E8001D4257 /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE58B601F1045E8001D4257 /* TwitterAPI.swift */; };
+		ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC50371F0DA7E100887E46 /* AppDelegate.swift */; };
+		ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEC503E1F0DA7E100887E46 /* Assets.xcassets */; };
+		ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEC505D1F0ED88300887E46 /* TwitterUser.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC2C1E661F33A64B0025CA07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACEC502C1F0DA7E100887E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACEC50331F0DA7E100887E46;
+			remoteInfo = iMonocle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4AFF3B62B2DC592896C38E87 /* Pods-iMonocleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.release.xcconfig"; sourceTree = "<group>"; };
+		5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle.debug.xcconfig"; sourceTree = "<group>"; };
+		81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests.release.xcconfig"; sourceTree = "<group>"; };
+		A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMonocleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC06260C1F54DBFE00FE50C1 /* iMonocle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMonocle-Bridging-Header.h"; sourceTree = "<group>"; };
+		AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
+		AC06260E1F54DC1500FE50C1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
+		AC0626101F55C92C00FE50C1 /* SegmentMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentMenuCell.swift; sourceTree = "<group>"; };
+		AC0626121F55D53700FE50C1 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		AC0626141F55D57600FE50C1 /* InstaPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaPostCell.swift; sourceTree = "<group>"; };
+		AC0626161F55D6C700FE50C1 /* TweetsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetsCell.swift; sourceTree = "<group>"; };
+		AC0626181F55D78000FE50C1 /* AddAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountCell.swift; sourceTree = "<group>"; };
+		AC06261A1F55D7E700FE50C1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListCell.swift; sourceTree = "<group>"; };
+		AC06261E1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaPostCellFlowLayout.swift; sourceTree = "<group>"; };
+		AC1292361F2229630032FB1B /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		AC17DFAC1F82024600271D13 /* AnimateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateCell.swift; sourceTree = "<group>"; };
+		AC17DFAE1F82A9A300271D13 /* UICollectionVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionVIewCell.swift; sourceTree = "<group>"; };
+		AC1FBC741F55F99A00985C07 /* AddFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsVC.swift; sourceTree = "<group>"; };
+		AC1FBC761F55F9DA00985C07 /* AddFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsCell.swift; sourceTree = "<group>"; };
+		AC1FBC7B1F55FA6C00985C07 /* CellShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellShadowExtension.swift; path = ../../../../Projects/iMonoPrototype/iMonoPrototype/Extensions/CellShadowExtension.swift; sourceTree = "<group>"; };
+		AC1FBC7C1F55FA6C00985C07 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = ../../../../Projects/iMonoPrototype/iMonoPrototype/Extensions/UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		AC21A4991F60E60E00055E7C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		AC21A4EA1F68395700055E7C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		AC22C44E1F32C011009E7CEA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AC22C4501F32C065009E7CEA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC2442CC1F7A5C0A00E80DE1 /* MonocleShareUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonocleShareUser.swift; sourceTree = "<group>"; };
+		AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMonocleUserVC.swift; sourceTree = "<group>"; };
+		AC268BBD1F757E6E0025FD30 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		AC268BBF1F757E7F0025FD30 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
+		AC268BC11F757E940025FD30 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		AC268BC31F758D1C0025FD30 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		AC268BC51F758D290025FD30 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		AC268BC71F758D380025FD30 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		AC268BC91F758DF10025FD30 /* MonoShareDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoShareDataService.swift; sourceTree = "<group>"; };
+		AC2C1E611F33A64B0025CA07 /* iMonocleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMonocleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMonocleTests.swift; sourceTree = "<group>"; };
+		AC2C1E651F33A64B0025CA07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
+		AC3614E11F71637C00D688E0 /* AuthInstagramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInstagramViewController.swift; sourceTree = "<group>"; };
+		AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonocleShareVC.swift; sourceTree = "<group>"; };
+		AC3614E51F7428C200D688E0 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		AC3614E71F7565B800D688E0 /* MenuStaticTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStaticTableVC.swift; sourceTree = "<group>"; };
+		AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelVC.swift; sourceTree = "<group>"; };
+		AC4F77621F759B0D00B00E91 /* CreateChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateChannelVC.xib; sourceTree = "<group>"; };
+		AC4F77651F76DDAB00B00E91 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
+		AC4F77671F76E3BC00B00E91 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		AC68F2EE1F8CD24F00396982 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
+		AC68F2F01F8CD30900396982 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
+		AC68F2F21F8CD3D800396982 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonocleAccountCell.swift; sourceTree = "<group>"; };
+		AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVC.swift; sourceTree = "<group>"; };
+		AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountVC.xib; sourceTree = "<group>"; };
+		AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVCCell.swift; sourceTree = "<group>"; };
+		AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC9D919E1F1015F40084BB0C /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		AC9D91A01F1037E80084BB0C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		AC9D91A61F1039020084BB0C /* MonocleUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonocleUser.swift; sourceTree = "<group>"; };
+		AC9D91A81F103A100084BB0C /* MonaclePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonaclePost.swift; sourceTree = "<group>"; };
+		AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
+		ACA8ADB61F76F947008CCD94 /* RoundedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIView.swift; sourceTree = "<group>"; };
+		ACA8ADB81F76FE3B008CCD94 /* PickAvatarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAvatarVC.swift; sourceTree = "<group>"; };
+		ACB2F1561F54BF3900901505 /* AccountCreationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationVC.swift; sourceTree = "<group>"; };
+		ACB2F1571F54BF3900901505 /* AccountCreationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCreationVC.xib; sourceTree = "<group>"; };
+		ACB2F15E1F54C38000901505 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		ACB2F1601F54C3C600901505 /* HomeVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCDataSource.swift; sourceTree = "<group>"; };
+		ACBD005C1F2D238900E57FC8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ACC62CFB1F7CFEF500D57200 /* AccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoVC.swift; sourceTree = "<group>"; };
+		ACC62CFD1F7D05E000D57200 /* CircularTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransaction.swift; sourceTree = "<group>"; };
+		ACCC08DC1F58902A009E38B8 /* SavedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedStatus.swift; sourceTree = "<group>"; };
+		ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
+		ACD409521F1405340014E48B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		ACE58B5C1F1043EF001D4257 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		ACE58B5E1F10443D001D4257 /* InstagramUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramUser.swift; sourceTree = "<group>"; };
+		ACE58B601F1045E8001D4257 /* TwitterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
+		ACEC50341F0DA7E100887E46 /* iMonocle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMonocle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACEC50371F0DA7E100887E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACEC503E1F0DA7E100887E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACEC50431F0DA7E100887E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACEC505D1F0ED88300887E46 /* TwitterUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMonocle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC2C1E5E1F33A64B0025CA07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F97C5A0D83F1E75EC6492DD /* Pods_iMonocleTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC50311F0DA7E100887E46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC9D919F1F10160F0084BB0C /* SafariServices.framework in Frameworks */,
+				5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3607AE684AD02A26974AD60D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC9D919E1F1015F40084BB0C /* SafariServices.framework */,
+				B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */,
+				A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F9038B97D61B2116E660463 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */,
+				5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */,
+				4AFF3B62B2DC592896C38E87 /* Pods-iMonocleTests.debug.xcconfig */,
+				81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC06260B1F54DBAD00FE50C1 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				AC06260C1F54DBFE00FE50C1 /* iMonocle-Bridging-Header.h */,
+				AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */,
+				AC06260E1F54DC1500FE50C1 /* SWRevealViewController.h */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		AC0D8B731F55F2FC00A61126 /* MenuController */ = {
+			isa = PBXGroup;
+			children = (
+				AC3614E71F7565B800D688E0 /* MenuStaticTableVC.swift */,
+			);
+			path = MenuController;
+			sourceTree = "<group>";
+		};
+		AC1FBC731F55F95D00985C07 /* FriendsSelectionController */ = {
+			isa = PBXGroup;
+			children = (
+				AC1FBC741F55F99A00985C07 /* AddFriendsVC.swift */,
+			);
+			path = FriendsSelectionController;
+			sourceTree = "<group>";
+		};
+		AC1FBC781F55FA0900985C07 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC1FBC7B1F55FA6C00985C07 /* CellShadowExtension.swift */,
+				AC1FBC7C1F55FA6C00985C07 /* UIViewControllerExtension.swift */,
+				AC21A4991F60E60E00055E7C /* UIViewExtensions.swift */,
+				AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */,
+				AC17DFAC1F82024600271D13 /* AnimateCell.swift */,
+				AC17DFAE1F82A9A300271D13 /* UICollectionVIewCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AC21A4E91F68394500055E7C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AC21A4EA1F68395700055E7C /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AC21A50A1F683E5100055E7C /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				AC06261E1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		AC268BB81F7575820025FD30 /* AddAccountVController */ = {
+			isa = PBXGroup;
+			children = (
+				AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */,
+			);
+			path = AddAccountVController;
+			sourceTree = "<group>";
+		};
+		AC268BB91F7577790025FD30 /* MonoShareViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC268BBD1F757E6E0025FD30 /* ChannelCell.swift */,
+				AC268BBF1F757E7F0025FD30 /* MessagesCell.swift */,
+				AC268BC11F757E940025FD30 /* GroupCell.swift */,
+			);
+			path = MonoShareViews;
+			sourceTree = "<group>";
+		};
+		AC2C1E621F33A64B0025CA07 /* iMonocleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */,
+				AC2C1E651F33A64B0025CA07 /* Info.plist */,
+			);
+			path = iMonocleTests;
+			sourceTree = "<group>";
+		};
+		AC302FEC1F18D1EC00DE94B0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ACBD005C1F2D238900E57FC8 /* Constants.swift */,
+				AC9D91A01F1037E80084BB0C /* GradientView.swift */,
+				AC302FED1F18D1FF00DE94B0 /* Utitility.swift */,
+				AC06261A1F55D7E700FE50C1 /* CircleImage.swift */,
+				AC1292361F2229630032FB1B /* UIImageExtension.swift */,
+				AC4F77651F76DDAB00B00E91 /* InsetTextField.swift */,
+				AC4F77671F76E3BC00B00E91 /* RoundedButton.swift */,
+				ACA8ADB61F76F947008CCD94 /* RoundedUIView.swift */,
+				ACC62CFD1F7D05E000D57200 /* CircularTransaction.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		AC3614E91F756FBD00D688E0 /* MonoShare */ = {
+			isa = PBXGroup;
+			children = (
+				AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */,
+				AC3614E51F7428C200D688E0 /* ChatVC.swift */,
+				ACA8ADB81F76FE3B008CCD94 /* PickAvatarVC.swift */,
+				AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */,
+			);
+			path = MonoShare;
+			sourceTree = "<group>";
+		};
+		AC3614EA1F75704200D688E0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACBD00511F2D1CDF00E57FC8 /* HomeVControllers */,
+				AC3614E91F756FBD00D688E0 /* MonoShare */,
+				AC268BB81F7575820025FD30 /* AddAccountVController */,
+				AC1FBC731F55F95D00985C07 /* FriendsSelectionController */,
+				ACEC504C1F0DAAB500887E46 /* LoginController */,
+				AC0D8B731F55F2FC00A61126 /* MenuController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AC3614EB1F75704C00D688E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACBD00581F2D1E0500E57FC8 /* Instagram */,
+				AC9D91AE1F103ABF0084BB0C /* Monocle */,
+				ACBD00591F2D1E5900E57FC8 /* Twitter */,
+				AC268BC31F758D1C0025FD30 /* Channel.swift */,
+				AC268BC51F758D290025FD30 /* Message.swift */,
+				AC268BC71F758D380025FD30 /* Group.swift */,
+				AC2442CC1F7A5C0A00E80DE1 /* MonocleShareUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC3614EE1F7570B300D688E0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC268BB91F7577790025FD30 /* MonoShareViews */,
+				AC3614F01F75724D00D688E0 /* SelectFriendsView */,
+				AC3614EF1F75710E00D688E0 /* HomeVCViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC3614EF1F75710E00D688E0 /* HomeVCViews */ = {
+			isa = PBXGroup;
+			children = (
+				AC0626101F55C92C00FE50C1 /* SegmentMenuCell.swift */,
+				AC0626121F55D53700FE50C1 /* FeedCell.swift */,
+				AC0626141F55D57600FE50C1 /* InstaPostCell.swift */,
+				AC0626161F55D6C700FE50C1 /* TweetsCell.swift */,
+				AC0626181F55D78000FE50C1 /* AddAccountCell.swift */,
+				AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */,
+				AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */,
+				AC68F2EE1F8CD24F00396982 /* SegmentCell.swift */,
+				AC68F2F01F8CD30900396982 /* PostsCell.swift */,
+				AC68F2F21F8CD3D800396982 /* TweetCell.swift */,
+				AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */,
+			);
+			path = HomeVCViews;
+			sourceTree = "<group>";
+		};
+		AC3614F01F75724D00D688E0 /* SelectFriendsView */ = {
+			isa = PBXGroup;
+			children = (
+				AC1FBC761F55F9DA00985C07 /* AddFriendsCell.swift */,
+			);
+			path = SelectFriendsView;
+			sourceTree = "<group>";
+		};
+		AC9D91AE1F103ABF0084BB0C /* Monocle */ = {
+			isa = PBXGroup;
+			children = (
+				AC9D91A61F1039020084BB0C /* MonocleUser.swift */,
+				AC9D91A81F103A100084BB0C /* MonaclePost.swift */,
+			);
+			path = Monocle;
+			sourceTree = "<group>";
+		};
+		ACB2F13B1F54BAF300901505 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				ACB2F1571F54BF3900901505 /* AccountCreationVC.xib */,
+				AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */,
+				AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */,
+				AC4F77621F759B0D00B00E91 /* CreateChannelVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		ACBD00511F2D1CDF00E57FC8 /* HomeVControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACB2F15E1F54C38000901505 /* HomeVC.swift */,
+				ACB2F1601F54C3C600901505 /* HomeVCDataSource.swift */,
+				ACC62CFB1F7CFEF500D57200 /* AccountInfoVC.swift */,
+			);
+			path = HomeVControllers;
+			sourceTree = "<group>";
+		};
+		ACBD00581F2D1E0500E57FC8 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */,
+				ACE58B5E1F10443D001D4257 /* InstagramUser.swift */,
+			);
+			path = Instagram;
+			sourceTree = "<group>";
+		};
+		ACBD00591F2D1E5900E57FC8 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC505D1F0ED88300887E46 /* TwitterUser.swift */,
+				ACE58B5C1F1043EF001D4257 /* Tweet.swift */,
+			);
+			path = Twitter;
+			sourceTree = "<group>";
+		};
+		ACEC502B1F0DA7E100887E46 = {
+			isa = PBXGroup;
+			children = (
+				ACEC50361F0DA7E100887E46 /* iMonocle */,
+				AC2C1E621F33A64B0025CA07 /* iMonocleTests */,
+				ACEC50351F0DA7E100887E46 /* Products */,
+				3F9038B97D61B2116E660463 /* Pods */,
+				3607AE684AD02A26974AD60D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ACEC50351F0DA7E100887E46 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC50341F0DA7E100887E46 /* iMonocle.app */,
+				AC2C1E611F33A64B0025CA07 /* iMonocleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACEC50361F0DA7E100887E46 /* iMonocle */ = {
+			isa = PBXGroup;
+			children = (
+				ACEC50371F0DA7E100887E46 /* AppDelegate.swift */,
+				ACEC503E1F0DA7E100887E46 /* Assets.xcassets */,
+				AC9D919C1F1000630084BB0C /* GoogleService-Info.plist */,
+				ACEC50431F0DA7E100887E46 /* Info.plist */,
+				AC22C44E1F32C011009E7CEA /* Main.storyboard */,
+				AC22C4501F32C065009E7CEA /* LaunchScreen.storyboard */,
+				AC3614EE1F7570B300D688E0 /* Views */,
+				AC3614EB1F75704C00D688E0 /* Models */,
+				AC3614EA1F75704200D688E0 /* Controllers */,
+				AC21A50A1F683E5100055E7C /* Layouts */,
+				AC1FBC781F55FA0900985C07 /* Extensions */,
+				AC06260B1F54DBAD00FE50C1 /* Supporting files */,
+				AC302FEC1F18D1EC00DE94B0 /* Tools */,
+				AC21A4E91F68394500055E7C /* Protocols */,
+				ACB2F13B1F54BAF300901505 /* XIBs */,
+				ACEC50491F0DA95F00887E46 /* Networking */,
+			);
+			path = iMonocle;
+			sourceTree = "<group>";
+		};
+		ACEC50491F0DA95F00887E46 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ACE58B601F1045E8001D4257 /* TwitterAPI.swift */,
+				ACD409521F1405340014E48B /* FirebaseService.swift */,
+				ACCD7A121F23F71F00C7C7B0 /* InstagramAPI.swift */,
+				ACCC08DC1F58902A009E38B8 /* SavedStatus.swift */,
+				AC268BC91F758DF10025FD30 /* MonoShareDataService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		ACEC504C1F0DAAB500887E46 /* LoginController */ = {
+			isa = PBXGroup;
+			children = (
+				ACB2F1561F54BF3900901505 /* AccountCreationVC.swift */,
+				AC3614E11F71637C00D688E0 /* AuthInstagramViewController.swift */,
+			);
+			path = LoginController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC2C1E601F33A64B0025CA07 /* iMonocleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC2C1E681F33A64B0025CA07 /* Build configuration list for PBXNativeTarget "iMonocleTests" */;
+			buildPhases = (
+				8FBED4FC8FC2A805DEC4E796 /* [CP] Check Pods Manifest.lock */,
+				AC2C1E5D1F33A64B0025CA07 /* Sources */,
+				AC2C1E5E1F33A64B0025CA07 /* Frameworks */,
+				AC2C1E5F1F33A64B0025CA07 /* Resources */,
+				440BCFBCCE105BB920CD3B8C /* [CP] Embed Pods Frameworks */,
+				81F020379D7E3345CEA43A98 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC2C1E671F33A64B0025CA07 /* PBXTargetDependency */,
+			);
+			name = iMonocleTests;
+			productName = iMonocleTests;
+			productReference = AC2C1E611F33A64B0025CA07 /* iMonocleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACEC50331F0DA7E100887E46 /* iMonocle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACEC50461F0DA7E100887E46 /* Build configuration list for PBXNativeTarget "iMonocle" */;
+			buildPhases = (
+				9E7CA5970CB01F8F7173A03F /* [CP] Check Pods Manifest.lock */,
+				ACEC50301F0DA7E100887E46 /* Sources */,
+				ACEC50311F0DA7E100887E46 /* Frameworks */,
+				ACEC50321F0DA7E100887E46 /* Resources */,
+				AAF09E0E7C17A1542D988A60 /* [CP] Embed Pods Frameworks */,
+				A14563B62DDF8875BED0F67E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iMonocle;
+			productName = iMonocle;
+			productReference = ACEC50341F0DA7E100887E46 /* iMonocle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACEC502C1F0DA7E100887E46 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = MrAliGorithm;
+				TargetAttributes = {
+					AC2C1E601F33A64B0025CA07 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = ACEC50331F0DA7E100887E46;
+					};
+					ACEC50331F0DA7E100887E46 = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+					};
+				};
+			};
+			buildConfigurationList = ACEC502F1F0DA7E100887E46 /* Build configuration list for PBXProject "iMonocle" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACEC502B1F0DA7E100887E46;
+			productRefGroup = ACEC50351F0DA7E100887E46 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACEC50331F0DA7E100887E46 /* iMonocle */,
+				AC2C1E601F33A64B0025CA07 /* iMonocleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC2C1E5F1F33A64B0025CA07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC50321F0DA7E100887E46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC22C44F1F32C011009E7CEA /* Main.storyboard in Resources */,
+				ACEC503F1F0DA7E100887E46 /* Assets.xcassets in Resources */,
+				AC8A75AC1F5E4DFD00A3082C /* AddAccountVC.xib in Resources */,
+				AC22C4511F32C065009E7CEA /* LaunchScreen.storyboard in Resources */,
+				AC4F77641F759B0D00B00E91 /* CreateChannelVC.xib in Resources */,
+				AC9D919D1F1000630084BB0C /* GoogleService-Info.plist in Resources */,
+				ACB2F1591F54BF3900901505 /* AccountCreationVC.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		440BCFBCCE105BB920CD3B8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81F020379D7E3345CEA43A98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FBED4FC8FC2A805DEC4E796 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9E7CA5970CB01F8F7173A03F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A14563B62DDF8875BED0F67E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAF09E0E7C17A1542D988A60 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iMonocle/Pods-iMonocle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC2C1E5D1F33A64B0025CA07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2C1E641F33A64B0025CA07 /* iMonocleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACEC50301F0DA7E100887E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC268BC21F757E940025FD30 /* GroupCell.swift in Sources */,
+				ACA8ADB71F76F947008CCD94 /* RoundedUIView.swift in Sources */,
+				AC4F77631F759B0D00B00E91 /* CreateChannelVC.swift in Sources */,
+				AC06260F1F54DC1500FE50C1 /* SWRevealViewController.m in Sources */,
+				ACB2F1581F54BF3900901505 /* AccountCreationVC.swift in Sources */,
+				ACCC08DD1F58902A009E38B8 /* SavedStatus.swift in Sources */,
+				AC0626191F55D78000FE50C1 /* AddAccountCell.swift in Sources */,
+				AC9D91A71F1039020084BB0C /* MonocleUser.swift in Sources */,
+				ACD409531F1405340014E48B /* FirebaseService.swift in Sources */,
+				AC68F2F51F8CD50E00396982 /* AddMonocleAccountCell.swift in Sources */,
+				ACE58B611F1045E8001D4257 /* TwitterAPI.swift in Sources */,
+				AC257A801F7839070049F39F /* SelectMonocleUserVC.swift in Sources */,
+				AC21A4EB1F68395700055E7C /* Protocols.swift in Sources */,
+				AC1FBC771F55F9DA00985C07 /* AddFriendsCell.swift in Sources */,
+				ACC62CFC1F7CFEF500D57200 /* AccountInfoVC.swift in Sources */,
+				AC4F77661F76DDAB00B00E91 /* InsetTextField.swift in Sources */,
+				AC21A49A1F60E60E00055E7C /* UIViewExtensions.swift in Sources */,
+				AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */,
+				AC06261F1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift in Sources */,
+				AC17DFAF1F82A9A300271D13 /* UICollectionVIewCell.swift in Sources */,
+				AC0626111F55C92C00FE50C1 /* SegmentMenuCell.swift in Sources */,
+				AC268BC81F758D380025FD30 /* Group.swift in Sources */,
+				AC0626151F55D57600FE50C1 /* InstaPostCell.swift in Sources */,
+				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
+				AC268BC41F758D1C0025FD30 /* Channel.swift in Sources */,
+				AC268BC61F758D290025FD30 /* Message.swift in Sources */,
+				ACBD005D1F2D238900E57FC8 /* Constants.swift in Sources */,
+				AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */,
+				AC06261D1F55D8C900FE50C1 /* FriendsListCell.swift in Sources */,
+				ACCD7A131F23F71F00C7C7B0 /* InstagramAPI.swift in Sources */,
+				AC17DFAD1F82024600271D13 /* AnimateCell.swift in Sources */,
+				AC1FBC751F55F99A00985C07 /* AddFriendsVC.swift in Sources */,
+				AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */,
+				AC0626131F55D53700FE50C1 /* FeedCell.swift in Sources */,
+				AC4F77681F76E3BC00B00E91 /* RoundedButton.swift in Sources */,
+				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
+				ACB2F15F1F54C38000901505 /* HomeVC.swift in Sources */,
+				AC1FBC7D1F55FA6C00985C07 /* CellShadowExtension.swift in Sources */,
+				ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */,
+				AC3614E41F732BDB00D688E0 /* MonocleShareVC.swift in Sources */,
+				AC0626171F55D6C700FE50C1 /* TweetsCell.swift in Sources */,
+				AC268BC01F757E7F0025FD30 /* MessagesCell.swift in Sources */,
+				AC3614E81F7565B800D688E0 /* MenuStaticTableVC.swift in Sources */,
+				AC3614E61F7428C200D688E0 /* ChatVC.swift in Sources */,
+				AC8A75AE1F5E502400A3082C /* AddAccountVCCell.swift in Sources */,
+				AC268BBE1F757E6E0025FD30 /* ChannelCell.swift in Sources */,
+				ACB2F1611F54C3C600901505 /* HomeVCDataSource.swift in Sources */,
+				AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */,
+				AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */,
+				AC3614E21F71637D00D688E0 /* AuthInstagramViewController.swift in Sources */,
+				ACC62CFE1F7D05E000D57200 /* CircularTransaction.swift in Sources */,
+				AC68F2F31F8CD3D800396982 /* TweetCell.swift in Sources */,
+				AC1FBC7E1F55FA6C00985C07 /* UIViewControllerExtension.swift in Sources */,
+				AC68F2F11F8CD30A00396982 /* PostsCell.swift in Sources */,
+				AC8A75AB1F5E4DFD00A3082C /* AddAccountVC.swift in Sources */,
+				AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */,
+				ACA8ADB91F76FE3B008CCD94 /* PickAvatarVC.swift in Sources */,
+				AC2442CD1F7A5C0A00E80DE1 /* MonocleShareUser.swift in Sources */,
+				AC268BCA1F758DF10025FD30 /* MonoShareDataService.swift in Sources */,
+				ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */,
+				AC68F2EF1F8CD24F00396982 /* SegmentCell.swift in Sources */,
+				AC1292371F2229630032FB1B /* UIImageExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC2C1E671F33A64B0025CA07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACEC50331F0DA7E100887E46 /* iMonocle */;
+			targetProxy = AC2C1E661F33A64B0025CA07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AC2C1E691F33A64B0025CA07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AFF3B62B2DC592896C38E87 /* Pods-iMonocleTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMonocle.app/iMonocle";
+			};
+			name = Debug;
+		};
+		AC2C1E6A1F33A64B0025CA07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iMonocle.app/iMonocle";
+			};
+			name = Release;
+		};
+		ACEC50441F0DA7E100887E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACEC50451F0DA7E100887E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACEC50471F0DA7E100887E46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FBDAB6B5A1152CFBF4B35F6 /* Pods-iMonocle.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iMonocle/Supporting files/iMonocle-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		ACEC50481F0DA7E100887E46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DBEB6715801AC0C4D9C5351 /* Pods-iMonocle.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = U3FSDK5XFF;
+				INFOPLIST_FILE = iMonocle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.app.iMonocle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iMonocle/Supporting files/iMonocle-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC2C1E681F33A64B0025CA07 /* Build configuration list for PBXNativeTarget "iMonocleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC2C1E691F33A64B0025CA07 /* Debug */,
+				AC2C1E6A1F33A64B0025CA07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACEC502F1F0DA7E100887E46 /* Build configuration list for PBXProject "iMonocle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC50441F0DA7E100887E46 /* Debug */,
+				ACEC50451F0DA7E100887E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACEC50461F0DA7E100887E46 /* Build configuration list for PBXNativeTarget "iMonocle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACEC50471F0DA7E100887E46 /* Debug */,
+				ACEC50481F0DA7E100887E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACEC502C1F0DA7E100887E46 /* Project object */;
+}

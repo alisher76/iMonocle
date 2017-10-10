@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C60E12C93E36650BEB7C524BDB6973AAAD5140F6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C60E12C93E36650BEB7C524BDB6973AAAD5140F6" : 9223372036854775807,
+    "2BF9271C5DFBF2ACB1B879E9B42A2012DB7561B7" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B506230-3AE5-469D-A455-921F5F6C7409",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C60E12C93E36650BEB7C524BDB6973AAAD5140F6" : "iMonocle\/",
+    "2BF9271C5DFBF2ACB1B879E9B42A2012DB7561B7" : "FINAL%20PROJECT%20\/Monocle\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iMonocle",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iMonocle\/iMonocle.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:alisher76\/Monacle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2BF9271C5DFBF2ACB1B879E9B42A2012DB7561B7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:alisher76\/iMonocle.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C60E12C93E36650BEB7C524BDB6973AAAD5140F6"
+    }
+  ]
+}

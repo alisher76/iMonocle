@@ -1,0 +1,6 @@
+framework module Pods_iMonocle {
+  umbrella header "Pods-iMonocle-umbrella.h"
+
+  export *
+  module * { export * }
+}
