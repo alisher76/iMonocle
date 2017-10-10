@@ -16,6 +16,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if SavedStatus.instance.isLoggedIn {
         if selectedOption == .monocle {
             if SavedStatus.instance.isLoggedInToInstagram {
                 if monocleFriendsArray.first != nil {
@@ -31,7 +32,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 2
         }
-    return 0
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,12 +49,28 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else if selectedOption == .monocle || selectedOption == .twitter {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tweetsCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
-            switch monocleTweets[indexPath.row - 1] {
-            case .tweet(let tweet):
-                cell.animateTweetCell()
-                cell.indexPath = indexPath
-                cell.setUp(tweet: tweet)
-            default: break
+            if hasInstagramAccount {
+                cell.rowNumber = indexPath.row - 2
+                switch monocleTweets[indexPath.row - 2] {
+                case .tweet(let tweet):
+                    if !indexNumbersForAnimatedCell.contains(indexPath.row) {
+                        cell.animateTweetCell()
+                    }
+                    cell.delegate = self
+                    cell.setUp(tweet: tweet)
+                default: break
+                }
+            } else {
+                cell.rowNumber = indexPath.row - 1
+                switch monocleTweets[indexPath.row - 1] {
+                case .tweet(let tweet):
+                    if !indexNumbersForAnimatedCell.contains(indexPath.row) {
+                        cell.animateTweetCell()
+                    }
+                    cell.delegate = self
+                    cell.setUp(tweet: tweet)
+                default: break
+                }
             }
             return cell
         } else if selectedOption == .more {

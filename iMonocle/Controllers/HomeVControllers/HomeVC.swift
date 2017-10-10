@@ -34,9 +34,10 @@ class HomeVC: UIViewController {
             mainTableView.reloadData()
         }
     }
+    
+    var indexNumbersForAnimatedCell: [Int] = []
+    
     let transition = CircularTransaction()
-    
-    
     var selectedFriend = FirebaseService.instance.selectedUser {
         didSet {
             if selectedFriend != nil {
@@ -51,12 +52,12 @@ class HomeVC: UIViewController {
     }
     var monocleTweets = [MonoclePost]() {
         didSet {
-            // mainCollectionView.reloadData()
+            indexNumbersForAnimatedCell.removeAll()
         }
     }
     var monoclePosts = [MonoclePost]() {
         didSet {
-            // mainCollectionView.reloadData()
+            indexNumbersForAnimatedCell.removeAll()
         }
     }
     var selectedOption = SegmentOptions.monocle {
@@ -99,43 +100,41 @@ class HomeVC: UIViewController {
     }
 
     fileprivate func selectedFriendDidChange() {
-
-        switch selectedFriend! {
-        case .twitterUser(let tUser):
-            TwitterClient.sharedInstance?.getUserTimeline(userID: tUser.uid, success: { (monoTweet) in
-                self.monocleTweets = monoTweet
-                self.mainTableView.reloadData()
-            }, failure: { (error) in
-                print(error.localizedDescription)
-            })
-            self.topImageView.downloadedFrom(link: tUser.image)
-            
-        case .instagramUser(let iUser):
-            self.topImageView.downloadedFrom(link: iUser.image)
-        }
-       
-       if FirebaseService.instance.isCurrentUser(user: self.selectedFriend!) && SavedStatus.instance.isLoggedInToInstagram {
-        Instagram.instance.fetchRecentMediaForUser(SavedStatus.instance.currentUserInstagramID, accessToken: SavedStatus.instance.instagramAuthToken, callback: { (posts) in
-            self.monoclePosts = posts
-            self.hasInstagramAccount = true
-            self.mainTableView.reloadData()
-            })
-        
-       } else {
-        FirebaseService.instance.hasInstagramAccount(monocleUser: selectedFriend!, endPoint: "friends") { (hasAccount) in
-            self.hasInstagramAccount = hasAccount
-            if hasAccount {
-                Instagram.instance.fetchRecentMonoclePostsForUser(FirebaseService.instance.selectedUserInstagramID!, accessToken: SavedStatus.instance.instagramAuthToken, callback: { (recentPosts) in
-                    self.monoclePosts = recentPosts
+        if SavedStatus.instance.isLoggedIn {
+            switch selectedFriend! {
+            case .twitterUser(let tUser):
+                TwitterClient.sharedInstance?.getUserTimeline(userID: tUser.uid, success: { (monoTweet) in
+                    self.monocleTweets = monoTweet
                     self.mainTableView.reloadData()
+                }, failure: { (error) in
+                    print(error.localizedDescription)
                 })
-            } else {
-                self.hasInstagramAccount = false
-                self.monoclePosts.removeAll()
+                self.topImageView.downloadedFrom(link: tUser.image)
+                
+            case .instagramUser(let iUser):
+                self.topImageView.downloadedFrom(link: iUser.image)
             }
-          }
+            
+            if FirebaseService.instance.isCurrentUser(user: self.selectedFriend!) && SavedStatus.instance.isLoggedInToInstagram {
+                Instagram.instance.fetchRecentMediaForUser(SavedStatus.instance.currentUserInstagramID, accessToken: SavedStatus.instance.instagramAuthToken, callback: { (posts) in
+                    self.monoclePosts = posts
+                    self.hasInstagramAccount = true
+                })
+                
+            } else {
+                FirebaseService.instance.hasInstagramAccount(monocleUser: selectedFriend!, endPoint: "friends") { (hasAccount) in
+                    if hasAccount {
+                        Instagram.instance.fetchRecentMonoclePostsForUser(FirebaseService.instance.selectedUserInstagramID!, accessToken: SavedStatus.instance.instagramAuthToken, callback: { (recentPosts) in
+                            self.monoclePosts = recentPosts
+                            self.hasInstagramAccount = hasAccount
+                        })
+                    } else {
+                        self.hasInstagramAccount = false
+                        self.monoclePosts.removeAll()
+                    }
+                }
+            }
         }
-        
     }
     
     func setDelegate() {

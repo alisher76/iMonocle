@@ -11,7 +11,7 @@ import UIKit
 extension UITableViewCell {
     func animateTweetCell() {
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 100, 0)
-        self.layer.cornerRadius = 0.5
+//        self.layer.cornerRadius = 0.5
         self.layer.shadowColor = UIColor.darkGray.cgColor
         self.layer.shadowOffset = CGSize(width:0,height: 2.0)
         self.layer.shadowRadius = 0
@@ -22,7 +22,7 @@ extension UITableViewCell {
         self.contentView.alpha = 0.5
         UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
             self.layer.transform = CATransform3DIdentity
-            self.layer.cornerRadius = 5
+//            self.layer.cornerRadius = 5
             self.layer.shadowColor = UIColor.darkGray.cgColor
             self.layer.shadowOffset = CGSize(width:0,height: 2.0)
             self.layer.shadowRadius = 2.0

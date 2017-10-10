@@ -189,16 +189,19 @@ class FirebaseService {
     }
     
     func getCurrentUserInfo(userInfo: @escaping (MonocleUser) -> ()) {
-        guard let currentUser = Auth.auth().currentUser else {return}
-        
+        var monocleUser: MonocleUser?
         REF_USERS.child(SavedStatus.instance.userID).child("accounts").observeSingleEvent(of: .value) { (snapshot) in
-             guard let userSnapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            guard let userSnapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in userSnapshot {
                 guard let mUser = user.value as? [String : Any] else { return }
-                guard let monocleUser = MonocleUser(json: mUser) else { return }
-                userInfo(monocleUser)
+                monocleUser = MonocleUser(json: mUser)
             }
-            
+            if self.isCurrentUser(user: monocleUser!) {
+                self.checkCurrentUserAccount(user: monocleUser!, account: { (account) in
+                    print(account)
+                })
+            }
+            userInfo(monocleUser!)
         }
         
     }
@@ -225,6 +228,7 @@ class FirebaseService {
             name = value.fullName
             REF_USERS.child(SavedStatus.instance.userID).child(endPoint).child(name).observe(.value, with: { (snapShot) in
                 if snapShot.hasChild("instagram") {
+                    SavedStatus.instance.instagramAuthToken = snapShot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "token").value as! String
                     hasInstagram(true)
                 } else {
                     hasInstagram(false)
@@ -251,15 +255,18 @@ class FirebaseService {
         case .instagramUser:
               account("instagram")
         case .twitterUser:
-            REF_USERS.child(SavedStatus.instance.userID).child("accounts").observe(.value, with: { (snapShot) in
-                if snapShot.hasChild("instagram") && snapShot.hasChild("twitter") {
+            REF_USERS.child(SavedStatus.instance.userID).child("accounts").observe(.value, with: { (snapshot) in
+                if snapshot.hasChild("instagram") && snapshot.hasChild("twitter") {
                     account("both")
-                    self.selectedUserInstagramID = snapShot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as? String
-                } else if snapShot.hasChild("instagram") {
-                    self.selectedUserInstagramID = snapShot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as? String
+                    self.selectedUserInstagramID = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as? String
+                    SavedStatus.instance.instagramAuthToken = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "token").value as! String
+                    SavedStatus.instance.currentUserInstagramID = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as! String
+                } else if snapshot.hasChild("instagram") {
+                    self.selectedUserInstagramID = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as? String
                     SavedStatus.instance.currentUserInstagramID = self.selectedUserInstagramID!
+                    SavedStatus.instance.instagramAuthToken = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "token").value as! String
                     account("instagram")
-                } else if snapShot.hasChild("twitter") {
+                } else if snapshot.hasChild("twitter") {
                     account("twitter")
                 }
             })

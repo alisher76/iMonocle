@@ -67,18 +67,15 @@ class MenuStaticTableVC: UITableViewController {
         // Get userinfo and update view
                 if SavedStatus.instance.isLoggedIn {
                     loginLabel.text = "Logout"
+                    FirebaseService.instance.getCurrentUserInfo { (user) in
+                        self.monocleUser = user
+                    }
                 } else {
                     loginLabel.text = "Login"
                 }
-        
-        FirebaseService.instance.getCurrentUserInfo { (user) in
-            self.monocleUser = user
-        }
-        
     }
     
     fileprivate func handleLogin() {
-        if SavedStatus.instance.isLoggedIn {
             if loginLabel.text == "Logout" {
                 FirebaseService.instance.logout()
                 SavedStatus.instance.isLoggedIn = false
@@ -87,7 +84,6 @@ class MenuStaticTableVC: UITableViewController {
                 SavedStatus.instance.cleanUpSavedStatus()
                 loginLabel.text = "Login"
                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-            }
         } else {
             if loginLabel.text == "Login" {
                 let loginVC = AccountCreationVC()
@@ -95,7 +91,7 @@ class MenuStaticTableVC: UITableViewController {
                 loginVC.delegate = self
                 self.present(loginVC, animated: true, completion: nil)
             
-            }
+                }
         }
     }
 }

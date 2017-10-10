@@ -21,16 +21,16 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
-    @IBOutlet var mediaImageVerticalSpacingConstraint: NSLayoutConstraint!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var commentsButton: UIButton!
     @IBOutlet weak var likesButton: UIButton!
     @IBOutlet var mediaImageViewHieght: NSLayoutConstraint!
-    
+    @IBOutlet var mediaImageVSpacingConstraint: NSLayoutConstraint!
     
     var indexPath: IndexPath!
-    var delegate: TwitterTableViewDelegate?
-
+    var delegate: HomeVC?
+    var rowNumber: Int!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10.0
@@ -86,11 +86,11 @@ class TweetCell: UITableViewCell {
                     self.postMedia.layer.cornerRadius = 5
                     self.postMedia.clipsToBounds = true
                     self.displayPhoto(withMediaUrl: mediaurl)
-                    self.delegate?.reloadTableCellAtIndex(cell: self, indexPath: indexPath)
                 }
             }
         } else {
             self.postMedia.isHidden = true
+            self.mediaImageViewHieght.constant = 0
             self.mediaImageViewHieght.isActive = true
         }
         if displayURLS.count > 0 {
@@ -111,8 +111,9 @@ class TweetCell: UITableViewCell {
     
     func displayPhoto(withMediaUrl: String) {
         self.postMedia.downloadedFrom(link: withMediaUrl)
+        self.mediaImageViewHieght.constant = 100
         self.postMedia.isHidden = false
-        //self.mediaImageVerticalSpacingConstraint.constant = 8
+        self.mediaImageVSpacingConstraint.constant = 5
     }
     
     @IBAction func retweetButtonTapped(_ sender: Any) {
