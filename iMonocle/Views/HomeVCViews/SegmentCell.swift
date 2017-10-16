@@ -33,6 +33,8 @@ extension SegmentCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "segmentCollectionViewCell", for: indexPath) as! SegmentMenuCollectionViewCell
+        cell.layer.shadowOpacity = 0
+        cell.segmentImage.layer.opacity = 0.5
         cell.segmentImage.image = UIImage(named: segmentMenuImages[indexPath.row])
         
         return cell
@@ -72,7 +74,7 @@ class SegmentMenuCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var segmentImage: UIImageView!
     
     override func awakeFromNib() {
-        setupView()
+
     }
     
     
@@ -80,29 +82,21 @@ class SegmentMenuCollectionViewCell: UICollectionViewCell {
         didSet {
             if isSelected {
                 segmentImage.layer.opacity = 1
-                self.layer.cornerRadius = 50
-                self.layer.shadowColor = UIColor.darkGray.cgColor
-                self.layer.shadowOffset = CGSize(width:0,height: 2.0)
+                self.layer.cornerRadius = 20
+                self.layer.shadowColor = UIColor.black.cgColor
+                self.layer.shadowOffset = CGSize(width:0,height: 4.0)
                 self.layer.shadowRadius = 10.0
                 self.layer.shadowOpacity = 1.0
                 self.layer.masksToBounds = false
             } else {
                 self.layer.shadowOpacity = 0
-                segmentImage.layer.opacity = 0.5
+                self.segmentImage.layer.opacity = 0.5
             }
         }
     }
     
     
-    func setupView() {
-        //        self.layer.borderWidth = 1
-        //        self.layer.borderColor = UIColor.black.cgColor
-        //        self.layer.cornerRadius = self.frame.width / 2
-        //        self.clipsToBounds = true
-    }
-    
-    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        setupView()
+        
     }}

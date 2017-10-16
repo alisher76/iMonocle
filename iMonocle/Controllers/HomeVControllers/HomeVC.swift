@@ -96,7 +96,7 @@ class HomeVC: UIViewController {
         accounInfoVC.transitioningDelegate = self
         accounInfoVC.modalPresentationStyle = .custom
         
-        self.show(accounInfoVC, sender: self)
+        self.present(accounInfoVC, animated: true, completion: nil)
     }
 
     fileprivate func selectedFriendDidChange() {
@@ -151,11 +151,11 @@ class HomeVC: UIViewController {
     fileprivate func segmentMenuDidChange(to option: SegmentOptions) {
         switch option {
         case .monocle:
-            print("Monocle")
+            mainTableView.reloadData()
         case .twitter:
-            print("twitter")
+            mainTableView.reloadData()
         case .instagram:
-            print("instagram")
+            mainTableView.reloadData()
         case .more:
             print("more")
         }

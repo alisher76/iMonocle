@@ -23,7 +23,7 @@ class CircularTransaction: NSObject {
         }
     }
     
-    var circleColor = UIColor.white
+    var circleColor = UIColor.clear
     
     var duration = 0.5
     
@@ -50,8 +50,9 @@ extension CircularTransaction: UIViewControllerAnimatedTransitioning {
                 
                 circle.layer.cornerRadius = circle.frame.size.height / 2
                 circle.center = startingPoint
-                circle.backgroundColor = circleColor
+                circle.backgroundColor = UIColor.clear
                 circle.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                circle.alpha = 0.0
                 containerView.addSubview(circle)
                 
                 presentedView.center = startingPoint
@@ -63,6 +64,8 @@ extension CircularTransaction: UIViewControllerAnimatedTransitioning {
                     self.circle.transform = CGAffineTransform.identity
                     presentedView.transform = CGAffineTransform.identity
                     presentedView.alpha = 1
+                    self.circle.backgroundColor = UIColor.lightGray
+                    self.circle.alpha = 0.2
                     presentedView.center = viewCenter
                 }, completion: { (success) in
                     transitionContext.completeTransition(success)
@@ -79,8 +82,6 @@ extension CircularTransaction: UIViewControllerAnimatedTransitioning {
                 
                 circle.frame = frameForCirle(withViewCenter: viewCenter, size: viewSize, startpoint: startingPoint)
                 circle.layer.cornerRadius = circle.frame.size.height / 2
-                circle.layer.borderWidth = 1
-                circle.layer.borderColor = UIColor.gray.cgColor
                 circle.center = startingPoint
                 
                 UIView.animate(withDuration: duration, animations: {

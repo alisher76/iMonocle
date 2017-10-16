@@ -87,10 +87,10 @@ class MonocleShareVC: UIViewController {
     // MARK: CheckDataBase
     func checkDataBase() {
         if selectedSegmentOption == .channels {
-                MonoShareDataService.instance.getAllChannels(handler: { (channels) in
-                    self.channels = channels
-                    self.tableView.reloadData()
-                })
+            MonoShareDataService.instance.getAllChannels(handler: { (channels) in
+                self.channels = channels
+                self.tableView.reloadData()
+            })
         } else if selectedSegmentOption == .messages {
             MonoShareDataService.instance.getAllMessages(handler: { (messages) in
                 for (_, value) in messages {

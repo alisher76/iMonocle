@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,6 +22,7 @@
                 <outlet property="channelNameTextField" destination="gaD-A2-U1f" id="SIg-Zs-DCi"/>
                 <outlet property="chooseIconBtn" destination="tLm-dt-c8B" id="sO2-N8-uZB"/>
                 <outlet property="createBtn" destination="4fQ-qC-UAJ" id="1C1-iV-UAH"/>
+                <outlet property="rondedView" destination="fEg-tN-zWN" id="Iyq-Fa-l5e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,10 +36,10 @@
                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEg-tN-zWN" customClass="RoundedUIView" customModule="iMonocle" customModuleProvider="target">
-                    <rect key="frame" x="16" y="110" width="343" height="450"/>
+                    <rect key="frame" x="17.5" y="153.5" width="340" height="360"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OGw-sw-OQT">
-                            <rect key="frame" x="21" y="34" width="300" height="382.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="OGw-sw-OQT">
+                            <rect key="frame" x="20" y="8" width="300" height="342.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="channel" translatesAutoresizingMaskIntoConstraints="NO" id="7yn-wP-uiA" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
                                     <rect key="frame" x="120" y="0.0" width="60" height="60"/>
@@ -48,13 +49,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaD-hv-9or">
-                                    <rect key="frame" x="91" y="75" width="118.5" height="20.5"/>
+                                    <rect key="frame" x="91" y="65" width="118.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.173940599" green="0.24193984269999999" blue="0.31265199179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="highlightedColor" red="0.34128272529999998" green="0.52568405870000001" blue="0.72512274980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="stq-us-HVj">
-                                    <rect key="frame" x="0.0" y="110.5" width="300" height="108"/>
+                                    <rect key="frame" x="0.0" y="90.5" width="300" height="108"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gaD-A2-U1f" customClass="InsetTextField" customModule="iMonocle" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -83,7 +84,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lHK-HF-KZw" userLabel="imageSetupStack">
-                                    <rect key="frame" x="120" y="233.5" width="60" height="84"/>
+                                    <rect key="frame" x="120" y="203.5" width="60" height="84"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="MBz-7S-ji5" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -106,7 +107,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fQ-qC-UAJ" customClass="RoundedButton" customModule="iMonocle" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="332.5" width="300" height="50"/>
+                                    <rect key="frame" x="0.0" y="292.5" width="300" height="50"/>
                                     <color key="backgroundColor" red="0.173940599" green="0.24193984269999999" blue="0.31265199179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="a8M-1s-xdo"/>
@@ -124,21 +125,21 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="OGw-sw-OQT" firstAttribute="centerY" secondItem="fEg-tN-zWN" secondAttribute="centerY" id="8fZ-uI-n3Y"/>
-                        <constraint firstAttribute="height" constant="450" id="aUm-sh-i9r"/>
-                        <constraint firstItem="OGw-sw-OQT" firstAttribute="centerX" secondItem="fEg-tN-zWN" secondAttribute="centerX" id="b6i-eK-a2d"/>
+                        <constraint firstAttribute="width" constant="340" id="JPh-eW-JL7"/>
+                        <constraint firstAttribute="height" constant="360" id="aUm-sh-i9r"/>
+                        <constraint firstItem="OGw-sw-OQT" firstAttribute="centerY" secondItem="fEg-tN-zWN" secondAttribute="centerY" id="cmR-Wn-igN"/>
+                        <constraint firstItem="OGw-sw-OQT" firstAttribute="centerX" secondItem="fEg-tN-zWN" secondAttribute="centerX" id="yI5-dH-dMH"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fEg-tN-zWN" secondAttribute="trailing" constant="16" id="5xa-VX-B2l"/>
                 <constraint firstItem="Oax-H4-2gz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RxZ-g2-Oed"/>
-                <constraint firstItem="fEg-tN-zWN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="V3f-1b-Ubg"/>
-                <constraint firstItem="fEg-tN-zWN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="90" id="bC7-Oc-cAu"/>
                 <constraint firstItem="Oax-H4-2gz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dh5-W4-HDp"/>
                 <constraint firstItem="Oax-H4-2gz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pBC-DW-l03"/>
                 <constraint firstItem="Oax-H4-2gz" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="r0m-uQ-1vu"/>
+                <constraint firstItem="fEg-tN-zWN" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sYY-ov-USX"/>
+                <constraint firstItem="fEg-tN-zWN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="skX-ou-Z1e"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>

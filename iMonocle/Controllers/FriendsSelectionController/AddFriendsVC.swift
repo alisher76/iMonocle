@@ -22,7 +22,7 @@ class AddFriendsVC: UIViewController {
     
     var currentSelectedFriends = [String:MonocleUser]() {
         didSet {
-            print(currentSelectedFriends)
+            
         }
     }
     
@@ -33,6 +33,13 @@ class AddFriendsVC: UIViewController {
         tableView.dataSource = self
         tableView.allowsMultipleSelection = true
         tableView.separatorColor = .clear
+        checkDataBase()
+        TwitterClient.sharedInstance?.getListOfFollowedFriends(success: { (friends) in
+            self.monocleUser = friends
+        }, failure: { (error) in
+            print(error.localizedDescription)
+        })
+        getInstagramFriendsList()
     }
     
     @IBAction func backBtnTapped(_ sender: Any) {
@@ -51,15 +58,19 @@ class AddFriendsVC: UIViewController {
     
     @IBAction func instagramButtonTapped(_ sender: Any) {
         print("InstagramTapped")
+        monocleUser.removeAll()
         getInstagramFriendsList()
     }
     
     func getInstagramFriendsList() {
+        
         if let accessToken = Instagram().userDefaults.object(forKey: "instagramToken") as? String {
             Instagram().fetchUserFriends(accessToken) { (users) in
+                var usersArray: [MonocleUser] = []
                 for instagramUser in users {
-                    self.monocleUser.append(MonocleUser.instagramUser(instagramUser))
+                    usersArray.append(MonocleUser.instagramUser(instagramUser))
                 }
+                self.monocleUser = usersArray
             }
         } else {
             //login

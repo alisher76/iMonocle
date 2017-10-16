@@ -75,7 +75,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func getListOfFollowedFriends(success: @escaping ([MonocleUser]) -> (), failure: @escaping (Error) -> ()) {
         
-        let params = ["count": 10]
+        let params = ["count": 20]
         var monocleUser = [MonocleUser]()
         
         get("1.1/friends/list.json", parameters: params, progress: nil, success: { (task, responce) in

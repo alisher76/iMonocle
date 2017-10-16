@@ -50,8 +50,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else if selectedOption == .monocle || selectedOption == .twitter {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tweetsCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
             if hasInstagramAccount {
-                cell.rowNumber = indexPath.row - 2
-                switch monocleTweets[indexPath.row - 2] {
+                cell.rowNumber = indexPath.row - 1
+                switch monocleTweets[indexPath.row - 1] {
                 case .tweet(let tweet):
                     if !indexNumbersForAnimatedCell.contains(indexPath.row) {
                         cell.animateTweetCell()

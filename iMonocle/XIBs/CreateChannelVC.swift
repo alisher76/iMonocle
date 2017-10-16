@@ -17,6 +17,7 @@ class CreateChannelVC: UIViewController {
     @IBOutlet weak var channelDescriptionTextField: InsetTextField!
     @IBOutlet weak var createBtn: RoundedButton!
     @IBOutlet weak var chooseIconBtn: UIButton!
+    @IBOutlet var rondedView: RoundedUIView!
     
     var avatarName = "profileDefault"
     
@@ -25,6 +26,7 @@ class CreateChannelVC: UIViewController {
         let gestureRescognizer = UITapGestureRecognizer()
         gestureRescognizer.addTarget(self, action: #selector(CreateChannelVC.tapToClose(_:)))
         backgroundVIew.addGestureRecognizer(gestureRescognizer)
+        view.bindToKeyboard()
     }
     
     @objc func tapToClose(_ gestureRecognizer: UITapGestureRecognizer) {

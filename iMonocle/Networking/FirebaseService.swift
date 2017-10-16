@@ -44,6 +44,12 @@ class FirebaseService {
     var selectedUser: MonocleUser?
     var selectedUserInstagramID: String?
     
+    var monocleAccount: [MonocleUser] = [] {
+        didSet {
+            print(monocleAccount.count)
+        }
+    }
+    
     // MARK: login to Firebase
     func loginUserToFirebase(withEmail email: String, password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -251,6 +257,7 @@ class FirebaseService {
     
     
     func checkCurrentUserAccount(user: MonocleUser, account: @escaping (String) -> ()) {
+        monocleAccount.removeAll()
         switch user {
         case .instagramUser:
               account("instagram")
@@ -258,15 +265,20 @@ class FirebaseService {
             REF_USERS.child(SavedStatus.instance.userID).child("accounts").observe(.value, with: { (snapshot) in
                 if snapshot.hasChild("instagram") && snapshot.hasChild("twitter") {
                     account("both")
+                    self.addMonocleAccount(dictionary: (snapshot.childSnapshot(forPath: "instagram").value as? [String:Any])!)
+                    self.addMonocleAccount(dictionary: (snapshot.childSnapshot(forPath: "twitter").value as? [String:Any])!)
                     self.selectedUserInstagramID = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as? String
                     SavedStatus.instance.instagramAuthToken = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "token").value as! String
                     SavedStatus.instance.currentUserInstagramID = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as! String
+                    
                 } else if snapshot.hasChild("instagram") {
+                    self.addMonocleAccount(dictionary: (snapshot.childSnapshot(forPath: "instagram").value as? [String:Any])!)
                     self.selectedUserInstagramID = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "id").value as? String
                     SavedStatus.instance.currentUserInstagramID = self.selectedUserInstagramID!
                     SavedStatus.instance.instagramAuthToken = snapshot.childSnapshot(forPath: "instagram").childSnapshot(forPath: "token").value as! String
                     account("instagram")
                 } else if snapshot.hasChild("twitter") {
+                    self.addMonocleAccount(dictionary: (snapshot.childSnapshot(forPath: "twitter").value as? [String:Any])!)
                     account("twitter")
                 }
             })
@@ -274,7 +286,7 @@ class FirebaseService {
     }
     
     func checkAccounts(monocleUser: MonocleUser, hasAccount: @escaping (String) -> ()) {
-        
+        monocleAccount.removeAll()
         switch monocleUser {
         case .instagramUser(let value):
             REF_USERS.child(SavedStatus.instance.userID).child("friends").child(value.fullName).observe(.value, with: { (snapShot) in
@@ -288,9 +300,13 @@ class FirebaseService {
             REF_USERS.child(SavedStatus.instance.userID).child("friends").child(value.name).observe(.value, with: { (snapShot) in
                 if snapShot.hasChild("twitter") && snapShot.hasChild("instagram") {
                     hasAccount("both")
+                    self.addMonocleAccount(dictionary: (snapShot.childSnapshot(forPath: "instagram").value as? [String:Any])!)
+                    self.addMonocleAccount(dictionary: (snapShot.childSnapshot(forPath: "twitter").value as? [String:Any])!)
                 } else if snapShot.hasChild("twitter"){
+                    self.addMonocleAccount(dictionary: (snapShot.childSnapshot(forPath: "twitter").value as? [String:Any])!)
                     hasAccount("twitter")
                 } else if snapShot.hasChild("instagram") {
+                    self.addMonocleAccount(dictionary: (snapShot.childSnapshot(forPath: "instagram").value as? [String:Any])!)
                     hasAccount("instagram")
                 }
             })
@@ -331,7 +347,7 @@ class FirebaseService {
               let friendSnap = _friend as! DataSnapshot
                 if friendSnap.hasChild("twitter") {
                 let friend = TwitterUser(snapshot: _friend as! DataSnapshot, account: "twitter")
-                back[friend.name] = MonocleUser(snapshot: _friend as! DataSnapshot)
+                back[friend.uid] = MonocleUser(snapshot: _friend as! DataSnapshot)
                 }
             }
             success(back)
@@ -372,6 +388,13 @@ class FirebaseService {
                 }
             }
         }
+    }
+    
+    func addMonocleAccount(dictionary: [String:Any]) {
+        guard let monocleUser = MonocleUser.init(json: dictionary) else {
+            return
+        }
+        monocleAccount.append(monocleUser)
     }
     
 }
