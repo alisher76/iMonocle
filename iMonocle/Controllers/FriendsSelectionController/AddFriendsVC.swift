@@ -22,7 +22,7 @@ class AddFriendsVC: UIViewController {
     
     var currentSelectedFriends = [String:MonocleUser]() {
         didSet {
-            
+            print(currentSelectedFriends.count)
         }
     }
     
@@ -34,12 +34,23 @@ class AddFriendsVC: UIViewController {
         tableView.allowsMultipleSelection = true
         tableView.separatorColor = .clear
         checkDataBase()
-        TwitterClient.sharedInstance?.getListOfFollowedFriends(success: { (friends) in
-            self.monocleUser = friends
-        }, failure: { (error) in
-            print(error.localizedDescription)
-        })
-        getInstagramFriendsList()
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        FirebaseService.instance.checkInitialSignedInSMediaType { (accountType) in
+            if accountType == "twitter" {
+                self.monocleUser.removeAll()
+                self.checkDataBase()
+                TwitterClient.sharedInstance?.getListOfFollowedFriends(success: { (friends) in
+                    self.monocleUser = friends
+                }, failure: { (error) in
+                    print(error.localizedDescription)
+                })
+            }
+        }
     }
     
     @IBAction func backBtnTapped(_ sender: Any) {

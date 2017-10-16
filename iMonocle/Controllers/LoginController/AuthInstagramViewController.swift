@@ -80,6 +80,7 @@ class AuthInstagramViewController: UIViewController, UIWebViewDelegate  {
                         userInfo["token"] = token
                         SavedStatus.instance.currentUserInstagramID = instaAccount.uid
                         
+                        
                         FirebaseService.instance.loginUserToFirebase(withEmail: "\(instaAccount.userName)@monocle.com", password: "\(instaAccount.uid)", loginComplete: { (success, error) in
                             if success {
                                 FirebaseService.instance.currentuserID = Auth.auth().currentUser?.uid

@@ -53,8 +53,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 cell.rowNumber = indexPath.row - 1
                 switch monocleTweets[indexPath.row - 1] {
                 case .tweet(let tweet):
-                    if !indexNumbersForAnimatedCell.contains(indexPath.row) {
+                    if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row) {
                         cell.animateTweetCell()
+                        indexNumbersForAnimatedTweetsCell.append(indexPath.row)
                     }
                     cell.delegate = self
                     cell.setUp(tweet: tweet)
@@ -64,8 +65,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 cell.rowNumber = indexPath.row - 1
                 switch monocleTweets[indexPath.row - 1] {
                 case .tweet(let tweet):
-                    if !indexNumbersForAnimatedCell.contains(indexPath.row) {
+                    if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row - 1) {
                         cell.animateTweetCell()
+                        indexNumbersForAnimatedTweetsCell.append(indexPath.row - 1)
                     }
                     cell.delegate = self
                     cell.setUp(tweet: tweet)
@@ -122,7 +124,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 return UICollectionViewCell()
             }
             cell.setupCell(friend: monocleFriendsArray[indexPath.row])
-            cell.animateFriendsCell()
+            if !indexNumbersForAnimatedFriendsCell.contains(indexPath.row) {
+                cell.animateFriendsCell()
+                indexNumbersForAnimatedFriendsCell.append(indexPath.row)
+            }
             return cell
         } else {
             return UICollectionViewCell()

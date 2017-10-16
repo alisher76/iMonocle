@@ -27,6 +27,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet var mediaImageViewHieght: NSLayoutConstraint!
     @IBOutlet var mediaImageVSpacingConstraint: NSLayoutConstraint!
     
+    @IBOutlet var numberOfLikes: UILabel!
+    @IBOutlet var numberOfComments: UILabel!
+    
     var indexPath: IndexPath!
     var delegate: HomeVC?
     var rowNumber: Int!
@@ -47,7 +50,7 @@ class TweetCell: UITableViewCell {
         nameLabel.text = tweet.author
         userNameLabel.text = "@" + tweet.screenName!
         tweetContentLabel.text = tweet.text
-        
+        numberOfLikes.text = "\(tweet.favoriteCount)"
         var urls = tweet.urls
         var media = tweet.media {
             didSet {

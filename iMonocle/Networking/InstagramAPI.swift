@@ -60,7 +60,7 @@ class Instagram {
     }
     // Get Monocle Converted list of friends
     func populateFriendsListMonacle(accessToken: String, callback: @escaping ([MonocleUser]) -> Void) {
-        
+
         request("https://api.instagram.com/v1/users/self/follows?access_token=\(accessToken)", method: .get).responseJSON { (responce) in
             var friendsInstaAccount: [[String:Any]] = []
             let list = JSON(responce.result.value!)
@@ -109,7 +109,6 @@ class Instagram {
     
     func fetchRecentMonoclePostsForUser(_ id: String, accessToken: String, callback: @escaping ([MonoclePost]) -> Void) {
         request("https://api.instagram.com/v1/users/\(id)/media/recent/?access_token=\(accessToken)", method: .get).responseJSON { (responce) in
-            print(responce.result.value)
             var posts: [[String:Any]] = []
             let media = JSON(responce.result.value!)
             for _media in media["data"].arrayValue {

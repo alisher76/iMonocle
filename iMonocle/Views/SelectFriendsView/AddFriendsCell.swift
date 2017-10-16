@@ -28,7 +28,7 @@ class AddFriendCell: UITableViewCell {
         case .instagramUser(let iUser):
             self.profileIMage.downloadedFrom(link: iUser.image)
         case .twitterUser(let tUser):
-            if currentSelectedFriends[tUser.uid] != nil {
+            if currentSelectedFriends[tUser.name] != nil {
                 self.accessoryType = .checkmark
             }
             self.profileIMage.downloadedFrom(link: tUser.image)

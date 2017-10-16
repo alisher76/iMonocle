@@ -27,7 +27,7 @@ class PostsCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.isPagingEnabled = true
+       
     }
 }
 

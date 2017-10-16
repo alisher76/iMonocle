@@ -35,7 +35,8 @@ class HomeVC: UIViewController {
         }
     }
     
-    var indexNumbersForAnimatedCell: [Int] = []
+    var indexNumbersForAnimatedTweetsCell: [Int] = []
+    var indexNumbersForAnimatedFriendsCell: [Int] = []
     
     let transition = CircularTransaction()
     var selectedFriend = FirebaseService.instance.selectedUser {
@@ -52,12 +53,13 @@ class HomeVC: UIViewController {
     }
     var monocleTweets = [MonoclePost]() {
         didSet {
-            indexNumbersForAnimatedCell.removeAll()
+            indexNumbersForAnimatedTweetsCell.removeAll()
         }
     }
     var monoclePosts = [MonoclePost]() {
         didSet {
-            indexNumbersForAnimatedCell.removeAll()
+            print(monoclePosts.count)
+            indexNumbersForAnimatedTweetsCell.removeAll()
         }
     }
     var selectedOption = SegmentOptions.monocle {

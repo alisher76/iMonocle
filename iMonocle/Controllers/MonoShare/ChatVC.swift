@@ -33,7 +33,7 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        keyboardView.bindToKeyboard()
+        view.bindToKeyboard()
         
         textField.delegate = self
         

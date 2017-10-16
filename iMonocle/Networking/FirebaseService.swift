@@ -184,9 +184,8 @@ class FirebaseService {
     }
     
    func checkInitialSignedInSMediaType(sMediaType: @escaping (String) -> ()) {
-        guard let currentUser = Auth.auth().currentUser else {return}
-        REF_USERS.child(SavedStatus.instance.userID).observe(.value) { (snapshot) in
-            if snapshot.hasChild("twitter") {
+        REF_USERS.child(SavedStatus.instance.userID).child("createdAccountWith").observe(.value) { (snapshot) in
+            if snapshot.value as? String == "twitter" {
                 sMediaType("twitter")
             } else {
                 sMediaType("instagram")
@@ -333,7 +332,13 @@ class FirebaseService {
                 if account == "twitter" {
                     guard let tMonocleAccount = MonocleUser(json: info) else { return }
                     back.append(tMonocleAccount)
-                } 
+                }
+                
+                if account == "instagram" {
+                    guard let token = info["token"] as? String else { return }
+                    SavedStatus.instance.instagramAuthToken = token
+                    SavedStatus.instance.isLoggedInToInstagram = true
+                }
             }
             success(back)
         }
@@ -347,7 +352,7 @@ class FirebaseService {
               let friendSnap = _friend as! DataSnapshot
                 if friendSnap.hasChild("twitter") {
                 let friend = TwitterUser(snapshot: _friend as! DataSnapshot, account: "twitter")
-                back[friend.uid] = MonocleUser(snapshot: _friend as! DataSnapshot)
+                back[friend.name] = MonocleUser(snapshot: _friend as! DataSnapshot)
                 }
             }
             success(back)
