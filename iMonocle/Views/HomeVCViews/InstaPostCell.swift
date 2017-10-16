@@ -16,9 +16,13 @@ class InstaPostCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setup()
-        self.layer.cornerRadius = 3.0
-//        
+        self.layer.cornerRadius = 25
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOffset = CGSize(width:0,height: 2.0)
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 1.0
+        self.clipsToBounds = true
+        self.layer.masksToBounds = false
     }
     
     func setupCell(post: MonoclePost) {
@@ -30,11 +34,6 @@ class InstaPostCell: UICollectionViewCell {
         default:
             break
         }
-    }
-    
-    func setup() {
-        
-        
     }
 }
 

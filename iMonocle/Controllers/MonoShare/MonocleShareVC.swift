@@ -61,6 +61,7 @@ class MonocleShareVC: UIViewController {
     @IBAction func addBtnTapped(_ sender: Any) {
         if selectedSegmentOption == .channels {
             let createChannelVC = CreateChannelVC()
+            createChannelVC.delegate = self
             createChannelVC.modalPresentationStyle = .custom
             self.present(createChannelVC, animated: true, completion: nil)
         } else if selectedSegmentOption == .messages {

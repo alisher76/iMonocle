@@ -20,6 +20,8 @@ class CreateChannelVC: UIViewController {
     @IBOutlet var rondedView: RoundedUIView!
     
     var avatarName = "profileDefault"
+    var delegate: MonocleShareVC!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,12 @@ class CreateChannelVC: UIViewController {
     
     
     @IBAction func chooseIconBtnTapped(_ sender: Any) {
-      performSegue(withIdentifier: StoryboardIdentifier.avatarPicker.rawValue, sender: nil)
+      //pickAvatarVC
+        print("worksFine")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let avatarVC = storyboard.instantiateViewController(withIdentifier: "pickAvatarVC") as! AvatarPickVC
+        self.present(avatarVC, animated: true, completion: nil)
+        
     }
     
     @IBAction func createBtnTapped(_ sender: Any) {

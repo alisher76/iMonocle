@@ -1,8 +1,8 @@
 //
-//  PickAvatarVC.swift
+//  AvatarPickVC.swift
 //  iMonocle
 //
-//  Created by Alisher Abdukarimov on 9/23/17.
+//  Created by Alisher Abdukarimov on 10/16/17.
 //  Copyright © 2017 MrAliGorithm. All rights reserved.
 //
 
@@ -13,8 +13,9 @@ enum AvatarType {
     case light
 }
 
-class PickAvatarVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class AvatarPickVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var uiCollectionView: UICollectionView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
@@ -26,13 +27,21 @@ class PickAvatarVC: UIViewController, UICollectionViewDelegate, UICollectionView
         uiCollectionView.delegate = self
         uiCollectionView.dataSource = self
         
+        let gestureRescognizer = UITapGestureRecognizer()
+        gestureRescognizer.addTarget(self, action: #selector(AvatarPickVC.tapToClose(_:)))
+        backgroundView.addGestureRecognizer(gestureRescognizer)
+        
+    }
+    
+    @objc func tapToClose(_ gestureRecognizer: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AVATAR_CELL, for: indexPath) as? AvatarCell {
-//            cell.configureCell(index: indexPath.item, type: avatarType)
-//            return cell
-//        }
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "avatarCell", for: indexPath) as? AvatarCell {
+            cell.configureCell(index: indexPath.row, type: avatarType)
+            return cell
+        }
         return UICollectionViewCell()
     }
     
@@ -44,9 +53,6 @@ class PickAvatarVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return 28
     }
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     
     @IBAction func segmentControlChanged(_ sender: Any) {
         if segmentControl.selectedSegmentIndex == 0 {
@@ -72,9 +78,9 @@ class PickAvatarVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if avatarType == .dark {
-         //   UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)")
+            //   UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)")
         } else {
-          //  UserDataService.instance.setAvatarName(avatarName: "light\(indexPath.item)")
+            //  UserDataService.instance.setAvatarName(avatarName: "light\(indexPath.item)")
         }
         self.dismiss(animated: true, completion: nil)
     }

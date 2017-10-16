@@ -92,13 +92,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return  CGFloat(60)
         }
         else if indexPath.row == 1 && hasInstagramAccount && selectedOption == .monocle || selectedOption == .instagram {
-            
-            if isOpen {
-                return CGFloat(self.view.frame.size.height / 1.5)
-            } else {
-                return CGFloat(self.view.frame.size.height / 2)
-            }
-            
+            return CGFloat(self.view.frame.size.height / 1.5)
         } else {
             return UITableViewAutomaticDimension
         }

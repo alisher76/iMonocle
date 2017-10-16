@@ -27,6 +27,7 @@ class PostsCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isPagingEnabled = true
     }
 }
 
@@ -45,20 +46,19 @@ extension PostsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             return UICollectionViewCell()
         }
         cell.setupCell(post: monoclePosts[indexPath.row])
-        cell.addShadow()
         return cell
     }
     
     // MARK: did slect item at index path
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if (delegate?.isOpen)! {
-            delegate?.isOpen = false
-        } else {
-            delegate?.isOpen = true
-        }
-        delegate?.mainTableView.reloadData()
-        collectionView.reloadData()
+//        if (delegate?.isOpen)! {
+//            delegate?.isOpen = false
+//        } else {
+//            delegate?.isOpen = true
+//        }
+//        delegate?.mainTableView.reloadData()
+//        collectionView.reloadData()
     }
     
     
@@ -66,23 +66,13 @@ extension PostsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if (delegate?.isOpen)! {
-            return CGSize(width: (delegate?.view.frame.size.width)! - 20, height: (delegate?.view.frame.size.height)! / 1.8)
-        } else {
-            return CGSize(width: (delegate?.view.frame.size.width)! - 10, height: (delegate?.view.frame.size.height)! / 2.5)
-        }
+        return CGSize(width: self.frame.width, height: (delegate?.view.frame.size.height)! / 1.8)
+        
     }
-    
-    // MARK: ask the delegate for the scaping between items and the rows or columns of the section
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
-    }
-    
-    
     // MARK: spacing between successive rows or columns of the section
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

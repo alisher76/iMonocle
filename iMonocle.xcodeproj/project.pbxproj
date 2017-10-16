@@ -45,6 +45,8 @@
 		AC4F77661F76DDAB00B00E91 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F77651F76DDAB00B00E91 /* InsetTextField.swift */; };
 		AC4F77681F76E3BC00B00E91 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F77671F76E3BC00B00E91 /* RoundedButton.swift */; };
 		AC51B56D1F1FF99200A29D64 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */; };
+		AC5B00011F94DCD900090934 /* AvatarPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5B00001F94DCD900090934 /* AvatarPickVC.swift */; };
+		AC5BFFFF1F94D58C00090934 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BFFFE1F94D58C00090934 /* AvatarCell.swift */; };
 		AC68F2EF1F8CD24F00396982 /* SegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2EE1F8CD24F00396982 /* SegmentCell.swift */; };
 		AC68F2F11F8CD30A00396982 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F01F8CD30900396982 /* PostsCell.swift */; };
 		AC68F2F31F8CD3D800396982 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F21F8CD3D800396982 /* TweetCell.swift */; };
@@ -59,7 +61,6 @@
 		AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91A81F103A100084BB0C /* MonaclePost.swift */; };
 		AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */; };
 		ACA8ADB71F76F947008CCD94 /* RoundedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8ADB61F76F947008CCD94 /* RoundedUIView.swift */; };
-		ACA8ADB91F76FE3B008CCD94 /* PickAvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA8ADB81F76FE3B008CCD94 /* PickAvatarVC.swift */; };
 		ACB2F1581F54BF3900901505 /* AccountCreationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F1561F54BF3900901505 /* AccountCreationVC.swift */; };
 		ACB2F1591F54BF3900901505 /* AccountCreationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB2F1571F54BF3900901505 /* AccountCreationVC.xib */; };
 		ACB2F15F1F54C38000901505 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB2F15E1F54C38000901505 /* HomeVC.swift */; };
@@ -134,6 +135,8 @@
 		AC4F77651F76DDAB00B00E91 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		AC4F77671F76E3BC00B00E91 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		AC5B00001F94DCD900090934 /* AvatarPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickVC.swift; sourceTree = "<group>"; };
+		AC5BFFFE1F94D58C00090934 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		AC68F2EE1F8CD24F00396982 /* SegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCell.swift; sourceTree = "<group>"; };
 		AC68F2F01F8CD30900396982 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		AC68F2F21F8CD3D800396982 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
@@ -148,7 +151,6 @@
 		AC9D91A81F103A100084BB0C /* MonaclePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonaclePost.swift; sourceTree = "<group>"; };
 		AC9D91AC1F103A4B0084BB0C /* InstagramMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramMedia.swift; sourceTree = "<group>"; };
 		ACA8ADB61F76F947008CCD94 /* RoundedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIView.swift; sourceTree = "<group>"; };
-		ACA8ADB81F76FE3B008CCD94 /* PickAvatarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAvatarVC.swift; sourceTree = "<group>"; };
 		ACB2F1561F54BF3900901505 /* AccountCreationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationVC.swift; sourceTree = "<group>"; };
 		ACB2F1571F54BF3900901505 /* AccountCreationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCreationVC.xib; sourceTree = "<group>"; };
 		ACB2F15E1F54C38000901505 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				AC268BBD1F757E6E0025FD30 /* ChannelCell.swift */,
 				AC268BBF1F757E7F0025FD30 /* MessagesCell.swift */,
 				AC268BC11F757E940025FD30 /* GroupCell.swift */,
+				AC5BFFFE1F94D58C00090934 /* AvatarCell.swift */,
 			);
 			path = MonoShareViews;
 			sourceTree = "<group>";
@@ -315,7 +318,6 @@
 			children = (
 				AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */,
 				AC3614E51F7428C200D688E0 /* ChatVC.swift */,
-				ACA8ADB81F76FE3B008CCD94 /* PickAvatarVC.swift */,
 				AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */,
 			);
 			path = MonoShare;
@@ -396,6 +398,7 @@
 				AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */,
 				AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */,
 				AC4F77621F759B0D00B00E91 /* CreateChannelVC.xib */,
+				AC5B00001F94DCD900090934 /* AvatarPickVC.swift */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
 				AC268BC41F758D1C0025FD30 /* Channel.swift in Sources */,
 				AC268BC61F758D290025FD30 /* Message.swift in Sources */,
+				AC5B00011F94DCD900090934 /* AvatarPickVC.swift in Sources */,
 				ACBD005D1F2D238900E57FC8 /* Constants.swift in Sources */,
 				AC9D91A11F1037E80084BB0C /* GradientView.swift in Sources */,
 				AC06261D1F55D8C900FE50C1 /* FriendsListCell.swift in Sources */,
@@ -749,6 +753,7 @@
 				AC268BBE1F757E6E0025FD30 /* ChannelCell.swift in Sources */,
 				ACB2F1611F54C3C600901505 /* HomeVCDataSource.swift in Sources */,
 				AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */,
+				AC5BFFFF1F94D58C00090934 /* AvatarCell.swift in Sources */,
 				AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */,
 				AC3614E21F71637D00D688E0 /* AuthInstagramViewController.swift in Sources */,
 				ACC62CFE1F7D05E000D57200 /* CircularTransaction.swift in Sources */,
@@ -757,7 +762,6 @@
 				AC68F2F11F8CD30A00396982 /* PostsCell.swift in Sources */,
 				AC8A75AB1F5E4DFD00A3082C /* AddAccountVC.swift in Sources */,
 				AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */,
-				ACA8ADB91F76FE3B008CCD94 /* PickAvatarVC.swift in Sources */,
 				AC2442CD1F7A5C0A00E80DE1 /* MonocleShareUser.swift in Sources */,
 				AC268BCA1F758DF10025FD30 /* MonoShareDataService.swift in Sources */,
 				ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */,

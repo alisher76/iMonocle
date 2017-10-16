@@ -33,13 +33,12 @@ class TweetCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 10.0
+    
     }
 
     func setUp(tweet: Tweet) {
         
         self.postMedia.isHidden = true
-        self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
         self.clipsToBounds = true

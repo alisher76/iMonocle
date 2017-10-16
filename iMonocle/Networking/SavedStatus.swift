@@ -70,7 +70,11 @@ class SavedStatus {
     
     var userID: String {
         get {
-            return defaults.value(forKey: USER_ID) as! String
+            if let back = defaults.value(forKey: USER_ID) as? String {
+                return back
+            } else {
+                return "123456"
+            }
         }
         set {
             defaults.set(newValue, forKey: USER_ID)
