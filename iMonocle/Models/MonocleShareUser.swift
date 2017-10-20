@@ -14,6 +14,7 @@ class MonocleShareUser {
     private var _name: String
     private var _id: String
     private var _email: String
+    private var _image: String
     
     var name: String {
         return _name
@@ -27,10 +28,15 @@ class MonocleShareUser {
         return _id
     }
     
-    init(name: String, id: String, email: String) {
+    var image: String {
+        return _image
+    }
+    
+    init(name: String, id: String, email: String, image: String) {
         self._id = id
         self._name = name
-        self._email = email 
+        self._email = email
+        self._image = image
     }
 }
 

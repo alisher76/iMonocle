@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0F97C5A0D83F1E75EC6492DD /* Pods_iMonocleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */; };
 		5D23F126E23649B1A6FB41BA /* Pods_iMonocle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E46BCFF8B747B043651204 /* Pods_iMonocle.framework */; };
-		AC06260F1F54DC1500FE50C1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */; };
 		AC0626151F55D57600FE50C1 /* InstaPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0626141F55D57600FE50C1 /* InstaPostCell.swift */; };
 		AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261A1F55D7E700FE50C1 /* CircleImage.swift */; };
 		AC06261D1F55D8C900FE50C1 /* FriendsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */; };
@@ -19,8 +18,6 @@
 		AC17DFAF1F82A9A300271D13 /* UICollectionVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC17DFAE1F82A9A300271D13 /* UICollectionVIewCell.swift */; };
 		AC1FBC751F55F99A00985C07 /* AddFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC741F55F99A00985C07 /* AddFriendsVC.swift */; };
 		AC1FBC771F55F9DA00985C07 /* AddFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC761F55F9DA00985C07 /* AddFriendsCell.swift */; };
-		AC1FBC7D1F55FA6C00985C07 /* CellShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC7B1F55FA6C00985C07 /* CellShadowExtension.swift */; };
-		AC1FBC7E1F55FA6C00985C07 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FBC7C1F55FA6C00985C07 /* UIViewControllerExtension.swift */; };
 		AC21A49A1F60E60E00055E7C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21A4991F60E60E00055E7C /* UIViewExtensions.swift */; };
 		AC21A4EB1F68395700055E7C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21A4EA1F68395700055E7C /* Protocols.swift */; };
 		AC22C44F1F32C011009E7CEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC22C44E1F32C011009E7CEA /* Main.storyboard */; };
@@ -52,6 +49,9 @@
 		AC68F2F31F8CD3D800396982 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F21F8CD3D800396982 /* TweetCell.swift */; };
 		AC68F2F51F8CD50E00396982 /* AddMonocleAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */; };
 		AC719CAD1F993D8400F76B47 /* ChooseAvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */; };
+		AC719CB11F9A7ED200F76B47 /* CellShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC719CAF1F9A7ED100F76B47 /* CellShadowExtension.swift */; };
+		AC719CB21F9A7ED200F76B47 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC719CB01F9A7ED200F76B47 /* UIViewControllerExtension.swift */; };
+		AC719CB51F9A804200F76B47 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC719CB41F9A804200F76B47 /* SWRevealViewController.m */; };
 		AC8A75AB1F5E4DFD00A3082C /* AddAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */; };
 		AC8A75AC1F5E4DFD00A3082C /* AddAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */; };
 		AC8A75AE1F5E502400A3082C /* AddAccountVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */; };
@@ -97,8 +97,6 @@
 		81FDD59327060AA18BF99713 /* Pods-iMonocleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMonocleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iMonocleTests/Pods-iMonocleTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5098F334131D0E0B13CF09C /* Pods_iMonocleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMonocleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC06260C1F54DBFE00FE50C1 /* iMonocle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMonocle-Bridging-Header.h"; sourceTree = "<group>"; };
-		AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
-		AC06260E1F54DC1500FE50C1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
 		AC0626141F55D57600FE50C1 /* InstaPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstaPostCell.swift; sourceTree = "<group>"; };
 		AC06261A1F55D7E700FE50C1 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		AC06261C1F55D8C900FE50C1 /* FriendsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListCell.swift; sourceTree = "<group>"; };
@@ -108,8 +106,6 @@
 		AC17DFAE1F82A9A300271D13 /* UICollectionVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionVIewCell.swift; sourceTree = "<group>"; };
 		AC1FBC741F55F99A00985C07 /* AddFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsVC.swift; sourceTree = "<group>"; };
 		AC1FBC761F55F9DA00985C07 /* AddFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsCell.swift; sourceTree = "<group>"; };
-		AC1FBC7B1F55FA6C00985C07 /* CellShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellShadowExtension.swift; path = ../../../../Projects/iMonoPrototype/iMonoPrototype/Extensions/CellShadowExtension.swift; sourceTree = "<group>"; };
-		AC1FBC7C1F55FA6C00985C07 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = ../../../../Projects/iMonoPrototype/iMonoPrototype/Extensions/UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		AC21A4991F60E60E00055E7C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		AC21A4EA1F68395700055E7C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AC22C44E1F32C011009E7CEA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +139,10 @@
 		AC68F2F21F8CD3D800396982 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonocleAccountCell.swift; sourceTree = "<group>"; };
 		AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarVC.swift; sourceTree = "<group>"; };
+		AC719CAF1F9A7ED100F76B47 /* CellShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellShadowExtension.swift; sourceTree = "<group>"; };
+		AC719CB01F9A7ED200F76B47 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		AC719CB31F9A804200F76B47 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../../../Documents/Documents - Alisher’s MacBook Pro/Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
+		AC719CB41F9A804200F76B47 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../../../Documents/Documents - Alisher’s MacBook Pro/Books/Udemy - iOS 11 and Swift 4 - From Beginner to Paid Professional/06-networking-apis-rest-and-building-a-slack-clone/attached_files/054-intro-to-chat-app/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
 		AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVC.swift; sourceTree = "<group>"; };
 		AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountVC.xib; sourceTree = "<group>"; };
 		AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVCCell.swift; sourceTree = "<group>"; };
@@ -220,8 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				AC06260C1F54DBFE00FE50C1 /* iMonocle-Bridging-Header.h */,
-				AC06260D1F54DC1500FE50C1 /* SWRevealViewController.m */,
-				AC06260E1F54DC1500FE50C1 /* SWRevealViewController.h */,
+				AC719CB31F9A804200F76B47 /* SWRevealViewController.h */,
+				AC719CB41F9A804200F76B47 /* SWRevealViewController.m */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -245,8 +245,8 @@
 		AC1FBC781F55FA0900985C07 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AC1FBC7B1F55FA6C00985C07 /* CellShadowExtension.swift */,
-				AC1FBC7C1F55FA6C00985C07 /* UIViewControllerExtension.swift */,
+				AC719CAF1F9A7ED100F76B47 /* CellShadowExtension.swift */,
+				AC719CB01F9A7ED200F76B47 /* UIViewControllerExtension.swift */,
 				AC21A4991F60E60E00055E7C /* UIViewExtensions.swift */,
 				AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */,
 				AC17DFAC1F82024600271D13 /* AnimateCell.swift */,
@@ -714,7 +714,6 @@
 				AC268BC21F757E940025FD30 /* GroupCell.swift in Sources */,
 				ACA8ADB71F76F947008CCD94 /* RoundedUIView.swift in Sources */,
 				AC4F77631F759B0D00B00E91 /* CreateChannelVC.swift in Sources */,
-				AC06260F1F54DC1500FE50C1 /* SWRevealViewController.m in Sources */,
 				ACB2F1581F54BF3900901505 /* AccountCreationVC.swift in Sources */,
 				ACCC08DD1F58902A009E38B8 /* SavedStatus.swift in Sources */,
 				AC9D91A71F1039020084BB0C /* MonocleUser.swift in Sources */,
@@ -729,11 +728,13 @@
 				AC21A49A1F60E60E00055E7C /* UIViewExtensions.swift in Sources */,
 				AC9D91AA1F103A100084BB0C /* MonaclePost.swift in Sources */,
 				AC06261F1F55DD0E00FE50C1 /* InstaPostCellFlowLayout.swift in Sources */,
+				AC719CB21F9A7ED200F76B47 /* UIViewControllerExtension.swift in Sources */,
 				AC17DFAF1F82A9A300271D13 /* UICollectionVIewCell.swift in Sources */,
 				AC268BC81F758D380025FD30 /* Group.swift in Sources */,
 				AC0626151F55D57600FE50C1 /* InstaPostCell.swift in Sources */,
 				ACEC50381F0DA7E100887E46 /* AppDelegate.swift in Sources */,
 				AC268BC41F758D1C0025FD30 /* Channel.swift in Sources */,
+				AC719CB11F9A7ED200F76B47 /* CellShadowExtension.swift in Sources */,
 				AC268BC61F758D290025FD30 /* Message.swift in Sources */,
 				AC5B00011F94DCD900090934 /* AvatarPickVC.swift in Sources */,
 				ACBD005D1F2D238900E57FC8 /* Constants.swift in Sources */,
@@ -746,7 +747,6 @@
 				AC4F77681F76E3BC00B00E91 /* RoundedButton.swift in Sources */,
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				ACB2F15F1F54C38000901505 /* HomeVC.swift in Sources */,
-				AC1FBC7D1F55FA6C00985C07 /* CellShadowExtension.swift in Sources */,
 				ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */,
 				AC3614E41F732BDB00D688E0 /* MonocleShareVC.swift in Sources */,
 				AC268BC01F757E7F0025FD30 /* MessagesCell.swift in Sources */,
@@ -758,10 +758,10 @@
 				AC9D91AD1F103A4B0084BB0C /* InstagramMedia.swift in Sources */,
 				AC5BFFFF1F94D58C00090934 /* AvatarCell.swift in Sources */,
 				AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */,
+				AC719CB51F9A804200F76B47 /* SWRevealViewController.m in Sources */,
 				AC3614E21F71637D00D688E0 /* AuthInstagramViewController.swift in Sources */,
 				ACC62CFE1F7D05E000D57200 /* CircularTransaction.swift in Sources */,
 				AC68F2F31F8CD3D800396982 /* TweetCell.swift in Sources */,
-				AC1FBC7E1F55FA6C00985C07 /* UIViewControllerExtension.swift in Sources */,
 				AC68F2F11F8CD30A00396982 /* PostsCell.swift in Sources */,
 				AC8A75AB1F5E4DFD00A3082C /* AddAccountVC.swift in Sources */,
 				AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */,

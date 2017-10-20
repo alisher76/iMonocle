@@ -241,8 +241,16 @@ class MonoShareDataService {
             for _friend in friends {
                 guard let name = _friend.childSnapshot(forPath: "name").value as? String else { return }
                 guard let email = _friend.childSnapshot(forPath: "email").value as? String else { return }
+                var imageURL: String = ""
+                if _friend.childSnapshot(forPath: "accounts").hasChild("instagram") {
+                    let imageUrl = _friend.childSnapshot(forPath: "accounts").childSnapshot(forPath: "instagram").childSnapshot(forPath: "profile_picture").value as! String
+                    imageURL = imageUrl
+                } else {
+                    guard let imageUrl = _friend.childSnapshot(forPath: "accounts").childSnapshot(forPath: "twitter").childSnapshot(forPath: "profile_image_url_https").value as? String else { return }
+                    imageURL = imageUrl
+                }
                 let userKey = _friend.key
-                let user = MonocleShareUser(name: name, id: userKey, email: email)
+                let user = MonocleShareUser(name: name, id: userKey, email: email, image: imageURL)
                 usersArray.append(user)
             }
             result(usersArray)

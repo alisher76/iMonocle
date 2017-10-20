@@ -66,6 +66,7 @@ extension SelectMonocleUserVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.nameLabel.text = friends[indexPath.row].name
         cell.userNameLabel.text = friends[indexPath.row].email
+        cell.profileImageView.downloadedFrom(link: friends[indexPath.row].image)
         return cell
     }
     
@@ -84,6 +85,7 @@ class SelectFriendCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         
     }
     
