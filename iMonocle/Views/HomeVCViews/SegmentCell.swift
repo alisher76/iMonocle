@@ -33,10 +33,10 @@ extension SegmentCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "segmentCollectionViewCell", for: indexPath) as! SegmentMenuCollectionViewCell
+        cell.delegate = self
         cell.layer.shadowOpacity = 0
         cell.segmentImage.layer.opacity = 0.5
         cell.segmentImage.image = UIImage(named: segmentMenuImages[indexPath.row])
-        
         return cell
     }
     
@@ -72,29 +72,11 @@ extension SegmentCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
 class SegmentMenuCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var segmentImage: UIImageView!
+    var delegate: SegmentCell!
     
     override func awakeFromNib() {
-
+        
     }
-    
-    
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                segmentImage.layer.opacity = 1
-                self.layer.cornerRadius = 20
-                self.layer.shadowColor = UIColor.black.cgColor
-                self.layer.shadowOffset = CGSize(width:0,height: 4.0)
-                self.layer.shadowRadius = 10.0
-                self.layer.shadowOpacity = 1.0
-                self.layer.masksToBounds = false
-            } else {
-                self.layer.shadowOpacity = 0
-                self.segmentImage.layer.opacity = 0.5
-            }
-        }
-    }
-    
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()

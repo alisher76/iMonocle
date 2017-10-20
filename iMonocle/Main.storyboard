@@ -683,7 +683,7 @@
                                             <constraint firstAttribute="height" constant="30" id="BnA-Zt-TUB"/>
                                             <constraint firstAttribute="width" constant="30" id="jpM-MJ-iHF"/>
                                         </constraints>
-                                        <state key="normal" image="search">
+                                        <state key="normal" image="add">
                                             <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
@@ -1148,7 +1148,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-KK-T9X" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="channel" translatesAutoresizingMaskIntoConstraints="NO" id="YkJ-KK-T9X" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="11" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="VE1-5w-5c5"/>
@@ -1202,7 +1202,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-UR-xr5" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ohk-UR-xr5" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="11" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="dWF-Zn-p78"/>
@@ -1249,67 +1249,13 @@
                                             <outlet property="userProfileImageView" destination="ohk-UR-xr5" id="bAc-S9-8H4"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groupCell" rowHeight="80" id="PoH-3u-pW8" customClass="GroupCell" customModule="iMonocle" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PoH-3u-pW8" id="tjq-qO-cYk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cFb-Zb-Kkb" customClass="CircleImage" customModule="iMonocle" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="11" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="DRN-Wr-3gZ"/>
-                                                        <constraint firstAttribute="width" constant="50" id="fMv-7t-Ofx"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GroupName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axT-4p-JDc">
-                                                    <rect key="frame" x="77" y="11" width="95" height="14"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="#members" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9W-Lo-0nh">
-                                                    <rect key="frame" x="77" y="33" width="271" height="21"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CreatedBy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OF3-uc-OWM">
-                                                    <rect key="frame" x="183" y="8" width="68" height="20"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="OF3-uc-OWM" firstAttribute="leading" secondItem="axT-4p-JDc" secondAttribute="trailing" constant="11" id="9MW-Ek-ssS"/>
-                                                <constraint firstItem="axT-4p-JDc" firstAttribute="top" secondItem="cFb-Zb-Kkb" secondAttribute="top" id="AAJ-UN-uMN"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="o9W-Lo-0nh" secondAttribute="bottom" constant="15" id="Cn8-iF-BP5"/>
-                                                <constraint firstItem="axT-4p-JDc" firstAttribute="leading" secondItem="cFb-Zb-Kkb" secondAttribute="trailing" constant="12" id="Mjt-aG-zxn"/>
-                                                <constraint firstItem="OF3-uc-OWM" firstAttribute="top" secondItem="tjq-qO-cYk" secondAttribute="top" constant="8" id="SYv-9E-2Q9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="o9W-Lo-0nh" secondAttribute="trailing" constant="12" id="WKQ-d7-MQ2"/>
-                                                <constraint firstItem="cFb-Zb-Kkb" firstAttribute="leading" secondItem="tjq-qO-cYk" secondAttribute="leadingMargin" id="Ydb-kb-aYn"/>
-                                                <constraint firstItem="cFb-Zb-Kkb" firstAttribute="top" secondItem="tjq-qO-cYk" secondAttribute="topMargin" id="ciV-ef-66t"/>
-                                                <constraint firstItem="o9W-Lo-0nh" firstAttribute="leading" secondItem="cFb-Zb-Kkb" secondAttribute="trailing" constant="12" id="mpR-zL-DM1"/>
-                                                <constraint firstItem="OF3-uc-OWM" firstAttribute="centerY" secondItem="axT-4p-JDc" secondAttribute="centerY" id="nEI-4K-YwM"/>
-                                                <constraint firstItem="o9W-Lo-0nh" firstAttribute="top" secondItem="axT-4p-JDc" secondAttribute="bottom" constant="8" id="wM5-jS-BER"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="groupImageView" destination="cFb-Zb-Kkb" id="CoK-Qe-Nmg"/>
-                                            <outlet property="groupNameLabel" destination="axT-4p-JDc" id="25l-NO-59Y"/>
-                                            <outlet property="numberOfMembersLabel" destination="o9W-Lo-0nh" id="ZiQ-s3-pur"/>
-                                            <outlet property="timeLabel" destination="OF3-uc-OWM" id="IMh-z1-1we"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8x-S6-t63" userLabel="SegmentMenuView" customClass="Shadow" customModule="iMonocle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="59" width="375" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="t2P-F1-h81">
-                                        <rect key="frame" x="62.5" y="5" width="250" height="30"/>
+                                        <rect key="frame" x="117.5" y="5" width="140" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI7-Pv-Mvi">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -1335,19 +1281,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="messagesBtnTapped:" destination="jCk-8T-gbR" eventType="touchUpInside" id="kA0-sL-pYu"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJN-dj-A4p">
-                                                <rect key="frame" x="220" y="0.0" width="30" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="6RC-02-tQ0"/>
-                                                    <constraint firstAttribute="width" constant="30" id="Lnv-lg-geW"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="more">
-                                                    <color key="titleColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="moreBtnTapped:" destination="jCk-8T-gbR" eventType="touchUpInside" id="pSR-xI-7FL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2214,9 +2147,7 @@
         <image name="instagram" width="71" height="71"/>
         <image name="like" width="71" height="71"/>
         <image name="mono-burger-menu" width="71" height="71"/>
-        <image name="more" width="71" height="71"/>
         <image name="profile-icon" width="71" height="71"/>
-        <image name="search" width="71" height="71"/>
         <image name="send-forward-arrow" width="71" height="71"/>
         <image name="send-message" width="71" height="71"/>
         <image name="share" width="71" height="71"/>

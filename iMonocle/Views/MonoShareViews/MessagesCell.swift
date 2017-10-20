@@ -22,13 +22,12 @@ class MessagesCell: UITableViewCell {
     }
 
     func setupCell(message: Message) {
-        
-        FirebaseService.instance.REF_USERS.child(message.toId).observe(.value) { (userInfo) in
-            guard let name = userInfo.childSnapshot(forPath: "name").value as? String else { return }
-            self.userNameLabel.text = name
-            self.lastMessagePreviewLabel.text = message.content
-            self.timeLabel.text = message.time
-        }
+            FirebaseService.instance.REF_USERS.child(message.toId).observe(.value, with: { (userInfoSnap) in
+                guard let name = userInfoSnap.childSnapshot(forPath: "name").value as? String else { return }
+                self.userNameLabel.text = name
+                self.lastMessagePreviewLabel.text = message.content
+                self.timeLabel.text = message.time
+            })
     }
 
 }

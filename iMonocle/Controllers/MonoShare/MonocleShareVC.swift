@@ -23,7 +23,7 @@ class MonocleShareVC: UIViewController {
     
     var messages = [Message]() {
         didSet {
-            tableView.reloadData()
+            
         }
     }
     
@@ -93,13 +93,12 @@ class MonocleShareVC: UIViewController {
                 self.tableView.reloadData()
             })
         } else if selectedSegmentOption == .messages {
-            MonoShareDataService.instance.getAllMessages(handler: { (messages) in
-                for (_, value) in messages {
-                    self.messages.append(value)
-                }
+            MonoShareDataService.instance.getAllMessagess(gotMessages: { (messagesArray) in
+                self.messages = messagesArray
+                self.tableView.reloadData()
             })
         } else if selectedSegmentOption == .groups {
-            FirebaseService.instance.REF_USERS.child(FirebaseService.instance.currentuserID!).child("messages").observe(.value, with: { (snapshot) in
+        FirebaseService.instance.REF_USERS.child(FirebaseService.instance.currentuserID!).child("messages").observe(.value, with: { (snapshot) in
                 
             })
             
@@ -116,15 +115,20 @@ extension MonocleShareVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         switch selectedSegmentOption  {
         case .channels:
             return channels.count
         case .messages:
-            return messages.count
+            if self.messages.count != 0 {
+                return messages.count
+            } else {
+                return 0
+            }
         case .groups:
             return groups.count
         default:
-            return 1
+            return 0
         }
     }
     

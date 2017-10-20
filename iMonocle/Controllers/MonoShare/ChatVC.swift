@@ -25,9 +25,13 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     
     var messages = [Message]() {
         didSet {
-            print("Addedd")
+           tableView.reloadData()
         }
     }
+    
+    var messageDictionary = [String : Message]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +56,11 @@ class ChatVC: UIViewController, UITextFieldDelegate {
             sendBtn.isEnabled = true
             MonoShareDataService.instance.sendMessage(message: textField.text!, uid: (selectedUser?.id)!, sendComplete: { (success) in
                 if success {
-                    print("message sent")
+                    self.textField.text = ""
+                    MonoShareDataService.instance.getAllMessages(handler: { (message) in
+                     self.messageDictionary = message
+                     self.messages = Array(self.messageDictionary.values)
+                    })
                 }
             })
         } else {
@@ -81,14 +89,14 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as? ChatVCCell else {
             return UITableViewCell()
         }
-        let message = messages[indexPath.row]
-        let toID = message.toId
+        cell.messageLabel.text = messages[indexPath.row].content
         cell.nameLabel.text = messages[indexPath.row].senderId
         return cell
     }
 }
 
 class ChatVCCell: UITableViewCell {
+    
     @IBOutlet weak var profileImageView: CircleImage!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!

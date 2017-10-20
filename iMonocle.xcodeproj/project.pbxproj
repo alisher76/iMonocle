@@ -51,6 +51,7 @@
 		AC68F2F11F8CD30A00396982 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F01F8CD30900396982 /* PostsCell.swift */; };
 		AC68F2F31F8CD3D800396982 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F21F8CD3D800396982 /* TweetCell.swift */; };
 		AC68F2F51F8CD50E00396982 /* AddMonocleAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */; };
+		AC719CAD1F993D8400F76B47 /* ChooseAvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */; };
 		AC8A75AB1F5E4DFD00A3082C /* AddAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */; };
 		AC8A75AC1F5E4DFD00A3082C /* AddAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */; };
 		AC8A75AE1F5E502400A3082C /* AddAccountVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */; };
@@ -141,6 +142,7 @@
 		AC68F2F01F8CD30900396982 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		AC68F2F21F8CD3D800396982 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		AC68F2F41F8CD50E00396982 /* AddMonocleAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonocleAccountCell.swift; sourceTree = "<group>"; };
+		AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarVC.swift; sourceTree = "<group>"; };
 		AC8A75A91F5E4DFD00A3082C /* AddAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVC.swift; sourceTree = "<group>"; };
 		AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAccountVC.xib; sourceTree = "<group>"; };
 		AC8A75AD1F5E502400A3082C /* AddAccountVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountVCCell.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */,
 				AC3614E51F7428C200D688E0 /* ChatVC.swift */,
 				AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */,
+				AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */,
 			);
 			path = MonoShare;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				AC06261B1F55D7E700FE50C1 /* CircleImage.swift in Sources */,
 				AC2442CD1F7A5C0A00E80DE1 /* MonocleShareUser.swift in Sources */,
 				AC268BCA1F758DF10025FD30 /* MonoShareDataService.swift in Sources */,
+				AC719CAD1F993D8400F76B47 /* ChooseAvatarVC.swift in Sources */,
 				ACE58B5D1F1043EF001D4257 /* Tweet.swift in Sources */,
 				AC68F2EF1F8CD24F00396982 /* SegmentCell.swift in Sources */,
 				AC1292371F2229630032FB1B /* UIImageExtension.swift in Sources */,

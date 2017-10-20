@@ -45,6 +45,9 @@ class MonoShareDataService {
         return _REF_FEED
     }
     
+    var messages = [Message]()
+    var messagesDictionary = [String:Message]()
+    
     func createMonoShareDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
@@ -60,19 +63,40 @@ class MonoShareDataService {
         }
     }
     
-    func getAllMessages(handler: @escaping (_ messages: [String:Message]) -> ()) {
+    func getAllMessages(handler: @escaping (_ messagesDictionary: [String: Message]) -> ()) {
         
-        var messageDictionary = [String:Message]()
-        REF_MESSAGES.observe(.childAdded) { (feedMessageSnap) in
-            guard let dictioanry = feedMessageSnap.value as? [String : Any] else { return }
-            let message = Message(dictionary: dictioanry)
-            
-            let toID = message.toId
-            messageDictionary[toID] = message
-            handler(messageDictionary)
+        var messageDictionary = [String: Message]()
+        var messageArray = [Message]()
+        REF_MESSAGES.observe(.value) { (messageSnap) in
+            guard let messageSnapshot = messageSnap.children.allObjects as? [DataSnapshot] else { return }
+            for i in messageSnapshot {
+                if i.childSnapshot(forPath: "toID").hasChild(SavedStatus.instance.userID) {
+                    let message = Message(content: i.value(forKey: "content") as! String, senderId: i.value(forKey: "fromID") as! String, toId: i.value(forKey: "toID") as! String, time: i.value(forKey: "time") as! String)
+                    messageArray.append(message)
+                    messageDictionary[message.toId] = message
+               }
             }
+            handler(messageDictionary)
+    
+        }
         }
     
+    func getAllMessagess(gotMessages: @escaping (_ messages: [Message]) -> ()) {
+        var messageDictionary = [String: Message]()
+        var messagesArray = [Message]()
+        REF_MESSAGES.observeSingleEvent(of: .value, with: { (dataSnapshot) in
+            guard let snapshot = dataSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for i in snapshot {
+                guard let dictionary = i.value as? [String:Any] else { return }
+                let message = Message(content: dictionary["message"] as! String, senderId: dictionary["fromID"] as! String, toId: dictionary["toID"] as! String, time: dictionary["time"] as! String)
+                messagesArray.append(message)
+                messageDictionary[message.toId] = message
+            }
+            messagesArray = Array(messageDictionary.values)
+            gotMessages(messagesArray)
+        }, withCancel: nil)
+    }
     
     // MARK: Get User Name
     
@@ -118,21 +142,9 @@ class MonoShareDataService {
         let values = ["message": message, "toID": uid, "fromID": fromID, "time": "\(hour):\(minutes)"]
         
         REF_MESSAGES.childByAutoId().updateChildValues(values)
+        sendComplete(true)
     }
     
-    func getAllMessagesFor(desiredGroup: Group, handler: @escaping(_ messagesArray: [Message]) -> ()) {
-        var messages = [Message]()
-//        REF_GROUPS.child(desiredGroup.groupID).child("messages").observeSingleEvent(of: .value) { (groupMessagesSnapshot) in
-//            guard let groupMessagesSnapshot = groupMessagesSnapshot.children.allObjects as? [DataSnapshot] else { return }
-//            for groupMessage in groupMessagesSnapshot {
-//                let content = groupMessage.childSnapshot(forPath: "content").value as! String
-//                let senderID = groupMessage.childSnapshot(forPath: "senderId").value as! String
-//                let gMessage = Message(content: content, senderId: senderID, toId: <#T##String#>, time: <#T##String#>)
-//                messages.append(gMessage)
-//            }
-//            handler(messages)
-//        }
-    }
     
     // MARK: Get ids
     
