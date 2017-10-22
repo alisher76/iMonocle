@@ -20,6 +20,7 @@ class MonoShareDataService {
     private var _REF_CHANNELS = DB_BASE.child("channels")
     private var _REF_FEED = DB_BASE.child("feed")
     private var _REF_MESSAGES = DB_BASE.child("messages")
+    private var _REF_USER_MESSAGES = DB_BASE.child("user-messages")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -43,6 +44,9 @@ class MonoShareDataService {
     
     var REF_FEED: DatabaseReference {
         return _REF_FEED
+    }
+    var REF_USER_MESSAGES: DatabaseReference {
+        return _REF_USER_MESSAGES
     }
     
     var messages = [Message]()
@@ -129,20 +133,37 @@ class MonoShareDataService {
         }
     }
     
-    func sendMessage(message: String, uid: String, sendComplete: @escaping (_ status: Bool) -> ()) {
+    func sendMessageToDB(message: String, uid: String, sendComplete: @escaping (_ status: Bool) -> ()) {
         
         let fromID = SavedStatus.instance.userID
+        let childRef = REF_MESSAGES.childByAutoId()
+        let timestamp = Int(Date().timeIntervalSince1970)
         
-        let date: Date = Date()
-        let calendar = Calendar.current
+        let values: [String : Any] = ["message": message, "toID": uid, "fromID": fromID, "time": timestamp]
         
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
+        childRef.updateChildValues(values) { (error, ref) in
+            if error != nil {
+                print(error.debugDescription)
+            }
+            
+            let userMessageRef = self.REF_USER_MESSAGES.child(fromID)
+            let messageID = childRef.key
+            userMessageRef.updateChildValues([messageID:1])
+        }
         
-        let values = ["message": message, "toID": uid, "fromID": fromID, "time": "\(hour):\(minutes)"]
-        
-        REF_MESSAGES.childByAutoId().updateChildValues(values)
+        childRef.updateChildValues(values)
         sendComplete(true)
+    }
+    
+    func observeUserMessage() {
+        let ref = _REF_USER_MESSAGES.child(SavedStatus.instance.userID)
+        ref.observeSingleEvent(of: .childAdded, with: { (messagesSnapshot) in
+            let messageId = messagesSnapshot.key
+            let messageRefenrence = self.REF_MESSAGES.child(messageId)
+            messageRefenrence.observeSingleEvent(of: .value, with: { (messageSnapshot) in
+                print(messagesSnapshot)
+            }, withCancel: nil)
+        }, withCancel: nil)
     }
     
     
@@ -213,6 +234,7 @@ class MonoShareDataService {
     func createChannel(withTitle title: String, withDiscription description: String, channelImage image: String, handler: @escaping (_ groupCreated: Bool) -> ()) {
         REF_CHANNELS.childByAutoId().updateChildValues(["title": title, "description": description, "image": image])
         handler(true)
+    
     }
     
     // Get group
@@ -227,7 +249,8 @@ class MonoShareDataService {
                 let title = _channel.childSnapshot(forPath: "title").value as! String
                 let desc = _channel.childSnapshot(forPath: "description").value as! String
                 let image = _channel.childSnapshot(forPath: "image").value as! String
-                let channel = Channel(channelTitle: title, channelDesc: desc, channelImage: image)
+                let channelID = _channel.key
+                let channel = Channel(channelTitle: title, channelDesc: desc, channelImage: image, channelID: channelID)
                     channelsArray.append(channel)
             }
             handler(channelsArray)
@@ -257,14 +280,7 @@ class MonoShareDataService {
         }
     }
     
-    
-    func sendMessage(withMessage message: String, forName name: String, sendComplete: @escaping (_ status: Bool) -> ()) {
-        REF_USERS.child("messages").child(name).childByAutoId().updateChildValues(["message": message, "fromID": FirebaseService.instance.currentuserID!])
-        sendComplete(true)
-    }
-    
     func getAllMessages(name: String, handler: @escaping (_ groupsArray: [Message]) -> ()) {
-        
         var messagesArray = [Message]()
         
         REF_USERS.child("messages").child(name).observeSingleEvent(of: .value) { (messages) in

@@ -14,6 +14,7 @@ class Channel {
     private var _channelTitle: String
     private var _channelDesc: String
     private var _channelImage: String
+    private var _channelID: String
     
     var channelTitle: String {
         return _channelTitle
@@ -25,10 +26,15 @@ class Channel {
         return _channelImage
     }
     
-    init(channelTitle: String, channelDesc: String, channelImage: String) {
+    var channelID: String {
+        return _channelID
+    }
+    
+    init(channelTitle: String, channelDesc: String, channelImage: String, channelID: String) {
         self._channelTitle = channelTitle
         self._channelDesc = channelDesc
         self._channelImage = channelImage
+        self._channelID = channelID
     }
     
     func setAvatar(avatar: String) {

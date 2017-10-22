@@ -27,6 +27,7 @@ class PostsCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isPagingEnabled = true
        
     }
 }
@@ -46,6 +47,7 @@ extension PostsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
             return UICollectionViewCell()
         }
         cell.setupCell(post: monoclePosts[indexPath.row])
+        cell.configureCell()
         return cell
     }
     
@@ -76,6 +78,5 @@ extension PostsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
     }
 }

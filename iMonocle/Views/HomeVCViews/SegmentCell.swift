@@ -12,7 +12,9 @@ class SegmentCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var segmentMenuImages = ["iMonocle", "twitter", "instagram", "more"]
+    var segmentMenuImages = ["Monocle", "twitter", "Instagram", "more"]
+    var selectedMenu = ["MonocleFilled", "twitterFilled", "instagram Filled", "more Filled"]
+    var selectedImageName = "Monocle"
     var delegate: HomeVC?
     
     
@@ -36,7 +38,18 @@ extension SegmentCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         cell.delegate = self
         cell.layer.shadowOpacity = 0
         cell.segmentImage.layer.opacity = 0.5
+        switch (delegate?.selectedOption)! {
+        case .monocle:
+            cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+        case .instagram:
+            cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+        case .twitter:
+            cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+        case .more:
+            cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+        }
         cell.segmentImage.image = UIImage(named: segmentMenuImages[indexPath.row])
+        cell.animateSegmentCell()
         return cell
     }
     
@@ -57,7 +70,7 @@ extension SegmentCell: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.frame.size.width / 4) - 10, height: 60)
+        return CGSize(width: (self.frame.size.width / 4) - 10, height: 30)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -81,4 +94,9 @@ class SegmentMenuCollectionViewCell: UICollectionViewCell {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         
-    }}
+    }
+    
+    func setup(name: String) {
+        segmentImage.image = UIImage(named: name)
+    }
+}

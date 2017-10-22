@@ -38,10 +38,10 @@ class InstaPostCellFlowLayout: UICollectionViewFlowLayout {
     
     func changeLayoutAttributes(_ attributes: UICollectionViewLayoutAttributes)  {
         let collectionCenter = (collectionView!.bounds.size.width / 2)
-        let offset = collectionView!.contentOffset.x - 4
+        let offset = collectionView!.contentOffset.x - 10
         let normalizedCenter = attributes.center.x - offset
         
-        let maxDistance = self.itemSize.width + self.minimumLineSpacing
+        let maxDistance = self.itemSize.width - self.minimumLineSpacing
         let distance = min(abs(collectionCenter - normalizedCenter), maxDistance)
         
         let ratio = (maxDistance - distance) / maxDistance
@@ -55,7 +55,7 @@ class InstaPostCellFlowLayout: UICollectionViewFlowLayout {
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         
         let  layoutAttributes = self.layoutAttributesForElements(in: collectionView!.bounds)
-        let center = collectionView!.bounds.size.width / 2
+        let center = collectionView!.bounds.size.width / 4
         let proposedContentOffsetCenterOrigin = proposedContentOffset.x + center
         
         let closest = layoutAttributes!.sorted { abs($0.center.x - proposedContentOffsetCenterOrigin) < abs($1.center.x - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()

@@ -9,6 +9,7 @@
 import UIKit
 
 class ChatVC: UIViewController, UITextFieldDelegate {
+    
 
     @IBOutlet weak var keyboardView: UIView!
     @IBOutlet weak var dissMissBtn: UIButton!
@@ -28,6 +29,9 @@ class ChatVC: UIViewController, UITextFieldDelegate {
            tableView.reloadData()
         }
     }
+    
+    var channelID: String?
+    var userID: String?
     
     var messageDictionary = [String : Message]()
     
@@ -54,14 +58,12 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         
         if textField.text != "" {
             sendBtn.isEnabled = true
-            MonoShareDataService.instance.sendMessage(message: textField.text!, uid: (selectedUser?.id)!, sendComplete: { (success) in
-                if success {
-                    self.textField.text = ""
-                    MonoShareDataService.instance.getAllMessages(handler: { (message) in
-                     self.messageDictionary = message
-                     self.messages = Array(self.messageDictionary.values)
-                    })
-                }
+            MonoShareDataService.instance.sendMessageToDB(message: textField.text!, uid: (selectedUser?.id)!, sendComplete: { (success) in
+                print(success)
+                MonoShareDataService.instance.getAllMessages(handler: { (message) in
+                    self.messageDictionary = message
+                    self.messages = Array(self.messageDictionary.values)
+                })
             })
         } else {
             sendBtn.isEnabled = false

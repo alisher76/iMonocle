@@ -10,14 +10,16 @@ import UIKit
 import Firebase
 
 enum MonoShareSegmentOptions {
-    case channels, messages, groups, more
+    case channels, messages
 }
 
 class MonocleShareVC: UIViewController {
     
     var channels = [Channel]()
     var groups = [Group]()
-
+    var selectedChannel: Channel?
+    var selectedMessage: Message?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuBurgerBtn: UIButton!
     
@@ -29,7 +31,11 @@ class MonocleShareVC: UIViewController {
     
     var selectedUser: MonocleShareUser? {
         didSet {
-            goToSendMessageVC()
+            if selectedSegmentOption == .channels && selectedChannel != nil {
+                self.goToSendMessageVC(id: (selectedChannel?.channelID)!)
+            } else if selectedSegmentOption == .messages && selectedMessage != nil {
+                self.goToSendMessageVC(id: (selectedMessage?.toId)!)
+            }
         }
     }
 
@@ -78,11 +84,11 @@ class MonocleShareVC: UIViewController {
     }
     
     @IBAction func groupMessagesBtnTapped(_ sender: Any) {
-        selectedSegmentOption = .groups
+        
     }
     
     @IBAction func moreBtnTapped(_ sender: Any) {
-        selectedSegmentOption = .more
+        
     }
     
     // MARK: CheckDataBase
@@ -97,11 +103,7 @@ class MonocleShareVC: UIViewController {
                 self.messages = messagesArray
                 self.tableView.reloadData()
             })
-        } else if selectedSegmentOption == .groups {
-        FirebaseService.instance.REF_USERS.child(FirebaseService.instance.currentuserID!).child("messages").observe(.value, with: { (snapshot) in
-                
-            })
-            
+            MonoShareDataService.instance.observeUserMessage()
         } else {
             
         }
@@ -125,10 +127,6 @@ extension MonocleShareVC: UITableViewDelegate, UITableViewDataSource {
             } else {
                 return 0
             }
-        case .groups:
-            return groups.count
-        default:
-            return 0
         }
     }
     
@@ -142,21 +140,30 @@ extension MonocleShareVC: UITableViewDelegate, UITableViewDataSource {
             guard let messagesCell = tableView.dequeueReusableCell(withIdentifier: "messageCell") as? MessagesCell else { return UITableViewCell() }
             messagesCell.setupCell(message: messages[indexPath.row])
             return messagesCell
-        case .groups:
-            guard let groupCell = tableView.dequeueReusableCell(withIdentifier: "groupCell") as? GroupCell else { return UITableViewCell() }
-            return groupCell
-        case .more:
-            return UITableViewCell()
         }
     }
     
-    func goToSendMessageVC() {
-        if selectedSegmentOption == .messages {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let chatVC = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifier.chatVC.rawValue) as! ChatVC
-            chatVC.selectedUser = selectedUser!
-            self.show(chatVC, sender: self)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch selectedSegmentOption {
+        case .channels:
+            self.selectedChannel = channels[indexPath.row]
+//            self.goToSendMessageVC(id: selectedChannel)
+        case .messages:
+            self.selectedMessage = messages[indexPath.row]
+//            self.goToSendMessageVC(id: self.selectedMessage?.toId)
         }
+    }
+    
+    func goToSendMessageVC(id: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let chatVC = storyboard.instantiateViewController(withIdentifier: StoryboardIdentifier.chatVC.rawValue) as! ChatVC
+        chatVC.selectedUser = selectedUser!
+        if selectedSegmentOption == .messages {
+            chatVC.userID = id
+        } else {
+            chatVC.channelID = id
+        }
+        self.show(chatVC, sender: self)
     }
 }
 

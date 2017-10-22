@@ -37,11 +37,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "segmentCell", for: indexPath) as? SegmentCell else { return UITableViewCell() }
-            cell.delegate = self
-            return cell
-        } else if (indexPath.row == 1 && hasInstagramAccount) && (SavedStatus.instance.isLoggedInToInstagram && FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row - 1])) && (selectedOption == .monocle || selectedOption == .instagram) {
+        if (indexPath.row == 0 && hasInstagramAccount) && (SavedStatus.instance.isLoggedInToInstagram && FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row])) && (selectedOption == .monocle || selectedOption == .instagram) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "postsCell", for: indexPath) as? PostsCell else { return UITableViewCell() }
             cell.delegate = self
             cell.monoclePosts = monoclePosts
@@ -50,8 +46,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else if selectedOption == .monocle || selectedOption == .twitter {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tweetsCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
             if hasInstagramAccount {
-                cell.rowNumber = indexPath.row - 1
-                switch monocleTweets[indexPath.row - 1] {
+                cell.rowNumber = indexPath.row
+                switch monocleTweets[indexPath.row] {
                 case .tweet(let tweet):
                     if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row) {
                         cell.animateTweetCell()
@@ -62,12 +58,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 default: break
                 }
             } else {
-                cell.rowNumber = indexPath.row - 1
-                switch monocleTweets[indexPath.row - 1] {
+                cell.rowNumber = indexPath.row
+                switch monocleTweets[indexPath.row] {
                 case .tweet(let tweet):
-                    if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row - 1) {
+                    if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row) {
                         cell.animateTweetCell()
-                        indexNumbersForAnimatedTweetsCell.append(indexPath.row - 1)
+                        indexNumbersForAnimatedTweetsCell.append(indexPath.row)
                     }
                     cell.delegate = self
                     cell.setUp(tweet: tweet)
@@ -79,7 +75,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "addAccountCell", for: indexPath) as? AddMonocleAccountCell else { return UITableViewCell() }
             cell.delegate = self
             return cell
-        } else if selectedOption == .instagram && (FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row - 1]) || !hasInstagramAccount) {
+        } else if selectedOption == .instagram && (FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row]) || !hasInstagramAccount) {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "addAccountCell", for: indexPath) as? AddMonocleAccountCell else { return UITableViewCell() }
             cell.delegate = self
             return cell
@@ -90,10 +86,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
-            return  CGFloat(60)
-        }
-        else if indexPath.row == 1 && hasInstagramAccount && selectedOption == .monocle || selectedOption == .instagram {
+        if indexPath.row == 0 && hasInstagramAccount && selectedOption == .monocle || selectedOption == .instagram {
             return CGFloat(self.view.frame.size.height / 1.5)
         } else {
             return UITableViewAutomaticDimension
@@ -108,11 +101,15 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == friendsCollectionView {
             if monocleFriendsArray.count > 0 {
                 return monocleFriendsArray.count
             } else {
                 return 0
             }
+        } else {
+            return 4
+        }
     }
     
     // MARK: Cell for item at
@@ -130,7 +127,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             }
             return cell
         } else {
-            return UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "segmentCollectionViewCell", for: indexPath) as! SegmentMenuCollectionViewCell
+            
+            cell.tintColor = UIColor.white
+            cell.setup(name: <#T##String#>)
+            cell.animateSegmentCell()
+            return cell
         }
     }
     
@@ -142,7 +144,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if collectionView == friendsCollectionView {
             return CGSize(width: view.frame.size.width / 8, height: view.frame.size.width / 8)
         } else {
-            return CGSize(width: 200, height: 200)
+            return CGSize(width: (view.frame.size.width / 4) - 10, height: 30)
         }
     }
     
@@ -164,6 +166,19 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if collectionView == friendsCollectionView {
             FirebaseService.instance.selectedUser = monocleFriendsArray[indexPath.row]
             selectedFriend = monocleFriendsArray[indexPath.row]
+        } else if collectionView == segmentCollectionView {
+            switch indexPath.row {
+            case 0:
+                self.selectedOption = .monocle
+            case 1:
+                self.selectedOption = .twitter
+            case 2:
+                self.selectedOption = .instagram
+            case 3:
+                self.selectedOption = .more
+            default:
+                self.selectedOption = .monocle
+            }
         }
     }
     
@@ -177,31 +192,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
     
-    
-    func checkDataBase() {
-        if SavedStatus.instance.isLoggedIn {
-            self.pleaseLoginSign.alpha = 0.0
-            FirebaseService.instance.currentUserAccount { (user) in
-                FirebaseService.instance.currentListOfFriends { (users) in
-                    self.monocleFriendsArray.removeAll()
-                    self.monocleFriendsArray = user
-                    for (_,friend) in users {
-                        self.monocleFriendsArray.append(friend)
-                    }
-                    OperationQueue.main.addOperation {
-                        FirebaseService.instance.selectedUser = self.monocleFriendsArray.first!
-                        self.friendsCollectionView.reloadData()
-                    }
-                }
-            }
-        } else {
-            self.pleaseLoginSign.alpha = 1.0
-            self.monocleFriendsArray.removeAll()
-            self.monoclePosts.removeAll()
-            self.monocleTweets.removeAll()
-            self.topImageView.image = UIImage(named: "profile-icon")
-        }
-    }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 1 {

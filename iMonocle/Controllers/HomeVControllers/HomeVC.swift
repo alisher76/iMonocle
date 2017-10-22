@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-enum SegmentOptions {
+enum SegmentOptions: String {
     case monocle, twitter, instagram, more
 }
 
@@ -17,14 +17,17 @@ class HomeVC: UIViewController {
 
     // Outlets:
     @IBOutlet weak var pleaseLoginSign: UILabel!
-    @IBOutlet weak var navBarViewHeightConstant: NSLayoutConstraint!
     @IBOutlet weak var composeBtn: UIButton!
-    @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet weak var topImageView: CircleImage!
-    @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    
+    @IBOutlet var segmentCollectionView: UICollectionView!
+    @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet var mainTableView: UITableView!
+    
+    @IBOutlet weak var menuHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var friendsCollectionViewTopConstraint: NSLayoutConstraint!
     
     // Variables:
     var cellHeight: CGFloat?
@@ -35,6 +38,7 @@ class HomeVC: UIViewController {
         }
     }
     
+    var segmentMenuImages = ["Monocle", "twitter", "Instagram", "More-1"]
     var indexNumbersForAnimatedTweetsCell: [Int] = []
     var indexNumbersForAnimatedFriendsCell: [Int] = []
     
@@ -100,6 +104,8 @@ class HomeVC: UIViewController {
         
         self.present(accounInfoVC, animated: true, completion: nil)
     }
+    
+    
 
     fileprivate func selectedFriendDidChange() {
         if SavedStatus.instance.isLoggedIn {
@@ -141,6 +147,8 @@ class HomeVC: UIViewController {
     
     func setDelegate() {
         
+        segmentCollectionView.delegate = self
+        segmentCollectionView.dataSource = self
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         mainTableView.delegate = self
@@ -163,10 +171,44 @@ class HomeVC: UIViewController {
         }
     }
     
+    func checkDataBase() {
+        if SavedStatus.instance.isLoggedIn {
+            self.pleaseLoginSign.alpha = 0.0
+            FirebaseService.instance.currentUserAccount { (user) in
+                FirebaseService.instance.currentListOfFriends { (users) in
+                    self.monocleFriendsArray.removeAll()
+                    self.monocleFriendsArray = user
+                    for (_,friend) in users {
+                        self.monocleFriendsArray.append(friend)
+                    }
+                    OperationQueue.main.addOperation {
+                        FirebaseService.instance.selectedUser = self.monocleFriendsArray.first!
+                        self.friendsCollectionView.reloadData()
+                    }
+                }
+            }
+        } else {
+            self.pleaseLoginSign.alpha = 1.0
+            self.monocleFriendsArray.removeAll()
+            self.monoclePosts.removeAll()
+            self.monocleTweets.removeAll()
+            self.topImageView.image = UIImage(named: "profile-icon")
+        }
+    }
+    
     @objc func userDataDidChange() {
         checkDataBase()
         friendsCollectionView.reloadData()
     }
+    
+    
+    @IBAction func moreBtnTapped(_ sender: Any) {
+        isOpen = !isOpen
+        menuHeightConstraint.constant = isOpen ? 140.0 : 90.0
+        friendsCollectionViewTopConstraint.constant = isOpen ? 80.0 : 30.0
+        segmentCollectionView.reloadData()
+    }
+    
     
 }
 

@@ -49,3 +49,16 @@ extension UITableViewCell {
         })
     }
 }
+
+extension UICollectionViewCell {
+    func animateSegmentCell() {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -100, 0)
+        self.layer.transform = rotationTransform
+        UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseIn, animations: {
+            self.layer.transform = CATransform3DIdentity
+        }, completion: { (success) in
+            //print(success)
+        })
+    }
+    
+}

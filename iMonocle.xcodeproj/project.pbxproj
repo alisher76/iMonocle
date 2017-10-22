@@ -322,6 +322,7 @@
 				AC3614E51F7428C200D688E0 /* ChatVC.swift */,
 				AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */,
 				AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */,
+				AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */,
 			);
 			path = MonoShare;
 			sourceTree = "<group>";
@@ -399,9 +400,7 @@
 			children = (
 				ACB2F1571F54BF3900901505 /* AccountCreationVC.xib */,
 				AC8A75AA1F5E4DFD00A3082C /* AddAccountVC.xib */,
-				AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */,
 				AC4F77621F759B0D00B00E91 /* CreateChannelVC.xib */,
-				AC5B00001F94DCD900090934 /* AvatarPickVC.swift */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -412,6 +411,7 @@
 				ACB2F15E1F54C38000901505 /* HomeVC.swift */,
 				ACB2F1601F54C3C600901505 /* HomeVCDataSource.swift */,
 				ACC62CFB1F7CFEF500D57200 /* AccountInfoVC.swift */,
+				AC5B00001F94DCD900090934 /* AvatarPickVC.swift */,
 			);
 			path = HomeVControllers;
 			sourceTree = "<group>";
@@ -463,9 +463,9 @@
 				ACEC50431F0DA7E100887E46 /* Info.plist */,
 				AC22C44E1F32C011009E7CEA /* Main.storyboard */,
 				AC22C4501F32C065009E7CEA /* LaunchScreen.storyboard */,
+				AC3614EA1F75704200D688E0 /* Controllers */,
 				AC3614EE1F7570B300D688E0 /* Views */,
 				AC3614EB1F75704C00D688E0 /* Models */,
-				AC3614EA1F75704200D688E0 /* Controllers */,
 				AC21A50A1F683E5100055E7C /* Layouts */,
 				AC1FBC781F55FA0900985C07 /* Extensions */,
 				AC06260B1F54DBAD00FE50C1 /* Supporting files */,
