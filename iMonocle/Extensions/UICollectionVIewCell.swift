@@ -46,16 +46,15 @@ extension UICollectionViewCell {
         })
     }
     func configureCell() {
-        self.layer.cornerRadius = 5.0
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.clear.cgColor
-        self.backgroundColor = UIColor.white
-        self.layer.masksToBounds = true
+        self.contentView.layer.cornerRadius = 20.0
+        self.contentView.layer.borderWidth = 0.2
+        self.contentView.layer.borderColor = UIColor.white.cgColor
+        self.backgroundColor = UIColor.clear
+        self.contentView.layer.masksToBounds = true
+        self.contentView.clipsToBounds = true
         
-        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowColor = UIColor.white.cgColor
         self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 1.0
         self.layer.masksToBounds = false
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }

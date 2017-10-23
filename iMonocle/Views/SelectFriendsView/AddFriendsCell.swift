@@ -30,10 +30,12 @@ class AddFriendCell: UITableViewCell {
         case .twitterUser(let tUser):
             if currentSelectedFriends[tUser.name] != nil {
                 self.accessoryType = .checkmark
+            } else {
+                self.accessoryType = .none
             }
             self.profileIMage.downloadedFrom(link: tUser.image)
             self.nameLabel.text = tUser.name
-            self.userNameLabel.text = tUser.screenName
+          //  self.userNameLabel.text = tUser.screenName
         }
     }
     

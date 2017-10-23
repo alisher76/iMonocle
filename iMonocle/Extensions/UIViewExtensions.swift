@@ -16,7 +16,7 @@ class Shadow: UIView {
             self.layer.masksToBounds = false
             self.layer.shadowOffset = CGSize(width: 0, height: 1)
             self.layer.shadowRadius = 1
-            self.layer.shadowColor = UIColor.black.cgColor
+            self.layer.shadowColor = UIColor.lightGray.cgColor
             self.layer.shadowOpacity = 0.5
         }
     }
@@ -33,10 +33,10 @@ class Shadow: UIView {
     
     func setupView() {
         self.layer.masksToBounds = false
-        self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.layer.shadowRadius = 1
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.layer.shadowRadius = 10.0
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOpacity = 0.55
     }
 }
 

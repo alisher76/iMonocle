@@ -42,7 +42,8 @@ class MenuStaticTableVC: UITableViewController {
         
         self.revealViewController().rearViewRevealWidth = self.view.frame.width - 100        
         NotificationCenter.default.addObserver(self, selector: #selector(MenuStaticTableVC.updateMenu), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-        
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor.white.cgColor
         updateMenu()
     }
 

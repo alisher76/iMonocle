@@ -42,8 +42,9 @@ class TweetCell: UITableViewCell {
     func setUp(tweet: Tweet) {
         
         self.postMedia.isHidden = true
-//        self.layer.borderColor = UIColor.lightGray.cgColor
-//        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderWidth = 0.2
+        self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
         
         profileImage.downloadFrom(url: tweet.authorProfilePic! as URL)

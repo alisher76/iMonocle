@@ -46,8 +46,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else if selectedOption == .monocle || selectedOption == .twitter {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tweetsCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
             if hasInstagramAccount {
-                cell.rowNumber = indexPath.row
-                switch monocleTweets[indexPath.row] {
+                cell.rowNumber = indexPath.row - 1
+                switch monocleTweets[indexPath.row - 1] {
                 case .tweet(let tweet):
                     if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row) {
                         cell.animateTweetCell()
@@ -92,6 +92,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewAutomaticDimension
         }
     }
+    
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -128,9 +129,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "segmentCollectionViewCell", for: indexPath) as! SegmentMenuCollectionViewCell
-            
             cell.tintColor = UIColor.white
-            cell.setup(name: <#T##String#>)
+            cell.setup(name: segmentMenuImages[indexPath.row])
             cell.animateSegmentCell()
             return cell
         }
@@ -167,19 +167,30 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             FirebaseService.instance.selectedUser = monocleFriendsArray[indexPath.row]
             selectedFriend = monocleFriendsArray[indexPath.row]
         } else if collectionView == segmentCollectionView {
-            switch indexPath.row {
-            case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "segmentCollectionViewCell", for: indexPath) as! SegmentMenuCollectionViewCell
+           // cell.delegate = self
+            cell.layer.shadowOpacity = 0
+            cell.segmentImage.layer.opacity = 0.5
+            switch selectedOption {
+            case .monocle:
                 self.selectedOption = .monocle
-            case 1:
-                self.selectedOption = .twitter
-            case 2:
+                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+            case .instagram:
                 self.selectedOption = .instagram
-            case 3:
+                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+            case .twitter:
+                self.selectedOption = .twitter
+                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+            case .more:
                 self.selectedOption = .more
-            default:
-                self.selectedOption = .monocle
+                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
             }
+            segmentCollectionView.reloadData()
+            cell.segmentImage.image = UIImage(named: segmentMenuImages[indexPath.row])
+            cell.animateSegmentCell()
         }
+        
+        
     }
     
     

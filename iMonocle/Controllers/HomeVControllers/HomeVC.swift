@@ -39,6 +39,7 @@ class HomeVC: UIViewController {
     }
     
     var segmentMenuImages = ["Monocle", "twitter", "Instagram", "More-1"]
+    var selectedMenu = ["MonocleFilled", "twitterFilled", "instagram Filled", "more Filled"]
     var indexNumbersForAnimatedTweetsCell: [Int] = []
     var indexNumbersForAnimatedFriendsCell: [Int] = []
     
@@ -85,6 +86,8 @@ class HomeVC: UIViewController {
         
         topImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAccountInfo)))
         topImageView.isUserInteractionEnabled = true
+        topImageView.layer.borderWidth = 1
+        topImageView.layer.borderColor = UIColor.white.cgColor
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
@@ -204,7 +207,7 @@ class HomeVC: UIViewController {
     
     @IBAction func moreBtnTapped(_ sender: Any) {
         isOpen = !isOpen
-        menuHeightConstraint.constant = isOpen ? 140.0 : 90.0
+        menuHeightConstraint.constant = isOpen ? 150.0 : 100.0
         friendsCollectionViewTopConstraint.constant = isOpen ? 80.0 : 30.0
         segmentCollectionView.reloadData()
     }
