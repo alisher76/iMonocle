@@ -52,21 +52,6 @@ class MonoShareDataService {
     var messages = [Message]()
     var messagesDictionary = [String:Message]()
     
-    func createMonoShareDBUser(uid: String, userData: Dictionary<String, Any>) {
-        REF_USERS.child(uid).updateChildValues(userData)
-    }
-    
-    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()) {
-        if groupKey != nil {
-            // send to groupd ref
-            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["message": message, "fromID": uid])
-            sendComplete(true)
-        } else {
-            REF_FEED.childByAutoId().updateChildValues(["content": message, "fromID": uid])
-            sendComplete(true)
-        }
-    }
-    
     func getAllMessages(handler: @escaping (_ messagesDictionary: [String: Message]) -> ()) {
         
         var messageDictionary = [String: Message]()
@@ -78,12 +63,12 @@ class MonoShareDataService {
                     let message = Message(content: i.value(forKey: "content") as! String, senderId: i.value(forKey: "fromID") as! String, toId: i.value(forKey: "toID") as! String, time: i.value(forKey: "time") as! String)
                     messageArray.append(message)
                     messageDictionary[message.toId] = message
-               }
+                }
             }
             handler(messageDictionary)
-    
+            
         }
-        }
+    }
     
     func getAllMessagess(gotMessages: @escaping (_ messages: [Message]) -> ()) {
         var messageDictionary = [String: Message]()
@@ -133,7 +118,8 @@ class MonoShareDataService {
         }
     }
     
-    func sendMessageToDB(message: String, uid: String, sendComplete: @escaping (_ status: Bool) -> ()) {
+    // Mark: Send Message
+    func send(message: String, with uid: String, sendComplete: @escaping (_ status: Bool) -> ()) {
         
         let fromID = SavedStatus.instance.userID
         let childRef = REF_MESSAGES.childByAutoId()
@@ -155,6 +141,7 @@ class MonoShareDataService {
         sendComplete(true)
     }
     
+    // Mark: Observe messages
     func observeUserMessage() {
         let ref = _REF_USER_MESSAGES.child(SavedStatus.instance.userID)
         ref.observeSingleEvent(of: .childAdded, with: { (messagesSnapshot) in
@@ -208,37 +195,16 @@ class MonoShareDataService {
         handler(true)
     }
     
-    // Get group
-    func getAllGroups(handler: @escaping (_ groupsArray: [Group]) -> ()) {
-        
-        var groupsArray = [Group]()
-        
-        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnap) in
-            guard let groupSnapshot = groupSnap.children.allObjects as? [DataSnapshot] else { return }
-            for group in groupSnapshot {
-                let memberArray = group.childSnapshot(forPath: "members").value as! [String]
-                let title = group.childSnapshot(forPath: "title").value as! String
-                let desc = group.childSnapshot(forPath: "description").value as! String
-                
-                if memberArray.contains((Auth.auth().currentUser?.uid)!) {
-                    let group = Group(groupTitle: title, groupDesc: desc, groupID: group.key, groupMemberCount: memberArray.count, groupMembers: memberArray)
-                    groupsArray.append(group)
-                }
-            }
-            handler(groupsArray)
-        }
-    }
-    
-    // MARK: Create a Channel
+    // MARK: Create a Channel on Database
     
     func createChannel(withTitle title: String, withDiscription description: String, channelImage image: String, handler: @escaping (_ groupCreated: Bool) -> ()) {
         REF_CHANNELS.childByAutoId().updateChildValues(["title": title, "description": description, "image": image])
         handler(true)
-    
+        
     }
     
-    // Get group
     
+    // Mark: Get All Chanels from Databae
     func getAllChannels(handler: @escaping (_ groupsArray: [Channel]) -> ()) {
         
         var channelsArray = [Channel]()
@@ -251,12 +217,13 @@ class MonoShareDataService {
                 let image = _channel.childSnapshot(forPath: "image").value as! String
                 let channelID = _channel.key
                 let channel = Channel(channelTitle: title, channelDesc: desc, channelImage: image, channelID: channelID)
-                    channelsArray.append(channel)
+                channelsArray.append(channel)
             }
             handler(channelsArray)
         }
     }
     
+    // Mark: Get All Users from Databae
     func getAllUsers(result: @escaping (_ result: [MonocleShareUser]) -> ()) {
         var usersArray = [MonocleShareUser]()
         REF_USERS.observeSingleEvent(of: .value) { (friendsSnap) in
@@ -277,24 +244,6 @@ class MonoShareDataService {
                 usersArray.append(user)
             }
             result(usersArray)
-        }
-    }
-    
-    func getAllMessages(name: String, handler: @escaping (_ groupsArray: [Message]) -> ()) {
-        var messagesArray = [Message]()
-        
-        REF_USERS.child("messages").child(name).observeSingleEvent(of: .value) { (messages) in
-            
-            guard let messagesSnapshot = messages.children.allObjects as? [DataSnapshot] else { return }
-            for _message in messagesSnapshot {
-                let content = _message.childSnapshot(forPath: "message").value as! String
-                let senderId = _message.childSnapshot(forPath: "fromID").value as! String
-                let toId = _message.childSnapshot(forPath: "toID").value as! String
-                let time = _message.childSnapshot(forPath: "time").value as! String
-                let message = Message(content: content, senderId: senderId, toId: toId, time: time)
-                messagesArray.append(message)
-            }
-            handler(messagesArray)
         }
     }
 }

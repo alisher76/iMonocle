@@ -12,13 +12,11 @@ import Alamofire
 
 class Instagram {
     
-    
     static let instance = Instagram()
     
     let client_id = "ac00ba2a3ad64cc8b4a180dcc5869e49"
     let userDefaults = UserDefaults.standard
     var accessToken: String?
-    
     var delegate: HomeVC?
     
     func authInstagramVC() {
@@ -107,6 +105,7 @@ class Instagram {
         }
     }
     
+    // Mark: Get MonoclePosts for a Instagram User
     func fetchRecentMonoclePostsForUser(_ id: String, accessToken: String, callback: @escaping ([MonoclePost]) -> Void) {
         request("https://api.instagram.com/v1/users/\(id)/media/recent/?access_token=\(accessToken)", method: .get).responseJSON { (responce) in
             var posts: [[String:Any]] = []

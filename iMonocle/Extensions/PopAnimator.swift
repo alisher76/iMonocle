@@ -48,38 +48,6 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     let xScaleFactor = presenting ? initialFrame.width / finalFrame.width : finalFrame.width / initialFrame.width
     let scaleFactor = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
     
-//    if presenting {
-//    detailView.transform = scaleFactor
-//    detailView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
-//    }
-//    containerView.addSubview(toView)
-//    containerView.bringSubview(toFront: detailView)
-//    
-//    if !presenting {
-//        
-//        
-//    }
-//    //2) Animate!
-//    UIView.animate(
-//      withDuration: duration,
-//      delay: 0.0,
-//      usingSpringWithDamping: 1.0,
-//      initialSpringVelocity: 1.0,
-//      animations: {
-//        detailView.transform = self.presenting ? .identity : scaleFactor
-//        detailView.center = CGPoint(
-//          x: finalFrame.midX,
-//          y: finalFrame.midY
-//        )
-//      },
-//      completion: {_ in
-//    //3) Complete transition
-//        if self.presenting == false {
-//            
-//        }
-//        transitionContext.completeTransition(true)
-//      }
-//    )
     
     let round = CABasicAnimation(keyPath: "cornerRadius")
     round.fromValue = !presenting ? 0.0 : 20/xScaleFactor

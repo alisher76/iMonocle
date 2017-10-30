@@ -1,5 +1,5 @@
 //
-//  MonocleShareVC.swift
+//  MonoChatVC.swift
 //  iMonocle
 //
 //  Created by Alisher Abdukarimov on 9/20/17.
@@ -15,20 +15,18 @@ enum MonoShareSegmentOptions {
 
 class MonocleShareVC: UIViewController {
     
+    // Outlets
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuBurgerBtn: UIButton!
+    
+    // Variables
+    var messages = [Message]()
     var channels = [Channel]()
     var groups = [Group]()
     var selectedChannel: Channel?
     var selectedMessage: Message?
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var menuBurgerBtn: UIButton!
-    
-    var messages = [Message]() {
-        didSet {
-            
-        }
-    }
-    
+    // Mark: Show particular VC based on a selected option
     var selectedUser: MonocleShareUser? {
         didSet {
             if selectedSegmentOption == .channels && selectedChannel != nil {
@@ -39,6 +37,7 @@ class MonocleShareVC: UIViewController {
         }
     }
 
+    //Mark: Menu options
     var selectedSegmentOption: MonoShareSegmentOptions = .channels {
         didSet {
             checkDataBase()
@@ -60,6 +59,8 @@ class MonocleShareVC: UIViewController {
         checkDataBase()
         
     }
+    
+    
     @IBAction func channelsBtnTapped(_ sender: Any) {
         selectedSegmentOption = .channels
     }
@@ -81,14 +82,6 @@ class MonocleShareVC: UIViewController {
     
     @IBAction func messagesBtnTapped(_ sender: Any) {
         selectedSegmentOption = .messages
-    }
-    
-    @IBAction func groupMessagesBtnTapped(_ sender: Any) {
-        
-    }
-    
-    @IBAction func moreBtnTapped(_ sender: Any) {
-        
     }
     
     // MARK: CheckDataBase
@@ -168,7 +161,6 @@ extension MonocleShareVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MonocleShareVC: DidSelectUserDelegate {
-    
     func returnPickedUser(selected: MonocleShareUser) {
         selectedUser = selected
     }

@@ -15,6 +15,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    // Mark: Number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if SavedStatus.instance.isLoggedIn {
         if selectedOption == .monocle {
@@ -32,20 +33,25 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             return 2
         }
-        }
-        return 0
+      }
+            return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if (indexPath.row == 0 && hasInstagramAccount) && (SavedStatus.instance.isLoggedInToInstagram && FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row])) && (selectedOption == .monocle || selectedOption == .instagram) {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "postsCell", for: indexPath) as? PostsCell else { return UITableViewCell() }
             cell.delegate = self
             cell.monoclePosts = monoclePosts
             cell.animateInstaCell()
             return cell
+            
         } else if selectedOption == .monocle || selectedOption == .twitter {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "tweetsCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
-            if hasInstagramAccount {
+            
+            if hasInstagramAccount && selectedOption == .monocle {
                 cell.rowNumber = indexPath.row - 1
                 switch monocleTweets[indexPath.row - 1] {
                 case .tweet(let tweet):
@@ -61,7 +67,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 cell.rowNumber = indexPath.row
                 switch monocleTweets[indexPath.row] {
                 case .tweet(let tweet):
-                    if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row) {
+                    if !indexNumbersForAnimatedTweetsCell.contains(indexPath.row - 1) {
                         cell.animateTweetCell()
                         indexNumbersForAnimatedTweetsCell.append(indexPath.row)
                     }
@@ -71,11 +77,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             return cell
-        } else if selectedOption == .more {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "addAccountCell", for: indexPath) as? AddMonocleAccountCell else { return UITableViewCell() }
-            cell.delegate = self
-            return cell
         } else if selectedOption == .instagram && (FirebaseService.instance.isCurrentUser(user: monocleFriendsArray[indexPath.row]) || !hasInstagramAccount) {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "addAccountCell", for: indexPath) as? AddMonocleAccountCell else { return UITableViewCell() }
             cell.delegate = self
             return cell
@@ -92,7 +95,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewAutomaticDimension
         }
     }
-    
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -114,7 +116,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     // MARK: Cell for item at
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == friendsCollectionView {
@@ -135,8 +136,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         }
     }
-    
-    
+
     // MARK: Size for item at
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -148,8 +148,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
     
-    
-    
     // MARK: Minimum line spacing
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -159,8 +157,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return 10.0
         }
     }
-    
-    
+
     // MARK: Did select item at
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == friendsCollectionView {
@@ -171,39 +168,27 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
            // cell.delegate = self
             cell.layer.shadowOpacity = 0
             cell.segmentImage.layer.opacity = 0.5
-            switch selectedOption {
-            case .monocle:
+            switch indexPath.row {
+            case 0:
                 self.selectedOption = .monocle
                 cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
-            case .instagram:
-                self.selectedOption = .instagram
-                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
-            case .twitter:
+            case 1:
                 self.selectedOption = .twitter
                 cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
-            case .more:
+            case 2:
+                self.selectedOption = .instagram
+                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+            case 3:
                 self.selectedOption = .more
                 cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
+            default:
+                self.selectedOption = .monocle
+                cell.segmentImage.image = UIImage(named: selectedMenu[indexPath.row])
             }
-            segmentCollectionView.reloadData()
             cell.segmentImage.image = UIImage(named: segmentMenuImages[indexPath.row])
             cell.animateSegmentCell()
         }
-        
-        
     }
-    
-    
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if (velocity.y > 0 ) {
-            
-        } else {
-            
-        }
-    }
-    
-
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 1 {
@@ -213,8 +198,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         }
     }
 }
-
-
 
 extension HomeVC: MosaicLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {

@@ -10,16 +10,16 @@ import UIKit
 
 class AddFriendsVC: UIViewController {
     
+    // Mark: Outlets
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    // Mark: Variables
     var monocleUser = [MonocleUser]() {
         didSet {
             tableView.reloadData()
         }
     }
-    
     var currentSelectedFriends = [String:MonocleUser]() {
         didSet {
             print(currentSelectedFriends.count)
@@ -36,7 +36,7 @@ class AddFriendsVC: UIViewController {
         checkDataBase()
        
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -73,6 +73,7 @@ class AddFriendsVC: UIViewController {
         getInstagramFriendsList()
     }
     
+    // Mark: Outlets
     func getInstagramFriendsList() {
         
         if let accessToken = Instagram().userDefaults.object(forKey: "instagramToken") as? String {

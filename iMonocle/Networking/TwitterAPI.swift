@@ -20,7 +20,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     var loginSuccess: (() ->())?
     var loginFailure: ((Error) ->())?
     
-    
     func login(success: @escaping () ->(), failure: @escaping (Error) -> ()) {
         loginSuccess = success
         loginFailure = failure
@@ -39,7 +38,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    
     //Get access token and save user
     func handleOpenURL(url: URL) {
         //get access token
@@ -57,7 +55,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
-    
     func currentAccount(success: @escaping (TwitterUser) -> (), failure: @escaping (Error) -> ()) {
         
         get("/1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task, responce) in
@@ -71,8 +68,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     //Get FriendsList
-    
-    
     func getListOfFollowedFriends(success: @escaping ([MonocleUser]) -> (), failure: @escaping (Error) -> ()) {
         
         let params = ["count": 20]
@@ -90,10 +85,10 @@ class TwitterClient: BDBOAuth1SessionManager {
             }
         }) { (task, error) in
             print(error.localizedDescription)
-            
         }
     }
     
+    // Mark: Get Current user timeline
     func getUserTimeline(userID: String, success: @escaping ([MonoclePost]) -> (), failure: @escaping (Error) -> ()) {
         
         let params = ["count": 20]
@@ -111,19 +106,4 @@ class TwitterClient: BDBOAuth1SessionManager {
             print(error.localizedDescription)
         }
     }
-    
-    func getUserTimelineTweet(userID: String, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
-        
-        let params = ["count": 10]
-        
-        get("1.1/statuses/user_timeline.json?user_id=\(userID)", parameters: params, progress: nil, success: { (task, responce) in
-            
-            let dictionary = responce as! [[String:Any]]
-            let tweets = Tweet.tweetWithArray(dictionaries: dictionary)
-            success(tweets)
-        }) { (task, error) in
-            print(error.localizedDescription)
-        }
-    }
-    
 }

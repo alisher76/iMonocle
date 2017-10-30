@@ -21,29 +21,23 @@ class FirebaseService {
     private var _REF_GROUPS = DB_BASE.child("groups")
     private var _REF_FEED = DB_BASE.child("feed")
     
-    
+    // Mark: Variables
     var REF_BASE: DatabaseReference {
         return _REF_BASE
     }
-    
     var REF_USERS: DatabaseReference {
         return _REF_USERS
     }
-    
     var REF_GROUPS: DatabaseReference {
         return _REF_GROUPS
     }
-    
     var REF_FEED: DatabaseReference {
         return _REF_FEED
     }
     var currentUser: MonocleUser?
-    
-    
     var currentuserID: String?
     var selectedUser: MonocleUser?
     var selectedUserInstagramID: String?
-    
     var monocleAccount: [MonocleUser] = [] {
         didSet {
             print(monocleAccount.count)
@@ -62,13 +56,11 @@ class FirebaseService {
                 loginComplete(true, nil)
             } else {
                 loginComplete(false, error)
-                }
             }
         }
+    }
     
-    
-    // MARK: Logout user
-    
+    // MARK: Logout from Firebase
     func logout() {
         
         do{
@@ -94,21 +86,21 @@ class FirebaseService {
         }
     }
     
-    
+    // Mark: Create Firebase Database User
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    // Mark: Update Firebase database accounts
     func updateAccount(uid: String, account: String, userData: Dictionary<String, Any>) {
         REF_USERS.child(uid).child("accounts").child(account).updateChildValues(userData)
     }
     
+    // Mark: Update Friends list
     func updateFriendsCollection(monocleUser: MonocleUser) {
         
         var back: [String:Any] = [:]
-        
         switch monocleUser {
-            
         case .instagramUser(let instagramUser):
             let data: [String:Any] = [
                 "full_name": instagramUser.fullName,
@@ -118,7 +110,7 @@ class FirebaseService {
                 "accountType": instagramUser.accountType
             ]
             back = data
-        REF_USERS.child(SavedStatus.instance.userID).child("friends").child(instagramUser.fullName).child("instagram").setValue(back)
+            REF_USERS.child(SavedStatus.instance.userID).child("friends").child(instagramUser.fullName).child("instagram").setValue(back)
             
         case .twitterUser(let twitterUser):
             let data: [String: Any] = [ "name":"\(twitterUser.name)",
@@ -130,20 +122,19 @@ class FirebaseService {
                 "location":"\(twitterUser.location)",
                 "profile_image_url_https":"\(twitterUser.image)"]
             back = data
-      REF_USERS.child(SavedStatus.instance.userID).child("friends").child(twitterUser.name).child("twitter").setValue(back)
+            REF_USERS.child(SavedStatus.instance.userID).child("friends").child(twitterUser.name).child("twitter").setValue(back)
         }
         
         
     }
     
-    // MARK: Update Selected Friend Account
+    // MARK: Update Selected Friend Account with added account
     func updateSelectedFriendAccount(selectedUser: MonocleUser ,monocleUser: MonocleUser) {
         
         var back: [String:Any] = [:]
         
         switch monocleUser {
         case .instagramUser(let instagramUser):
-//            currentUserName = instagramUser.userName
             let data: [String:Any] = [
                 "full_name": instagramUser.fullName,
                 "username": instagramUser.userName,
@@ -160,9 +151,7 @@ class FirebaseService {
             case .twitterUser(let twitterUser):
                 REF_USERS.child(SavedStatus.instance.userID).child("friends").child(twitterUser.name).child("instagram").setValue(back)
             }
-            
         case .twitterUser(let twitterUser):
-//            currentUserName = twitterUser.screenName
             let data: [String: Any] = [ "name":"\(twitterUser.name)",
                 "id_str":"\(twitterUser.uid)",
                 "screen_name":"\(twitterUser.screenName)",
@@ -173,17 +162,18 @@ class FirebaseService {
                 "profile_image_url_https":"\(twitterUser.image)"]
             back = data
             
-        // Switch the selected Monocle Friend
-        switch selectedUser {
-        case .twitterUser(let twitterUser):
-            REF_USERS.child(SavedStatus.instance.userID).child("friends").child(twitterUser.name).child("twitter").setValue(back)
-        case .instagramUser(let instagramUser):
-            REF_USERS.child(SavedStatus.instance.userID).child("friends").child(instagramUser.fullName).child("twitter").setValue(back)
+            // Switch the selected Monocle Friend
+            switch selectedUser {
+            case .twitterUser(let twitterUser):
+                REF_USERS.child(SavedStatus.instance.userID).child("friends").child(twitterUser.name).child("twitter").setValue(back)
+            case .instagramUser(let instagramUser):
+                REF_USERS.child(SavedStatus.instance.userID).child("friends").child(instagramUser.fullName).child("twitter").setValue(back)
+            }
         }
-       }
     }
     
-   func checkInitialSignedInSMediaType(sMediaType: @escaping (String) -> ()) {
+    // Mark: Get Initial signed in account type
+    func checkInitialSignedInSMediaType(sMediaType: @escaping (String) -> ()) {
         REF_USERS.child(SavedStatus.instance.userID).child("createdAccountWith").observe(.value) { (snapshot) in
             if snapshot.value as? String == "twitter" {
                 sMediaType("twitter")
@@ -192,7 +182,7 @@ class FirebaseService {
             }
         }
     }
-    
+    // Mark: Get Current user information
     func getCurrentUserInfo(userInfo: @escaping (MonocleUser) -> ()) {
         var monocleUser: MonocleUser?
         REF_USERS.child(SavedStatus.instance.userID).child("accounts").observeSingleEvent(of: .value) { (snapshot) in
@@ -201,15 +191,11 @@ class FirebaseService {
                 guard let mUser = user.value as? [String : Any] else { return }
                 monocleUser = MonocleUser(json: mUser)
             }
-            if self.isCurrentUser(user: monocleUser!) {
-                self.checkCurrentUserAccount(user: monocleUser!, account: { (account) in
-                    print(account)
-                })
-            }
             userInfo(monocleUser!)
         }
         
     }
+    
     // MARK: Current User selected?
     func isCurrentUser(user: MonocleUser) -> Bool {
         switch user {
@@ -224,6 +210,7 @@ class FirebaseService {
         }
         return false
     }
+    
     
     func hasInstagramAccount(monocleUser: MonocleUser, endPoint: String, hasInstagram: @escaping (Bool) -> ()) {
         
@@ -251,7 +238,6 @@ class FirebaseService {
                 }
             })
         }
-        
     }
     
     
@@ -259,7 +245,7 @@ class FirebaseService {
         monocleAccount.removeAll()
         switch user {
         case .instagramUser:
-              account("instagram")
+            account("instagram")
         case .twitterUser:
             REF_USERS.child(SavedStatus.instance.userID).child("accounts").observe(.value, with: { (snapshot) in
                 if snapshot.hasChild("instagram") && snapshot.hasChild("twitter") {
@@ -313,15 +299,15 @@ class FirebaseService {
     }
     
     // MARK: Remove from data base
-   func removeFromFriendsList(monocleUser: MonocleUser) {
+    func removeFromFriendsList(monocleUser: MonocleUser) {
         switch monocleUser {
         case .instagramUser:
-        REF_USERS.child(SavedStatus.instance.userID).child("friends").childByAutoId().child("instagram").removeValue()
-                
+            REF_USERS.child(SavedStatus.instance.userID).child("friends").childByAutoId().child("instagram").removeValue()
+            
         case .twitterUser(let twitterUser):
             twitterUser.firebaseRef?.removeValue()
-         }
-            
+        }
+        
     }
     
     func currentUserAccount(success: @escaping ([MonocleUser]) -> ()) {
@@ -344,22 +330,24 @@ class FirebaseService {
         }
     }
     
+    // Mark: Get Current List of Friends
     func currentListOfFriends(success: @escaping ([String: MonocleUser]) -> ()) {
         var back: [String: MonocleUser] = [:]
         
         REF_USERS.child(SavedStatus.instance.userID).child("friends").observe(.value) { (snapshot) in
             for _friend in snapshot.children {
-              let friendSnap = _friend as! DataSnapshot
+                let friendSnap = _friend as! DataSnapshot
                 if friendSnap.hasChild("twitter") {
-                let friend = TwitterUser(snapshot: _friend as! DataSnapshot, account: "twitter")
-                back[friend.name] = MonocleUser(snapshot: _friend as! DataSnapshot)
+                    let friend = TwitterUser(snapshot: _friend as! DataSnapshot, account: "twitter")
+                    back[friend.name] = MonocleUser(snapshot: _friend as! DataSnapshot)
                 }
             }
             success(back)
         }
     }
     
-     func currentListOfInstagramFriends(initialSMedia: String, selectedUser: MonocleUser, success: @escaping ([String: MonocleUser]) -> ()) {
+    // Mark: Get Current List of Instagram Friends
+    func currentListOfInstagramFriends(initialSMedia: String, selectedUser: MonocleUser, success: @escaping ([String: MonocleUser]) -> ()) {
         var back: [String: MonocleUser] = [:]
         
         switch selectedUser {

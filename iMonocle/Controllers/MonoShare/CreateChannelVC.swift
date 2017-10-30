@@ -10,8 +10,8 @@ import UIKit
 
 class CreateChannelVC: UIViewController {
 
+    // Mark: Outlets
     @IBOutlet weak var backgroundVIew: UIView!
-    
     @IBOutlet weak var channelImagePickerView: CircleImage!
     @IBOutlet weak var channelNameTextField: InsetTextField!
     @IBOutlet weak var channelDescriptionTextField: InsetTextField!
@@ -19,13 +19,13 @@ class CreateChannelVC: UIViewController {
     @IBOutlet weak var chooseIconBtn: UIButton!
     @IBOutlet var rondedView: RoundedUIView!
     
+    // Mark: Variable
     var avatarName = "profileDefault" {
         didSet {
             channelImagePickerView.image = UIImage(named: avatarName)
         }
     }
-    var delegate: MonocleShareVC!
-    
+    var delegate: MonoChat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,6 @@ class CreateChannelVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func chooseIconBtnTapped(_ sender: Any) {
       //pickAvatarVC
         print("worksFine")
@@ -47,7 +46,6 @@ class CreateChannelVC: UIViewController {
         let avatarVC = storyboard.instantiateViewController(withIdentifier: "pickAvatarVC") as! AvatarPickVC
         avatarVC.avatarNameDelegate = self
         self.present(avatarVC, animated: true, completion: nil)
-        
     }
     
     @IBAction func createBtnTapped(_ sender: Any) {
@@ -69,7 +67,4 @@ extension CreateChannelVC: GetSelectedAvatarImageDelegate {
     func getSelectedAvatarImage(selectedImageName: String) {
         self.avatarName = selectedImageName
     }
-    
-    
-    
 }

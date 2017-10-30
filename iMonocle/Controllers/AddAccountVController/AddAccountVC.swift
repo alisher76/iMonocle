@@ -12,9 +12,9 @@ private let cellID = "AddAccountVCCell"
 
 class AddAccountVC: UIViewController {
 
+    // Mark: Outlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var monocleUser = [MonocleUser]() {
         didSet {
             collectionView.reloadData()
@@ -37,6 +37,7 @@ class AddAccountVC: UIViewController {
         getInstagramFriendsList()
     }
     
+    // Mark: Get Insta Friends
     func getInstagramFriendsList() {
         if let accessToken = Instagram().userDefaults.object(forKey: INSTAGRAM_TOKEN_KEY) as? String {
             Instagram().fetchUserFriends(accessToken) { (users) in
@@ -100,6 +101,7 @@ extension AddAccountVC: UICollectionViewDataSource, UICollectionViewDelegate, UI
 
 class AccountCell: BaseCell {
     
+    // Mark: Outlets
     let seperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.gray
@@ -184,8 +186,6 @@ extension UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
 }
-
-
 
 class BaseCell: UICollectionViewCell {
     override init(frame: CGRect) {

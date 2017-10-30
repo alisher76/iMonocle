@@ -34,7 +34,7 @@
 		AC2C1E641F33A64B0025CA07 /* iMonocleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C1E631F33A64B0025CA07 /* iMonocleTests.swift */; };
 		AC302FEE1F18D1FF00DE94B0 /* Utitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC302FED1F18D1FF00DE94B0 /* Utitility.swift */; };
 		AC3614E21F71637D00D688E0 /* AuthInstagramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E11F71637C00D688E0 /* AuthInstagramViewController.swift */; };
-		AC3614E41F732BDB00D688E0 /* MonocleShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */; };
+		AC3614E41F732BDB00D688E0 /* MonoChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E31F732BDB00D688E0 /* MonoChatVC.swift */; };
 		AC3614E61F7428C200D688E0 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E51F7428C200D688E0 /* ChatVC.swift */; };
 		AC3614E81F7565B800D688E0 /* MenuStaticTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3614E71F7565B800D688E0 /* MenuStaticTableVC.swift */; };
 		AC4F77631F759B0D00B00E91 /* CreateChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */; };
@@ -124,7 +124,7 @@
 		AC2C1E651F33A64B0025CA07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC302FED1F18D1FF00DE94B0 /* Utitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utitility.swift; sourceTree = "<group>"; };
 		AC3614E11F71637C00D688E0 /* AuthInstagramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInstagramViewController.swift; sourceTree = "<group>"; };
-		AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonocleShareVC.swift; sourceTree = "<group>"; };
+		AC3614E31F732BDB00D688E0 /* MonoChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoChatVC.swift; sourceTree = "<group>"; };
 		AC3614E51F7428C200D688E0 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		AC3614E71F7565B800D688E0 /* MenuStaticTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStaticTableVC.swift; sourceTree = "<group>"; };
 		AC4F77611F759B0D00B00E91 /* CreateChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChannelVC.swift; sourceTree = "<group>"; };
@@ -251,6 +251,7 @@
 				AC51B56C1F1FF99200A29D64 /* PopAnimator.swift */,
 				AC17DFAC1F82024600271D13 /* AnimateCell.swift */,
 				AC17DFAE1F82A9A300271D13 /* UICollectionVIewCell.swift */,
+				AC1292361F2229630032FB1B /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,7 +307,6 @@
 				AC9D91A01F1037E80084BB0C /* GradientView.swift */,
 				AC302FED1F18D1FF00DE94B0 /* Utitility.swift */,
 				AC06261A1F55D7E700FE50C1 /* CircleImage.swift */,
-				AC1292361F2229630032FB1B /* UIImageExtension.swift */,
 				AC4F77651F76DDAB00B00E91 /* InsetTextField.swift */,
 				AC4F77671F76E3BC00B00E91 /* RoundedButton.swift */,
 				ACA8ADB61F76F947008CCD94 /* RoundedUIView.swift */,
@@ -318,7 +318,7 @@
 		AC3614E91F756FBD00D688E0 /* MonoShare */ = {
 			isa = PBXGroup;
 			children = (
-				AC3614E31F732BDB00D688E0 /* MonocleShareVC.swift */,
+				AC3614E31F732BDB00D688E0 /* MonoChatVC.swift */,
 				AC3614E51F7428C200D688E0 /* ChatVC.swift */,
 				AC257A7F1F7839070049F39F /* SelectMonocleUserVC.swift */,
 				AC719CAC1F993D8400F76B47 /* ChooseAvatarVC.swift */,
@@ -346,10 +346,7 @@
 				ACBD00581F2D1E0500E57FC8 /* Instagram */,
 				AC9D91AE1F103ABF0084BB0C /* Monocle */,
 				ACBD00591F2D1E5900E57FC8 /* Twitter */,
-				AC268BC31F758D1C0025FD30 /* Channel.swift */,
-				AC268BC51F758D290025FD30 /* Message.swift */,
-				AC268BC71F758D380025FD30 /* Group.swift */,
-				AC2442CC1F7A5C0A00E80DE1 /* MonocleShareUser.swift */,
+				ACD305511FA79E9600B00383 /* MonoChat */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +429,17 @@
 				ACE58B5C1F1043EF001D4257 /* Tweet.swift */,
 			);
 			path = Twitter;
+			sourceTree = "<group>";
+		};
+		ACD305511FA79E9600B00383 /* MonoChat */ = {
+			isa = PBXGroup;
+			children = (
+				AC268BC31F758D1C0025FD30 /* Channel.swift */,
+				AC268BC51F758D290025FD30 /* Message.swift */,
+				AC268BC71F758D380025FD30 /* Group.swift */,
+				AC2442CC1F7A5C0A00E80DE1 /* MonocleShareUser.swift */,
+			);
+			path = MonoChat;
 			sourceTree = "<group>";
 		};
 		ACEC502B1F0DA7E100887E46 = {
@@ -748,7 +756,7 @@
 				ACEC505E1F0ED88300887E46 /* TwitterUser.swift in Sources */,
 				ACB2F15F1F54C38000901505 /* HomeVC.swift in Sources */,
 				ACE58B5F1F10443D001D4257 /* InstagramUser.swift in Sources */,
-				AC3614E41F732BDB00D688E0 /* MonocleShareVC.swift in Sources */,
+				AC3614E41F732BDB00D688E0 /* MonoChatVC.swift in Sources */,
 				AC268BC01F757E7F0025FD30 /* MessagesCell.swift in Sources */,
 				AC3614E81F7565B800D688E0 /* MenuStaticTableVC.swift in Sources */,
 				AC3614E61F7428C200D688E0 /* ChatVC.swift in Sources */,

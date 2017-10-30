@@ -10,7 +10,7 @@ import UIKit
 
 class ChatVC: UIViewController, UITextFieldDelegate {
     
-
+    // Mark: Outlets
     @IBOutlet weak var keyboardView: UIView!
     @IBOutlet weak var dissMissBtn: UIButton!
     @IBOutlet weak var topImageView: CircleImage!
@@ -18,24 +18,20 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: InsetTextField!
     @IBOutlet weak var sendBtn: UIButton!
     
+    // Mark: Variables
     var selectedUser: MonocleShareUser? {
         didSet {
             
         }
     }
-    
     var messages = [Message]() {
         didSet {
            tableView.reloadData()
         }
     }
-    
     var channelID: String?
     var userID: String?
-    
     var messageDictionary = [String : Message]()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,17 +44,16 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         let gestureRescognizer = UITapGestureRecognizer()
         gestureRescognizer.addTarget(self, action: #selector(ChatVC.dismissKeyboard))
         view.addGestureRecognizer(gestureRescognizer)
-        
     }
 
     @IBAction func dismissBtnTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func sendButtonTapped(_ sender: Any) {
-        
         if textField.text != "" {
             sendBtn.isEnabled = true
-            MonoShareDataService.instance.sendMessageToDB(message: textField.text!, uid: (selectedUser?.id)!, sendComplete: { (success) in
+            MonoShareDataService.instance.send(message: textField.text!, with: (selectedUser?.id)!, sendComplete: { (success) in
                 print(success)
                 MonoShareDataService.instance.getAllMessages(handler: { (message) in
                     self.messageDictionary = message
@@ -69,13 +64,11 @@ class ChatVC: UIViewController, UITextFieldDelegate {
             sendBtn.isEnabled = false
         }
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
-
-
 
 extension ChatVC: UITableViewDelegate, UITableViewDataSource {
     

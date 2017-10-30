@@ -37,7 +37,6 @@ class AccountInfoVC: UIViewController {
         let gestureRescognizer = UITapGestureRecognizer()
         gestureRescognizer.addTarget(self, action: #selector(SelectMonocleUserVC.tapToClose(_:)))
         backgroundView.addGestureRecognizer(gestureRescognizer)
-        
         checkDataBase()
     }
 
@@ -84,7 +83,6 @@ class AccountInfoVC: UIViewController {
             })
         }
     }
-
 }
 
 extension AccountInfoVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -125,8 +123,6 @@ class AccountInfoCell: UICollectionViewCell {
     @IBOutlet var accountNameLabel: UILabel!
     @IBOutlet var disconnectBtn: RoundedButton!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -150,6 +146,4 @@ class AccountInfoCell: UICollectionViewCell {
     @IBAction func disconnectBtnTapped(_ sender: Any) {
         
     }
-    
-    
 }

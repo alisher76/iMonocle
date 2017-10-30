@@ -21,7 +21,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var topImageView: CircleImage!
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var addButton: UIButton!
-    
     @IBOutlet var segmentCollectionView: UICollectionView!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet var mainTableView: UITableView!
@@ -44,13 +43,6 @@ class HomeVC: UIViewController {
     var indexNumbersForAnimatedFriendsCell: [Int] = []
     
     let transition = CircularTransaction()
-    var selectedFriend = FirebaseService.instance.selectedUser {
-        didSet {
-            if selectedFriend != nil {
-             selectedFriendDidChange()
-            }
-        }
-    }
     var monocleFriendsArray = [MonocleUser]() {
         didSet {
             selectedFriend = monocleFriendsArray.first
@@ -70,6 +62,13 @@ class HomeVC: UIViewController {
     var selectedOption = SegmentOptions.monocle {
         didSet {
             segmentMenuDidChange(to: selectedOption)
+        }
+    }
+    var selectedFriend = FirebaseService.instance.selectedUser {
+        didSet {
+            if selectedFriend != nil {
+                selectedFriendDidChange()
+            }
         }
     }
     
@@ -211,12 +210,12 @@ class HomeVC: UIViewController {
         friendsCollectionViewTopConstraint.constant = isOpen ? 80.0 : 30.0
         segmentCollectionView.reloadData()
     }
-    
-    
 }
 
 
 extension HomeVC: UIViewControllerTransitioningDelegate {
+    
+    // Mark: Circle Animation Transition
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present

@@ -39,7 +39,6 @@ class SelectMonocleUserVC: UIViewController {
         MonoShareDataService.instance.getAllUsers { (_friends) in
         self.friends = _friends
         }
-        
     }
 
 
@@ -63,7 +62,6 @@ extension SelectMonocleUserVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellID") as? SelectFriendCell else {
             return UITableViewCell()
         }
-        
         cell.nameLabel.text = friends[indexPath.row].name
         cell.userNameLabel.text = friends[indexPath.row].email
         cell.profileImageView.downloadedFrom(link: friends[indexPath.row].image)
@@ -78,17 +76,16 @@ extension SelectMonocleUserVC: UITableViewDelegate, UITableViewDataSource {
 
 class SelectFriendCell: UITableViewCell {
     
+    // Mark: Outlets
     @IBOutlet weak var profileImageView: CircleImage!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         
     }
-    
     override func prepareForReuse() {
         
     }

@@ -114,8 +114,8 @@ class TweetCell: UITableViewCell {
     
     func displayPhoto(withMediaUrl: String) {
         self.postMedia.downloadedFrom(link: withMediaUrl)
-        self.mediaImageViewHieght.constant = 100
         self.postMedia.isHidden = false
+        self.mediaImageViewHieght.constant = 50
         self.mediaImageVSpacingConstraint.constant = 5
     }
     
