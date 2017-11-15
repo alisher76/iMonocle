@@ -49,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyK-oR-nBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6271" y="-298"/>
+            <point key="canvasLocation" x="-7044" y="-280"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="fge-zF-ZnU">
@@ -747,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfG-AM-3W1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6271.1999999999998" y="-1021.4392803598201"/>
+            <point key="canvasLocation" x="-7044" y="-1003"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="N8y-Dt-YR2">
@@ -1114,12 +1114,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciy-Qw-rnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3175.1999999999998" y="-1021.4392803598201"/>
+            <point key="canvasLocation" x="-3948" y="-1003"/>
         </scene>
-        <!--Mono Chat-->
+        <!--Monocle ShareVC-->
         <scene sceneID="Ooz-Db-dih">
             <objects>
-                <viewController storyboardIdentifier="MonocleShareVC" id="jCk-8T-gbR" customClass="MonoChat" customModule="iMonocle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MonocleShareVC" id="jCk-8T-gbR" customClass="MonocleShareVC" customModule="iMonocle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fv6-fg-iFc"/>
                         <viewControllerLayoutGuide type="bottom" id="klg-81-g4N"/>
@@ -1366,7 +1366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxF-4R-tfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5495.1999999999998" y="-1021.4392803598201"/>
+            <point key="canvasLocation" x="-6268" y="-1003"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="ZT5-Ky-dCe">
@@ -1559,7 +1559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMC-kv-jIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4730.3999999999996" y="-1021.4392803598201"/>
+            <point key="canvasLocation" x="-5503" y="-1003"/>
         </scene>
         <!--Select Monocle UserVC-->
         <scene sceneID="Bpt-cO-nQP">
@@ -1672,7 +1672,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCY-1L-gKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5495.1999999999998" y="-349.47526236881561"/>
+            <point key="canvasLocation" x="-6268" y="-331"/>
         </scene>
         <!--Account InfoVC-->
         <scene sceneID="qQX-nc-j6N">
@@ -1825,7 +1825,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXh-3T-MId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4736.8000000000002" y="-352.17391304347831"/>
+            <point key="canvasLocation" x="-5510" y="-334"/>
         </scene>
         <!--Avatar PickVC-->
         <scene sceneID="cd1-I1-c6V">
@@ -1927,7 +1927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2W-5p-oPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3933.5999999999999" y="-346.77661169415296"/>
+            <point key="canvasLocation" x="-4706" y="-329"/>
         </scene>
         <!--Create New GroupVC-->
         <scene sceneID="SHP-BX-G7u">
@@ -2127,7 +2127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RUI-H2-8U0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3937" y="-1021"/>
+            <point key="canvasLocation" x="-4711" y="-1003"/>
         </scene>
     </scenes>
     <resources>
@@ -2156,6 +2156,6 @@
         <image name="twitter" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qLA-4j-6a0"/>
+        <segue reference="JN4-bS-Lyn"/>
     </inferredMetricsTieBreakers>
 </document>

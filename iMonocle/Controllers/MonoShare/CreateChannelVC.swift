@@ -25,7 +25,8 @@ class CreateChannelVC: UIViewController {
             channelImagePickerView.image = UIImage(named: avatarName)
         }
     }
-    var delegate: MonoChat!
+    
+    var delegate: MonocleShareVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
